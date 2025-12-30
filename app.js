@@ -172,7 +172,16 @@
       a.addEventListener('click', (e)=>{
         e.preventDefault();
         state.quick = a.dataset.quick;
+
+        // Reset the hierarchy so "All Items" / "Featured Only" always shows the full applicable set
+        state.category = null;
+        state.theme = null;
+        state.type = null;
+
         setActiveQuick(state.quick);
+        renderCategoryList();
+        renderThemeList();
+        renderTypeList();
         applyFilters();
       });
     });
