@@ -42,17 +42,7 @@
     `).join('');
   };
 
-  // ---------- Shop / Category pages ----------
-  function getInitialFiltersFromBody(){
-    const b = document.body;
-    return {
-      quick: b.dataset.quick || 'all', // all | featured
-      category: b.dataset.category || null,
-      theme: b.dataset.theme || null,
-      type: b.dataset.type || null
-    };
-  }
-
+  // ---------- Shop ----------
   window.CG_initShop = function(){
     const elGrid = document.getElementById('shopGrid');
     const elCount = document.getElementById('resultCount');
@@ -61,12 +51,11 @@
     const elSort = document.getElementById('sort');
     if(!elGrid || !elCount || !elTree) return;
 
-    const init = getInitialFiltersFromBody();
     const state = {
-      quick: init.quick,
-      category: init.category,
-      theme: init.theme,
-      type: init.type,
+      quick: 'all',      // all | featured
+      category: null,
+      theme: null,
+      type: null,
       q: '',
       sort: 'az'
     };
@@ -87,14 +76,14 @@
             <a class="pill subpill" href="#" data-cat="${escapeHtml(cat)}" data-theme="${escapeHtml(th)}" data-type="${escapeHtml(t)}">${escapeHtml(t)}</a>
           `).join('');
           return `
-            <details ${state.category===cat && state.theme===th ? 'open' : ''}>
+            <details>
               <summary>${escapeHtml(th)}</summary>
               ${typeHtml}
             </details>
           `;
         }).join('');
         return `
-          <details ${state.category===cat ? 'open' : ''}>
+          <details open>
             <summary>${escapeHtml(cat)}</summary>
             ${themeHtml}
           </details>
@@ -105,18 +94,10 @@
     function applyFilters(){
       let items = [...allProducts];
 
-      if(state.quick === 'featured'){
-        items = items.filter(p => p.featured);
-      }
-      if(state.category){
-        items = items.filter(p => p.category === state.category);
-      }
-      if(state.theme){
-        items = items.filter(p => p.theme === state.theme);
-      }
-      if(state.type){
-        items = items.filter(p => p.type === state.type);
-      }
+      if(state.quick === 'featured') items = items.filter(p => p.featured);
+      if(state.category) items = items.filter(p => p.category === state.category);
+      if(state.theme) items = items.filter(p => p.theme === state.theme);
+      if(state.type) items = items.filter(p => p.type === state.type);
       if(state.q){
         const q = state.q.toLowerCase();
         items = items.filter(p => (p.title||'').toLowerCase().includes(q));
@@ -130,7 +111,12 @@
         default: items.sort((a,b)=>a.title.localeCompare(b.title)); break;
       }
 
-      elCount.textContent = `${items.length} item${items.length===1?'':'s'} shown`;
+      const labelParts = [];
+      if(state.category) labelParts.push(state.category);
+      if(state.theme) labelParts.push(state.theme);
+      if(state.type) labelParts.push(state.type);
+      const scope = labelParts.length ? ` in ${labelParts.join(" → ")}` : "";
+      elCount.textContent = `${items.length} item${items.length===1?'':'s'} shown${scope}`;
 
       elGrid.innerHTML = items.map(p=>`
         <div class="card">
@@ -144,7 +130,7 @@
       `).join('');
     }
 
-    // Events: quick filters
+    // Quick filters
     document.querySelectorAll('[data-quick]').forEach(a=>{
       a.addEventListener('click', (e)=>{
         e.preventDefault();
@@ -154,7 +140,7 @@
       });
     });
 
-    // Events: tree clicks (event delegation)
+    // Tree clicks
     elTree.addEventListener('click', (e)=>{
       const a = e.target.closest('a[data-cat]');
       if(!a) return;
@@ -163,13 +149,13 @@
       state.theme = a.dataset.theme || null;
       state.type = a.dataset.type || null;
 
-      // visual active pills
+      // active state
       elTree.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
       a.classList.add('active');
-
       applyFilters();
     });
 
+    // Search & sort
     if(elQ){
       elQ.addEventListener('input', ()=>{
         state.q = elQ.value.trim();
@@ -183,17 +169,8 @@
       });
     }
 
-    // initialize UI
-    setActiveQuick(state.quick);
     buildTree();
-
-    // mark active leaf if initial filters provided
-    if(state.category && state.theme && state.type){
-      const selector = `a[data-cat="${CSS.escape(state.category)}"][data-theme="${CSS.escape(state.theme)}"][data-type="${CSS.escape(state.type)}"]`;
-      const leaf = elTree.querySelector(selector);
-      if(leaf) leaf.classList.add('active');
-    }
-
+    setActiveQuick(state.quick);
     applyFilters();
   };
 })();
