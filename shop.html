@@ -17,50 +17,29 @@
     <nav>
       <a href="./index.html">Home</a>
       <a href="./shop.html">Shop</a>
-      <a href="https://www.ebay.ca/usr/capitalgames" target="_blank" rel="noopener">eBay Store</a>
+      <a href="https://www.ebay.ca/usr/capitalgames" target="_blank">eBay Store</a>
     </nav>
   </div>
 </header>
+
 <div class="container">
-  <div class="breadcrumb"><a href="./index.html">Home</a> / <strong>Shop</strong></div>
-  <h1 style="margin:0 0 8px;font-size:2.2rem;">Shop</h1>
-  <p class="sub" style="color:var(--muted);margin:0 0 18px;max-width:860px;">
-    Browse active listings by <strong>Category → Theme → Type</strong>. Start by choosing a category on the left.
-  </p>
+  <h1>Shop</h1>
 
   <div class="layout">
     <aside class="panel">
-      <h3>Filters</h3>
+      <h3>Browse</h3>
 
-      <div style="margin:10px 0 14px;">
-        <a class="pill active" href="#" data-quick="all"><span>All Items</span><span class="smallcount" id="countAll">0</span></a>
-        <a class="pill" href="#" data-quick="featured"><span>Featured Only</span><span class="smallcount" id="countFeatured">0</span></a>
+      <div style="margin-bottom:14px">
+        <a class="pill active" href="#" data-quick="all">All Items <span class="smallcount" id="countAll">0</span></a>
+        <a class="pill" href="#" data-quick="featured">Featured Only <span class="smallcount" id="countFeatured">0</span></a>
       </div>
 
-      <div class="divider"></div>
-
-      <div class="kicker">Category</div>
-      <div id="categoryList"></div>
-
-      <div class="divider"></div>
-
-      <div class="kicker">Theme</div>
-      <div id="themeList" style="opacity:.95;"></div>
-
-      <div class="divider"></div>
-
-      <div class="kicker">Type</div>
-      <div id="typeList" style="opacity:.95;"></div>
+      <div id="filterTree"></div>
     </aside>
 
     <main>
       <div class="searchRow">
         <input id="q" type="search" placeholder="Search titles..." />
-        <select id="sort">
-          <option value="az">Sort: A–Z</option>
-          <option value="za">Sort: Z–A</option>
-          <option value="featured">Sort: Featured First</option>
-        </select>
       </div>
 
       <div id="resultCount" class="count"></div>
@@ -68,12 +47,7 @@
     </main>
   </div>
 </div>
-<footer>
-  <div class="foot">
-    <div>© Capital Games</div>
-    <div>All purchases are completed through eBay for buyer protection.</div>
-  </div>
-</footer>
+
 <script src="./products.js"></script>
 <script src="./app.js"></script>
 <script>CG_initShop();</script>
