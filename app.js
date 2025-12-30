@@ -3,9 +3,9 @@
     .map(p => ({
       ...p,
       status: (p.status || '').toLowerCase(),
-      category: p.category || 'Other',
-      theme: p.theme || 'General',
-      type: p.type || 'Misc',
+      category: (p.category || 'Other').trim(),
+      theme: (p.theme || 'General').trim(),
+      type: (p.type || 'Misc').trim(),
       featured: !!p.featured
     }))
     .filter(p => p.status === 'active');
@@ -46,10 +46,17 @@
   window.CG_initShop = function(){
     const elGrid = document.getElementById('shopGrid');
     const elCount = document.getElementById('resultCount');
-    const elTree = document.getElementById('categoryTree');
     const elQ = document.getElementById('q');
     const elSort = document.getElementById('sort');
-    if(!elGrid || !elCount || !elTree) return;
+
+    const elCategory = document.getElementById('categoryList');
+    const elTheme = document.getElementById('themeList');
+    const elType = document.getElementById('typeList');
+
+    const elCountAll = document.getElementById('countAll');
+    const elCountFeatured = document.getElementById('countFeatured');
+
+    if(!elGrid || !elCount || !elCategory || !elTheme || !elType) return;
 
     const state = {
       quick: 'all',      // all | featured
@@ -60,33 +67,66 @@
       sort: 'az'
     };
 
+    // top counts
+    if(elCountAll) elCountAll.textContent = String(allProducts.length);
+    if(elCountFeatured) elCountFeatured.textContent = String(allProducts.filter(p=>p.featured).length);
+
     function setActiveQuick(val){
       document.querySelectorAll('[data-quick]').forEach(a=>{
         a.classList.toggle('active', a.dataset.quick === val);
       });
     }
 
-    function buildTree(){
-      const categories = uniq(allProducts.map(p => p.category)).sort((a,b)=>a.localeCompare(b));
-      elTree.innerHTML = categories.map(cat => {
-        const themes = uniq(allProducts.filter(p => p.category===cat).map(p => p.theme)).sort((a,b)=>a.localeCompare(b));
-        const themeHtml = themes.map(th => {
-          const types = uniq(allProducts.filter(p => p.category===cat && p.theme===th).map(p => p.type)).sort((a,b)=>a.localeCompare(b));
-          const typeHtml = types.map(t => `
-            <a class="pill subpill" href="#" data-cat="${escapeHtml(cat)}" data-theme="${escapeHtml(th)}" data-type="${escapeHtml(t)}">${escapeHtml(t)}</a>
-          `).join('');
-          return `
-            <details>
-              <summary>${escapeHtml(th)}</summary>
-              ${typeHtml}
-            </details>
-          `;
-        }).join('');
+    function countFor(filterFn){
+      return allProducts.filter(filterFn).length;
+    }
+
+    function renderCategoryList(){
+      const cats = uniq(allProducts.map(p=>p.category)).sort((a,b)=>a.localeCompare(b));
+      elCategory.innerHTML = cats.map(cat => {
+        const n = countFor(p => p.category === cat);
+        const active = state.category === cat;
         return `
-          <details open>
-            <summary>${escapeHtml(cat)}</summary>
-            ${themeHtml}
-          </details>
+          <a class="pill ${active?'active':''}" href="#" data-cat="${escapeHtml(cat)}">
+            <span>${escapeHtml(cat)}</span><span class="smallcount">${n}</span>
+          </a>
+        `;
+      }).join('');
+    }
+
+    function renderThemeList(){
+      if(!state.category){
+        elTheme.innerHTML = '<div style="color:#777;font-size:.9rem;">Select a category</div>';
+        return;
+      }
+      const themes = uniq(allProducts.filter(p=>p.category===state.category).map(p=>p.theme))
+        .sort((a,b)=>a.localeCompare(b));
+      elTheme.innerHTML = themes.map(th => {
+        const n = countFor(p => p.category===state.category && p.theme===th);
+        const active = state.theme === th;
+        return `
+          <a class="pill ${active?'active':''}" href="#" data-theme="${escapeHtml(th)}">
+            <span>${escapeHtml(th)}</span><span class="smallcount">${n}</span>
+          </a>
+        `;
+      }).join('');
+    }
+
+    function renderTypeList(){
+      if(!state.category || !state.theme){
+        elType.innerHTML = '<div style="color:#777;font-size:.9rem;">Select a theme</div>';
+        return;
+      }
+      const types = uniq(allProducts
+        .filter(p=>p.category===state.category && p.theme===state.theme)
+        .map(p=>p.type)).sort((a,b)=>a.localeCompare(b));
+      elType.innerHTML = types.map(t => {
+        const n = countFor(p => p.category===state.category && p.theme===state.theme && p.type===t);
+        const active = state.type === t;
+        return `
+          <a class="pill ${active?'active':''}" href="#" data-type="${escapeHtml(t)}">
+            <span>${escapeHtml(t)}</span><span class="smallcount">${n}</span>
+          </a>
         `;
       }).join('');
     }
@@ -94,10 +134,11 @@
     function applyFilters(){
       let items = [...allProducts];
 
-      if(state.quick === 'featured') items = items.filter(p => p.featured);
-      if(state.category) items = items.filter(p => p.category === state.category);
-      if(state.theme) items = items.filter(p => p.theme === state.theme);
-      if(state.type) items = items.filter(p => p.type === state.type);
+      if(state.quick === 'featured') items = items.filter(p=>p.featured);
+      if(state.category) items = items.filter(p=>p.category===state.category);
+      if(state.theme) items = items.filter(p=>p.theme===state.theme);
+      if(state.type) items = items.filter(p=>p.type===state.type);
+
       if(state.q){
         const q = state.q.toLowerCase();
         items = items.filter(p => (p.title||'').toLowerCase().includes(q));
@@ -111,12 +152,8 @@
         default: items.sort((a,b)=>a.title.localeCompare(b.title)); break;
       }
 
-      const labelParts = [];
-      if(state.category) labelParts.push(state.category);
-      if(state.theme) labelParts.push(state.theme);
-      if(state.type) labelParts.push(state.type);
-      const scope = labelParts.length ? ` in ${labelParts.join(" → ")}` : "";
-      elCount.textContent = `${items.length} item${items.length===1?'':'s'} shown${scope}`;
+      const path = [state.category, state.theme, state.type].filter(Boolean).join(" → ");
+      elCount.textContent = `${items.length} item${items.length===1?'':'s'} shown${path?` in ${path}`:''}`;
 
       elGrid.innerHTML = items.map(p=>`
         <div class="card">
@@ -130,7 +167,7 @@
       `).join('');
     }
 
-    // Quick filters
+    // Event handlers
     document.querySelectorAll('[data-quick]').forEach(a=>{
       a.addEventListener('click', (e)=>{
         e.preventDefault();
@@ -140,22 +177,41 @@
       });
     });
 
-    // Tree clicks
-    elTree.addEventListener('click', (e)=>{
+    elCategory.addEventListener('click', (e)=>{
       const a = e.target.closest('a[data-cat]');
       if(!a) return;
       e.preventDefault();
-      state.category = a.dataset.cat || null;
-      state.theme = a.dataset.theme || null;
-      state.type = a.dataset.type || null;
-
-      // active state
-      elTree.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
-      a.classList.add('active');
+      state.category = a.dataset.cat;
+      // reset lower levels
+      state.theme = null;
+      state.type = null;
+      // refresh lists
+      renderCategoryList();
+      renderThemeList();
+      renderTypeList();
       applyFilters();
     });
 
-    // Search & sort
+    elTheme.addEventListener('click', (e)=>{
+      const a = e.target.closest('a[data-theme]');
+      if(!a) return;
+      e.preventDefault();
+      state.theme = a.dataset.theme;
+      state.type = null;
+      renderThemeList();
+      renderTypeList();
+      applyFilters();
+    });
+
+    elType.addEventListener('click', (e)=>{
+      const a = e.target.closest('a[data-type]');
+      if(!a) return;
+      e.preventDefault();
+      state.type = a.dataset.type;
+      renderTypeList();
+      applyFilters();
+    });
+
     if(elQ){
       elQ.addEventListener('input', ()=>{
         state.q = elQ.value.trim();
@@ -169,8 +225,11 @@
       });
     }
 
-    buildTree();
+    // Initial render
     setActiveQuick(state.quick);
+    renderCategoryList();
+    renderThemeList();
+    renderTypeList();
     applyFilters();
   };
 })();
