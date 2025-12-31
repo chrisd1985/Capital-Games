@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -9,6 +7,7 @@ body {
   color: #111;
 }
 
+/* Header */
 .header {
   background: #c62828;
   color: #fff;
@@ -30,6 +29,7 @@ body {
   font-weight: bold;
 }
 
+/* Hero */
 .hero {
   padding: 80px 20px;
   text-align: center;
@@ -46,6 +46,46 @@ body {
   border-radius: 4px;
 }
 
+/* Sections */
+.section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+}
+
+/* Grid + Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background: #fafafa;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 8px;
+  color: #c62828;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Shop layout (unchanged) */
 .shop-layout {
   max-width: 1200px;
   margin: auto;
@@ -61,18 +101,6 @@ body {
   border: 1px solid #ddd;
 }
 
-.filter-top {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 8px;
-  text-decoration: none;
-  color: #111;
-}
-
-.filter-top.active {
-  color: #c62828;
-}
-
 .shop-content {
   background: #fff;
   padding: 16px;
@@ -85,32 +113,7 @@ body {
   color: #555;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-  background: #fafafa;
-}
-
-.card {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.card a {
-  display: inline-block;
-  margin-top: 8px;
-  color: #c62828;
-  font-weight: bold;
-  text-decoration: none;
-}
-
+/* Footer */
 .footer {
   text-align: center;
   padding: 24px;
