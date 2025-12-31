@@ -351,7 +351,7 @@ window.PRODUCTS = [
   },
   {
     "title": "Erik Karlsson Ottawa Senators Funko Pop! Hockey Vinyl Exclusive NHL Collectible",
-    "status": "sold",
+    "status": "active",
     "featured": false,
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",

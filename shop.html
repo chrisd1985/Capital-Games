@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
 <header>
   <div class="bar">
     <div class="brand">
@@ -18,27 +17,24 @@
     <nav>
       <a href="./index.html">Home</a>
       <a href="./shop.html">Shop</a>
-      <a href="https://www.ebay.ca/usr/capitalgames" target="_blank">eBay Store</a>
+      <a href="https://www.ebay.ca/usr/capitalgames" target="_blank" rel="noopener">eBay Store</a>
     </nav>
   </div>
 </header>
 
 <div class="container">
-  <h1>Shop</h1>
+  <h1 style="margin:0 0 8px;font-size:2.2rem;">Shop</h1>
+  <p style="color:var(--muted);margin:0 0 18px;max-width:860px;">
+    Click a <strong>Category</strong> to filter. Themes appear directly underneath. Click a <strong>Theme</strong> to filter further, then choose a <strong>Type</strong>.
+  </p>
 
   <div class="layout">
     <aside class="panel">
       <h3>Browse</h3>
-
       <div style="margin:10px 0 14px;">
-        <a class="pill active" href="#" data-quick="all">
-          <span>All Items</span><span class="smallcount" id="countAll">0</span>
-        </a>
-        <a class="pill" href="#" data-quick="featured">
-          <span>Featured Only</span><span class="smallcount" id="countFeatured">0</span>
-        </a>
+        <a class="pill active" href="#" data-quick="all"><span>All Items</span><span class="smallcount" id="countAll">0</span></a>
+        <a class="pill" href="#" data-quick="featured"><span>Featured Only</span><span class="smallcount" id="countFeatured">0</span></a>
       </div>
-
       <div class="divider"></div>
       <div id="sidebarTree" class="treeGroup"></div>
     </aside>
@@ -52,7 +48,6 @@
           <option value="featured">Sort: Featured First</option>
         </select>
       </div>
-
       <div id="resultCount" class="count"></div>
       <div id="shopGrid" class="grid"></div>
     </main>
