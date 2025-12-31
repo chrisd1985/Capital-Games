@@ -2,23 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Shop | Capital Games</title>
+<title>Shop</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <h1>Shop</h1>
-
 <div class="sidebar">
-  <a href="#" data-quick="all" class="quick active">All Items <span id="countAll"></span></a>
-  <a href="#" data-quick="featured" class="quick">Featured Only <span id="countFeatured"></span></a>
-  <div id="filterTree"></div>
+<a href="#" data-quick="all">All Items <span id="countAll"></span></a>
+<a href="#" data-quick="featured">Featured Only <span id="countFeatured"></span></a>
+<div id="filterTree"></div>
 </div>
-
-<div class="content">
-  <div id="resultCount"></div>
-  <div id="shopGrid" class="grid"></div>
-</div>
-
+<div id="resultCount"></div>
+<div id="shopGrid"></div>
 <script src="products.js"></script>
 <script src="app.js"></script>
 <script>CG_initShop();</script>
