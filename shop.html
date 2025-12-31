@@ -1,55 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop | Capital Games</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
+<meta charset="UTF-8">
+<title>Shop | Capital Games</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div class="bar">
-    <div class="brand">
-      <img src="capitalgames.png" alt="Capital Games logo">
-      <span>Capital Games</span>
-    </div>
-    <nav>
-      <a href="./index.html">Home</a>
-      <a href="./shop.html">Shop</a>
-      <a href="https://www.ebay.ca/usr/capitalgames" target="_blank">eBay Store</a>
-    </nav>
-  </div>
-</header>
+<h1>Shop</h1>
 
-<div class="container">
-  <h1>Shop</h1>
-
-  <div class="layout">
-    <aside class="panel">
-      <h3>Browse</h3>
-
-      <div style="margin-bottom:14px">
-        <a class="pill active" href="#" data-quick="all">All Items <span class="smallcount" id="countAll">0</span></a>
-        <a class="pill" href="#" data-quick="featured">Featured Only <span class="smallcount" id="countFeatured">0</span></a>
-      </div>
-
-      <div id="filterTree"></div>
-    </aside>
-
-    <main>
-      <div class="searchRow">
-        <input id="q" type="search" placeholder="Search titles..." />
-      </div>
-
-      <div id="resultCount" class="count"></div>
-      <div id="shopGrid" class="grid"></div>
-    </main>
-  </div>
+<div class="sidebar">
+  <a href="#" data-quick="all" class="quick active">All Items <span id="countAll"></span></a>
+  <a href="#" data-quick="featured" class="quick">Featured Only <span id="countFeatured"></span></a>
+  <div id="filterTree"></div>
 </div>
 
-<script src="./products.js"></script>
-<script src="./app.js"></script>
+<div class="content">
+  <div id="resultCount"></div>
+  <div id="shopGrid" class="grid"></div>
+</div>
+
+<script src="products.js"></script>
+<script src="app.js"></script>
 <script>CG_initShop();</script>
 </body>
 </html>

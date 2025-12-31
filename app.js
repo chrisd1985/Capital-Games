@@ -1,100 +1,82 @@
 
 (function(){
-  const allProducts = (window.PRODUCTS || []).filter(p => p.status === 'active');
+  const all = (window.PRODUCTS||[]).filter(p=>p.status==='active');
+  const state={quick:'all',cat:null,theme:null,type:null};
 
-  function escapeHtml(s){return String(s).replace(/[&<>"]/g,m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[m]));}
-  function uniq(a){return [...new Set(a)];}
+  const grid=document.getElementById('shopGrid');
+  const tree=document.getElementById('filterTree');
+  const rc=document.getElementById('resultCount');
 
-  window.CG_initShop = function(){
-    const grid = document.getElementById('shopGrid');
-    const tree = document.getElementById('filterTree');
-    const count = document.getElementById('resultCount');
-    const qInput = document.getElementById('q');
-    const countAll = document.getElementById('countAll');
-    const countFeatured = document.getElementById('countFeatured');
+  document.getElementById('countAll').textContent=all.length;
+  document.getElementById('countFeatured').textContent=all.filter(p=>p.featured).length;
 
-    const state = { quick:'all', cat:null, theme:null, type:null, q:'' };
+  function base(){
+    return state.quick==='featured'?all.filter(p=>p.featured):all;
+  }
 
-    countAll.textContent = allProducts.length;
-    countFeatured.textContent = allProducts.filter(p=>p.featured).length;
-
-    function baseSet(){
-      return state.quick === 'featured'
-        ? allProducts.filter(p=>p.featured)
-        : allProducts;
-    }
-
-    function buildTree(){
-      const base = baseSet();
-      const cats = uniq(base.map(p=>p.category)).sort();
-
-      tree.innerHTML = cats.map(cat=>{
-        const themes = uniq(base.filter(p=>p.category===cat).map(p=>p.theme)).sort();
-        return `
-          <details ${state.cat===cat?'open':''}>
-            <summary>${escapeHtml(cat)}</summary>
-            ${themes.map(th=>{
-              const types = uniq(base.filter(p=>p.category===cat && p.theme===th).map(p=>p.type)).sort();
-              return `
-                <details style="margin-left:14px" ${state.theme===th?'open':''}>
-                  <summary>${escapeHtml(th)}</summary>
-                  ${types.map(t=>`
-                    <a href="#" class="pill" style="margin-left:28px"
-                       data-cat="${escapeHtml(cat)}"
-                       data-theme="${escapeHtml(th)}"
-                       data-type="${escapeHtml(t)}">${escapeHtml(t)}</a>
-                  `).join('')}
-                </details>
-              `;
-            }).join('')}
-          </details>
-        `;
-      }).join('');
-    }
-
-    function apply(){
-      let items = baseSet();
-      if(state.cat) items = items.filter(p=>p.category===state.cat);
-      if(state.theme) items = items.filter(p=>p.theme===state.theme);
-      if(state.type) items = items.filter(p=>p.type===state.type);
-      if(state.q) items = items.filter(p=>p.title.toLowerCase().includes(state.q));
-
-      count.textContent = `${items.length} items shown`;
-
-      grid.innerHTML = items.map(p=>`
-        <div class="card">
-          <img src="${escapeHtml(p.image)}">
-          <div class="card-body">
-            <p class="title">${escapeHtml(p.title)}</p>
-            <a class="btn" href="${escapeHtml(p.link)}" target="_blank">View on eBay</a>
-          </div>
+  function buildTree(){
+    const b=base();
+    const cats=[...new Set(b.map(p=>p.category))];
+    tree.innerHTML=cats.map(c=>{
+      const themes=[...new Set(b.filter(p=>p.category===c).map(p=>p.theme))];
+      return `
+        <div>
+          <strong data-cat="${c}">${c}</strong>
+          ${themes.map(t=>{
+            const types=[...new Set(b.filter(p=>p.category===c&&p.theme===t).map(p=>p.type))];
+            return `
+              <div style="margin-left:12px">
+                <em data-theme="${t}" data-cat="${c}">${t}</em>
+                ${types.map(tp=>`
+                  <div style="margin-left:12px">
+                    <a href="#" data-type="${tp}" data-theme="${t}" data-cat="${c}">${tp}</a>
+                  </div>
+                `).join('')}
+              </div>
+            `;
+          }).join('')}
         </div>
-      `).join('');
-    }
+      `;
+    }).join('');
+  }
 
-    document.querySelectorAll('[data-quick]').forEach(a=>{
-      a.onclick = e=>{
-        e.preventDefault();
-        state.quick = a.dataset.quick;
-        state.cat = state.theme = state.type = null;
-        buildTree();
-        apply();
-      };
-    });
+  function apply(){
+    let items=base();
+    if(state.cat) items=items.filter(p=>p.category===state.cat);
+    if(state.theme) items=items.filter(p=>p.theme===state.theme);
+    if(state.type) items=items.filter(p=>p.type===state.type);
+    rc.textContent=`${items.length} items shown`;
+    grid.innerHTML=items.map(p=>`
+      <div class="card">
+        <img src="${p.image}">
+        <p>${p.title}</p>
+        <a href="${p.link}" target="_blank">View on eBay</a>
+      </div>
+    `).join('');
+  }
 
-    tree.onclick = e=>{
-      const a = e.target.closest('[data-type]');
-      if(!a) return;
+  document.querySelectorAll('[data-quick]').forEach(a=>{
+    a.onclick=e=>{
       e.preventDefault();
-      state.cat = a.dataset.cat;
-      state.theme = a.dataset.theme;
-      state.type = a.dataset.type;
-      apply();
+      state.quick=a.dataset.quick;
+      state.cat=state.theme=state.type=null;
+      buildTree(); apply();
     };
+  });
 
-    qInput.oninput = ()=>{ state.q = qInput.value.toLowerCase(); apply(); };
-
-    buildTree();
+  tree.onclick=e=>{
+    const el=e.target;
+    if(el.dataset.cat && !el.dataset.theme){
+      state.cat=el.dataset.cat; state.theme=state.type=null;
+    }
+    if(el.dataset.theme){
+      state.cat=el.dataset.cat; state.theme=el.dataset.theme; state.type=null;
+    }
+    if(el.dataset.type){
+      state.cat=el.dataset.cat; state.theme=el.dataset.theme; state.type=el.dataset.type;
+    }
     apply();
   };
+
+  buildTree(); apply();
 })();
