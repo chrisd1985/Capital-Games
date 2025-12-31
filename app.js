@@ -1,8 +1,18 @@
+/**
+ * Capital Games — app.js
+ * Requires: products.js defines window.PRODUCTS = [...]
+ * Pages: index.html calls CG_renderFeatured()
+ *        shop.html calls CG_initShop()
+ */
 (function(){
+  // Normalize + keep only active listings
   const allProducts = (window.PRODUCTS || [])
     .map(p => ({
       ...p,
-      status: (p.status || '').toLowerCase(),
+      title: (p.title || '').trim(),
+      link: (p.link || '').trim(),
+      image: (p.image || '').trim(),
+      status: (p.status || '').toLowerCase().trim(),
       category: (p.category || 'Other').trim(),
       theme: (p.theme || 'General').trim(),
       type: (p.type || 'Misc').trim(),
@@ -20,6 +30,19 @@
   }
   function uniq(arr){ return [...new Set(arr.filter(Boolean))]; }
 
+  // Public diagnostics for quick debugging in DevTools
+  window.CG_DIAG = function(){
+    return {
+      productsLoaded: Array.isArray(window.PRODUCTS),
+      totalProducts: (window.PRODUCTS || []).length,
+      activeProducts: allProducts.length,
+      hasShopGrid: !!document.getElementById('shopGrid'),
+      hasPageSize: !!document.getElementById('pageSize'),
+      hasPagination: !!document.getElementById('pagination'),
+      hasSidebarTree: !!document.getElementById('sidebarTree')
+    };
+  };
+
   function getBaseSet(state){
     return state.quick === 'featured'
       ? allProducts.filter(p => p.featured)
@@ -32,7 +55,7 @@
 
     const featuredItems = allProducts.filter(p => p.featured);
 
-    // 4 or 8 (never a lonely 5th)
+    // 4 or 8 (avoid awkward 5th wrap)
     let displayCount = 0;
     if(featuredItems.length >= 8) displayCount = 8;
     else if(featuredItems.length >= 4) displayCount = 4;
@@ -67,26 +90,17 @@
 
     if(!elGrid || !elCount || !elTree) return;
 
-    const state = { quick:'all', category:null, theme:null, type:null, q:'', sort:'az', pageSize:25, page:1 };
+    const state = {
+      quick:'all',
+      category:null, theme:null, type:null,
+      q:'',
+      sort:(elSort ? elSort.value : 'az'),
+      pageSize:(elPageSize ? (elPageSize.value === 'all' ? 'all' : Number(elPageSize.value)) : 25),
+      page:1
+    };
 
     if(elCountAll) elCountAll.textContent = String(allProducts.length);
     if(elCountFeatured) elCountFeatured.textContent = String(allProducts.filter(p=>p.featured).length);
-
-    // Diagnostics (safe): helps confirm wiring in DevTools console
-    window.CG_DIAG = function(){
-      return {
-        productsLoaded: Array.isArray(window.PRODUCTS),
-        totalProducts: (window.PRODUCTS||[]).length,
-        activeProducts: allProducts.length,
-        hasPageSize: !!document.getElementById('pageSize'),
-        hasPagination: !!document.getElementById('pagination')
-      };
-    };
-
-
-    if(elPageSize){
-      state.pageSize = (elPageSize.value === 'all') ? 'all' : Number(elPageSize.value || 25);
-    }
 
     function resetPage(){ state.page = 1; }
 
@@ -173,10 +187,21 @@
         default: items.sort((a,b)=>a.title.localeCompare(b.title)); break;
       }
 
-      const path = [state.category, state.theme, state.type].filter(Boolean).join(' → ');
-      elCount.textContent = `${items.length} item${items.length===1?'':'s'} shown${path?` in ${path}`:''}`;
+      // Paging
+      const total = items.length;
+      const pageSize = (state.pageSize === 'all') ? total : Number(state.pageSize || 25);
+      const totalPages = pageSize ? Math.max(1, Math.ceil(total / pageSize)) : 1;
+      state.page = Math.min(Math.max(1, state.page), totalPages);
 
-      elGrid.innerHTML = items.map(p=>`
+      const start = (state.page - 1) * pageSize;
+      const end = (state.pageSize === 'all') ? total : (start + pageSize);
+      const pageItems = (state.pageSize === 'all') ? items : items.slice(start, end);
+
+      const path = [state.category, state.theme, state.type].filter(Boolean).join(' → ');
+      const rangeLabel = (state.pageSize === 'all' || total === 0) ? '' : ` (showing ${start + 1}-${Math.min(end, total)})`;
+      elCount.textContent = `${total} item${total===1?'':'s'} shown${path?` in ${path}`:''}${rangeLabel}`;
+
+      elGrid.innerHTML = pageItems.map(p=>`
         <div class="card">
           <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">
           <div class="card-body">
@@ -185,9 +210,44 @@
           </div>
         </div>
       `).join('');
+
+      // Pagination controls
+      if(!elPagination) return;
+
+      if(state.pageSize === 'all' || totalPages <= 1){
+        elPagination.innerHTML = '';
+        return;
+      }
+
+      const mkBtn = (label, page, opts={}) => {
+        const dis = opts.disabled ? 'disabled' : '';
+        const active = opts.active ? 'active' : '';
+        return `<button class="pagebtn ${active}" data-page="${page}" ${dis}>${label}</button>`;
+      };
+
+      const buttons = [];
+      buttons.push(mkBtn('Prev', state.page - 1, {disabled: state.page === 1}));
+
+      const windowSize = 2;
+      const pages = [];
+      for(let p=1; p<=totalPages; p++){
+        if(p===1 || p===totalPages || Math.abs(p - state.page) <= windowSize) pages.push(p);
+      }
+      let last = 0;
+      pages.forEach(p=>{
+        if(last && p - last > 1){
+          buttons.push(`<span class="pagebtn" style="border:none;background:transparent;cursor:default">…</span>`);
+        }
+        buttons.push(mkBtn(String(p), p, {active: p === state.page}));
+        last = p;
+      });
+
+      buttons.push(mkBtn('Next', state.page + 1, {disabled: state.page === totalPages}));
+
+      elPagination.innerHTML = buttons.join('');
     }
 
-    // Quick filters reset
+    // Quick filters
     document.querySelectorAll('[data-quick]').forEach(a=>{
       a.addEventListener('click', e=>{
         e.preventDefault();
@@ -216,9 +276,7 @@
         } else {
           state.category = cat; state.theme = null; state.type = null;
         }
-      }
-
-      if(lvl === 'theme'){
+      } else if(lvl === 'theme'){
         const cat = a.dataset.cat;
         const th = a.dataset.theme;
         state.category = cat;
@@ -227,9 +285,7 @@
         } else {
           state.theme = th; state.type = null;
         }
-      }
-
-      if(lvl === 'type'){
+      } else if(lvl === 'type'){
         const cat = a.dataset.cat;
         const th = a.dataset.theme;
         const tp = a.dataset.type;
@@ -244,7 +300,13 @@
 
     if(elQ) elQ.addEventListener('input', ()=>{ state.q = elQ.value.trim(); resetPage(); applyFilters(); });
     if(elSort) elSort.addEventListener('change', ()=>{ state.sort = elSort.value; resetPage(); applyFilters(); });
-    if(elPageSize) elPageSize.addEventListener('change', ()=>{ state.pageSize = (elPageSize.value === 'all') ? 'all' : Number(elPageSize.value); resetPage(); applyFilters(); });
+
+    if(elPageSize) elPageSize.addEventListener('change', ()=>{
+      state.pageSize = (elPageSize.value === 'all') ? 'all' : Number(elPageSize.value || 25);
+      resetPage();
+      applyFilters();
+    });
+
     if(elPagination) elPagination.addEventListener('click', (e)=>{
       const btn = e.target.closest('button[data-page]');
       if(!btn || btn.disabled) return;
@@ -254,9 +316,9 @@
       applyFilters();
     });
 
+    // Initial render
     setActiveQuick(state.quick);
     renderSidebar();
     applyFilters();
   };
 })();
-// NOTE: Paging patch did not apply automatically; please notify.
