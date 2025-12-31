@@ -72,6 +72,18 @@
     if(elCountAll) elCountAll.textContent = String(allProducts.length);
     if(elCountFeatured) elCountFeatured.textContent = String(allProducts.filter(p=>p.featured).length);
 
+    // Diagnostics (safe): helps confirm wiring in DevTools console
+    window.CG_DIAG = function(){
+      return {
+        productsLoaded: Array.isArray(window.PRODUCTS),
+        totalProducts: (window.PRODUCTS||[]).length,
+        activeProducts: allProducts.length,
+        hasPageSize: !!document.getElementById('pageSize'),
+        hasPagination: !!document.getElementById('pagination')
+      };
+    };
+
+
     if(elPageSize){
       state.pageSize = (elPageSize.value === 'all') ? 'all' : Number(elPageSize.value || 25);
     }
