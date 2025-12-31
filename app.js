@@ -26,166 +26,115 @@
       : allProducts;
   }
 
-  /* HOME: Featured grid */
-  window.CG_renderFeatured = function(){
-    const grid = document.getElementById('featuredGrid');
-    if(!grid) return;
-
-    const featured = allProducts.filter(p => p.featured);
-    const count = featured.length >= 8 ? 8 : (featured.length >= 4 ? 4 : featured.length);
-
-    if(count === 0){
-      grid.innerHTML = '<div style="grid-column:1/-1;color:#555;">No featured items yet.</div>';
-      return;
-    }
-
-    grid.innerHTML = featured.slice(0, count).map(p => `
-      <div class="card">
-        <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">
-        <div class="card-body">
-          <p class="title">${escapeHtml(p.title)}</p>
-          <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
-        </div>
-      </div>
-    `).join('');
-  };
-
-  /* SHOP */
   window.CG_initShop = function(){
     const elGrid = document.getElementById('shopGrid');
     const elCount = document.getElementById('resultCount');
-    const elTree = document.getElementById('filterTree');
+    const elTree = document.getElementById('sidebarTree');
     const elQ = document.getElementById('q');
     const elSort = document.getElementById('sort');
     const elCountAll = document.getElementById('countAll');
     const elCountFeatured = document.getElementById('countFeatured');
 
-    if(!elGrid || !elCount || !elTree) return;
+    const state = { quick:'all', category:null, theme:null, type:null, q:'', sort:'az' };
 
-    const state = {
-      quick: 'all',      // all | featured
-      category: null,
-      theme: null,
-      type: null,
-      q: '',
-      sort: 'az'
-    };
-
-    // Top counts always reflect totals for the quick filter buckets
     if(elCountAll) elCountAll.textContent = String(allProducts.length);
-    if(elCountFeatured) elCountFeatured.textContent = String(allProducts.filter(p => p.featured).length);
+    if(elCountFeatured) elCountFeatured.textContent = String(allProducts.filter(p=>p.featured).length);
 
-    function setActiveQuick(){
+    function setActiveQuick(val){
       document.querySelectorAll('[data-quick]').forEach(a=>{
-        a.classList.toggle('active', a.dataset.quick === state.quick);
+        a.classList.toggle('active', a.dataset.quick === val);
       });
     }
 
-    // Build “NHL-like” progressive tree:
-    // - Always show Categories
-    // - If a Category is selected: show its Themes underneath
-    // - If a Theme is selected: show its Types underneath
-    function renderTree(){
+    function renderSidebar(){
       const base = getBaseSet(state);
 
-      const cats = uniq(base.map(p => p.category)).sort((a,b)=>a.localeCompare(b));
+      const cats = uniq(base.map(p=>p.category)).sort((a,b)=>a.localeCompare(b));
+      const catHtml = cats.map(cat=>{
+        const n = base.filter(p=>p.category===cat).length;
+        const active = state.category === cat;
+        let themesHtml = '';
+        if(active){
+          const themes = uniq(base.filter(p=>p.category===cat).map(p=>p.theme)).sort((a,b)=>a.localeCompare(b));
+          themesHtml = `
+            <div class="treeIndent treeBlock">
+              ${themes.map(th=>{
+                const tn = base.filter(p=>p.category===cat && p.theme===th).length;
+                const thActive = state.theme === th;
+                let typesHtml = '';
+                if(thActive){
+                  const types = uniq(base.filter(p=>p.category===cat && p.theme===th).map(p=>p.type)).sort((a,b)=>a.localeCompare(b));
+                  typesHtml = `
+                    <div class="treeIndent2 treeBlock">
+                      ${types.map(tp=>{
+                        const cn = base.filter(p=>p.category===cat && p.theme===th && p.type===tp).length;
+                        const tpActive = state.type === tp;
+                        return `
+                          <a class="pill sub2 ${tpActive?'active':''}" href="#"
+                             data-level="type" data-cat="${escapeHtml(cat)}" data-theme="${escapeHtml(th)}" data-type="${escapeHtml(tp)}">
+                            <span>${escapeHtml(tp)}</span><span class="smallcount">${cn}</span>
+                          </a>
+                        `;
+                      }).join('')}
+                    </div>
+                  `;
+                }
+                return `
+                  <a class="pill sub ${thActive?'active':''}" href="#"
+                     data-level="theme" data-cat="${escapeHtml(cat)}" data-theme="${escapeHtml(th)}">
+                    <span>${escapeHtml(th)}</span><span class="smallcount">${tn}</span>
+                  </a>
+                  ${typesHtml}
+                `;
+              }).join('')}
+            </div>
+          `;
+        }
 
-      const catCounts = new Map();
-      for(const c of cats){
-        catCounts.set(c, base.filter(p => p.category === c).length);
-      }
-
-      const themes = state.category
-        ? uniq(base.filter(p => p.category === state.category).map(p => p.theme)).sort((a,b)=>a.localeCompare(b))
-        : [];
-
-      const themeCounts = new Map();
-      for(const t of themes){
-        themeCounts.set(t, base.filter(p => p.category === state.category && p.theme === t).length);
-      }
-
-      const types = (state.category && state.theme)
-        ? uniq(base.filter(p => p.category === state.category && p.theme === state.theme).map(p => p.type)).sort((a,b)=>a.localeCompare(b))
-        : [];
-
-      const typeCounts = new Map();
-      for(const tp of types){
-        typeCounts.set(tp, base.filter(p => p.category===state.category && p.theme===state.theme && p.type===tp).length);
-      }
-
-      // Categories
-      let html = cats.map(c => `
-        <a class="pill ${state.category===c ? 'active':''}" href="#"
-           data-level="category" data-cat="${escapeHtml(c)}">
-          <span>${escapeHtml(c)}</span><span class="smallcount">${catCounts.get(c) || 0}</span>
-        </a>
-      `).join('');
-
-      // Themes under selected category
-      if(state.category){
-        html += `<div class="divider"></div>`;
-        html += themes.map(t => `
-          <a class="pill treeChild ${state.theme===t ? 'active':''}" href="#"
-             data-level="theme" data-cat="${escapeHtml(state.category)}" data-theme="${escapeHtml(t)}">
-            <span>${escapeHtml(t)}</span><span class="smallcount">${themeCounts.get(t) || 0}</span>
+        return `
+          <a class="pill ${active?'active':''}" href="#" data-level="category" data-cat="${escapeHtml(cat)}">
+            <span>${escapeHtml(cat)}</span><span class="smallcount">${n}</span>
           </a>
-        `).join('');
-      }
+          ${themesHtml}
+        `;
+      }).join('');
 
-      // Types under selected theme
-      if(state.category && state.theme){
-        html += `<div class="divider"></div>`;
-        html += types.map(tp => `
-          <a class="pill treeGrandChild ${state.type===tp ? 'active':''}" href="#"
-             data-level="type"
-             data-cat="${escapeHtml(state.category)}"
-             data-theme="${escapeHtml(state.theme)}"
-             data-type="${escapeHtml(tp)}">
-            <span>${escapeHtml(tp)}</span><span class="smallcount">${typeCounts.get(tp) || 0}</span>
-          </a>
-        `).join('');
-      }
-
-      elTree.innerHTML = html;
+      elTree.innerHTML = catHtml || '<div style="color:#777;font-size:.9rem;">No items found.</div>';
     }
 
     function applyFilters(){
       let items = [...getBaseSet(state)];
 
-      // Progressive drilldown
-      if(state.category) items = items.filter(p => p.category === state.category);
-      if(state.theme) items = items.filter(p => p.theme === state.theme);
-      if(state.type) items = items.filter(p => p.type === state.type);
+      if(state.category) items = items.filter(p=>p.category===state.category);
+      if(state.theme) items = items.filter(p=>p.theme===state.theme);
+      if(state.type) items = items.filter(p=>p.type===state.type);
 
-      // Search
       if(state.q){
         const q = state.q.toLowerCase();
         items = items.filter(p => (p.title||'').toLowerCase().includes(q));
       }
 
-      // Sort
       switch(state.sort){
         case 'za': items.sort((a,b)=>b.title.localeCompare(a.title)); break;
-        case 'featured': items.sort((a,b)=>(b.featured - a.featured) || a.title.localeCompare(b.title)); break;
+        case 'featured': items.sort((a,b)=>(b.featured-a.featured) || a.title.localeCompare(b.title)); break;
         default: items.sort((a,b)=>a.title.localeCompare(b.title)); break;
       }
 
-      const path = [state.category, state.theme, state.type].filter(Boolean).join(" → ");
+      const path = [state.category, state.theme, state.type].filter(Boolean).join(' → ');
       elCount.textContent = `${items.length} item${items.length===1?'':'s'} shown${path?` in ${path}`:''}`;
 
-      // IMPORTANT: only show title + View on eBay (no meta line)
-      elGrid.innerHTML = items.map(p => `
+      elGrid.innerHTML = items.map(p=>`
         <div class="card">
           <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">
           <div class="card-body">
-            <p class="title">${escapeHtml(p.title)}</p>
+            <p class="title">${escapeHtml(p.title)}${p.featured?'<span class="badge">Featured</span>':''}</p>
             <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
           </div>
         </div>
       `).join('');
     }
 
-    // Quick filters (reset drilldown + rebuild)
+    // Quick filter resets and re-renders
     document.querySelectorAll('[data-quick]').forEach(a=>{
       a.addEventListener('click', e=>{
         e.preventDefault();
@@ -195,44 +144,60 @@
         state.type = null;
         state.q = '';
         if(elQ) elQ.value = '';
-        setActiveQuick();
-        renderTree();
+        setActiveQuick(state.quick);
+        renderSidebar();
         applyFilters();
       });
     });
 
-    // Tree click: category/theme/type progressively filters immediately
+    // Sidebar clicks (category/theme/type)
     elTree.addEventListener('click', e=>{
       const a = e.target.closest('a[data-level]');
       if(!a) return;
       e.preventDefault();
+      const lvl = a.dataset.level;
 
-      const level = a.dataset.level;
-
-      if(level === 'category'){
-        state.category = a.dataset.cat;
-        state.theme = null;
-        state.type = null;
-      } else if(level === 'theme'){
-        state.category = a.dataset.cat;
-        state.theme = a.dataset.theme;
-        state.type = null;
-      } else if(level === 'type'){
-        state.category = a.dataset.cat;
-        state.theme = a.dataset.theme;
-        state.type = a.dataset.type;
+      if(lvl === 'category'){
+        const cat = a.dataset.cat;
+        // toggle open/close category
+        if(state.category === cat){
+          state.category = null; state.theme = null; state.type = null;
+        } else {
+          state.category = cat; state.theme = null; state.type = null;
+        }
       }
 
-      renderTree();
+      if(lvl === 'theme'){
+        const cat = a.dataset.cat;
+        const th = a.dataset.theme;
+        // ensure category is selected, toggle theme
+        state.category = cat;
+        if(state.theme === th){
+          state.theme = null; state.type = null;
+        } else {
+          state.theme = th; state.type = null;
+        }
+      }
+
+      if(lvl === 'type'){
+        const cat = a.dataset.cat;
+        const th = a.dataset.theme;
+        const tp = a.dataset.type;
+        state.category = cat; state.theme = th;
+        // toggle type
+        state.type = (state.type === tp) ? null : tp;
+      }
+
+      renderSidebar();
       applyFilters();
     });
 
     if(elQ) elQ.addEventListener('input', ()=>{ state.q = elQ.value.trim(); applyFilters(); });
     if(elSort) elSort.addEventListener('change', ()=>{ state.sort = elSort.value; applyFilters(); });
 
-    // Init
-    setActiveQuick();
-    renderTree();
+    // Initial
+    setActiveQuick(state.quick);
+    renderSidebar();
     applyFilters();
   };
 })();
