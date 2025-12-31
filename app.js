@@ -60,15 +60,23 @@
     const elTree = document.getElementById('sidebarTree');
     const elQ = document.getElementById('q');
     const elSort = document.getElementById('sort');
+    const elPageSize = document.getElementById('pageSize');
+    const elPagination = document.getElementById('pagination');
     const elCountAll = document.getElementById('countAll');
     const elCountFeatured = document.getElementById('countFeatured');
 
     if(!elGrid || !elCount || !elTree) return;
 
-    const state = { quick:'all', category:null, theme:null, type:null, q:'', sort:'az' };
+    const state = { quick:'all', category:null, theme:null, type:null, q:'', sort:'az', pageSize:25, page:1 };
 
     if(elCountAll) elCountAll.textContent = String(allProducts.length);
     if(elCountFeatured) elCountFeatured.textContent = String(allProducts.filter(p=>p.featured).length);
+
+    if(elPageSize){
+      state.pageSize = (elPageSize.value === 'all') ? 'all' : Number(elPageSize.value || 25);
+    }
+
+    function resetPage(){ state.page = 1; }
 
     function setActiveQuick(val){
       document.querySelectorAll('[data-quick]').forEach(a=>{
@@ -176,6 +184,7 @@
         state.q = '';
         if(elQ) elQ.value = '';
         setActiveQuick(state.quick);
+        resetPage();
         renderSidebar();
         applyFilters();
       });
@@ -216,15 +225,26 @@
         state.type = (state.type === tp) ? null : tp;
       }
 
+      resetPage();
       renderSidebar();
       applyFilters();
     });
 
-    if(elQ) elQ.addEventListener('input', ()=>{ state.q = elQ.value.trim(); applyFilters(); });
-    if(elSort) elSort.addEventListener('change', ()=>{ state.sort = elSort.value; applyFilters(); });
+    if(elQ) elQ.addEventListener('input', ()=>{ state.q = elQ.value.trim(); resetPage(); applyFilters(); });
+    if(elSort) elSort.addEventListener('change', ()=>{ state.sort = elSort.value; resetPage(); applyFilters(); });
+    if(elPageSize) elPageSize.addEventListener('change', ()=>{ state.pageSize = (elPageSize.value === 'all') ? 'all' : Number(elPageSize.value); resetPage(); applyFilters(); });
+    if(elPagination) elPagination.addEventListener('click', (e)=>{
+      const btn = e.target.closest('button[data-page]');
+      if(!btn || btn.disabled) return;
+      const p = Number(btn.dataset.page);
+      if(!Number.isFinite(p)) return;
+      state.page = p;
+      applyFilters();
+    });
 
     setActiveQuick(state.quick);
     renderSidebar();
     applyFilters();
   };
 })();
+// NOTE: Paging patch did not apply automatically; please notify.

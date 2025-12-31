@@ -146,3 +146,10 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   flex-wrap:wrap;
   gap:12px;
 }
+
+/* Pagination */
+.pagination{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0 0}
+.pagination .pagebtn{border:1px solid var(--border);background:#fff;padding:8px 12px;border-radius:10px;font-weight:800;cursor:pointer}
+.pagination .pagebtn:hover{border-color:var(--red)}
+.pagination .pagebtn.active{border-color:var(--red);background:#fff5f5}
+.pagination .pagebtn[disabled]{opacity:.5;cursor:not-allowed}
