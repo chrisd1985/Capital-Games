@@ -153,3 +153,8 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 .pagination .pagebtn:hover{border-color:var(--red)}
 .pagination .pagebtn.active{border-color:var(--red);background:#fff5f5}
 .pagination .pagebtn[disabled]{opacity:.5;cursor:not-allowed}
+
+
+/* Price placeholder */
+.price{font-weight:800;margin:6px 0 10px;color:#111}
+.price.muted{color:var(--muted);font-weight:700}
