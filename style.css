@@ -505,3 +505,76 @@ body.bgTexture::before{
   body.bgTexture{ background-attachment: scroll !important; }
   body.bgTexture::before{ position:absolute; }
 }
+
+
+/* ===== Two-tier header (matches mock) ===== */
+.siteHeader{ width:100%; background:transparent; }
+
+/* Top dark bar (Shop / Consoles / etc) */
+.topNav{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:10px 20px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  background:rgba(26,27,31,.92);
+  color:rgba(255,255,255,.92);
+  border-bottom:1px solid rgba(255,255,255,.10);
+  font-weight:800;
+  font-size:.9rem;
+}
+.topNav a{opacity:.92}
+.topNav a:hover{opacity:1;text-decoration:underline}
+
+/* Full-width light banner */
+.headerWrap{
+  width:100%;
+  padding:14px 0 18px;
+  background:
+    radial-gradient(1100px 260px at 15% 0%, rgba(255,255,255,.55), transparent 65%),
+    rgba(245, 232, 210, .92);
+  border-bottom:1px solid rgba(0,0,0,.08);
+  backdrop-filter: blur(6px);
+}
+
+.headerBarWide{
+  width:100%;
+  max-width:1300px;
+  margin:0 auto;
+  border-radius:0;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  padding:0 20px;
+}
+
+/* Ensure search always visible */
+.headerSearch{
+  display:flex !important;
+  flex:1;
+  max-width:720px;
+  margin:0 16px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.14);
+  border-radius:999px;
+  padding:10px 12px;
+}
+.headerSearch input{font-weight:600}
+
+
+@media (max-width: 900px){
+  .headerBarWide{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:10px;
+    align-items:center;
+  }
+  .headerSearch{
+    margin:0;
+    max-width:none;
+  }
+  .headerIcons{justify-content:flex-start}
+}
