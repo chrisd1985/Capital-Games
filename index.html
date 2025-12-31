@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
 <header>
   <div class="bar">
     <div class="brand">
@@ -26,15 +27,73 @@
   <div class="container" style="padding:0 20px;">
     <h1>Premium Gaming Collectibles & Figures</h1>
     <p>Curated figures, model kits, and gaming collectibles. All purchases are completed securely through eBay.</p>
-    <a class="cta" href="./shop.html">Browse the Shop</a>
-    <span style="display:inline-block;width:10px"></span>
-    <a class="cta" href="https://www.ebay.ca/usr/capitalgames" target="_blank" rel="noopener" style="background:#111">Shop on eBay</a>
+    <a class="cta" href="./shop.html">Shop Now</a>
   </div>
 </section>
 
 <section class="container">
-  <h2>Featured Listings</h2>
-  <div id="featuredGrid" class="grid"></div>
+  <h2 class="sectionTitle">Featured Products</h2>
+  <div class="sectionCard">
+    <div id="featuredGrid" class="grid"></div>
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="sectionTitle">Shop by Category</h2>
+  <p class="sectionSub">Quick links — these can be wired up to pre-filter the shop later.</p>
+  <div class="grid" style="grid-template-columns:repeat(4,1fr);">
+    <a class="sectionCard" href="./shop.html" style="padding:18px;">
+      <div style="font-weight:900;margin-bottom:6px;color:var(--text);">Games</div>
+      <div style="color:var(--muted);font-size:.95rem;">Video games & game-related collectibles.</div>
+    </a>
+    <a class="sectionCard" href="./shop.html" style="padding:18px;">
+      <div style="font-weight:900;margin-bottom:6px;color:var(--text);">Consoles</div>
+      <div style="color:var(--muted);font-size:.95rem;">Hardware, handhelds, and accessories.</div>
+    </a>
+    <a class="sectionCard" href="./shop.html" style="padding:18px;">
+      <div style="font-weight:900;margin-bottom:6px;color:var(--text);">Accessories</div>
+      <div style="color:var(--muted);font-size:.95rem;">Controllers, add-ons, and extras.</div>
+    </a>
+    <a class="sectionCard" href="./shop.html" style="padding:18px;">
+      <div style="font-weight:900;margin-bottom:6px;color:var(--text);">Trading Cards</div>
+      <div style="color:var(--muted);font-size:.95rem;">TCG singles, bundles, and collectibles.</div>
+    </a>
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="sectionTitle">Why Choose Capital Games</h2>
+  <div class="sectionCard">
+    <div class="grid" style="grid-template-columns:repeat(4,1fr);">
+      <div>
+        <div style="font-weight:900;color:var(--text);margin-bottom:6px;">Fast & Secure Shipping</div>
+        <div style="color:var(--muted);font-size:.95rem;">Handled with care and shipped with tracking where available.</div>
+      </div>
+      <div>
+        <div style="font-weight:900;color:var(--text);margin-bottom:6px;">Trusted & Verified</div>
+        <div style="color:var(--muted);font-size:.95rem;">Sales completed through eBay for buyer protection.</div>
+      </div>
+      <div>
+        <div style="font-weight:900;color:var(--text);margin-bottom:6px;">Canadian-Owned</div>
+        <div style="color:var(--muted);font-size:.95rem;">Based in Canada — shipping worldwide.</div>
+      </div>
+      <div>
+        <div style="font-weight:900;color:var(--text);margin-bottom:6px;">Collector Focused</div>
+        <div style="color:var(--muted);font-size:.95rem;">Curated inventory with clear listing details and photos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="sectionTitle">Join the Capital Games Community</h2>
+  <div class="sectionCard">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <input type="email" placeholder="Email address (placeholder)" style="flex:1;min-width:240px;padding:12px 14px;border:1px solid var(--border);border-radius:12px;">
+      <a class="cta" href="#" onclick="alert('Placeholder: connect to a newsletter provider later');return false;">Subscribe</a>
+    </div>
+    <div style="margin-top:10px;color:var(--muted);font-size:.9rem;">Placeholder — we can wire this up later to Mailchimp (or similar).</div>
+  </div>
 </section>
 
 <footer>

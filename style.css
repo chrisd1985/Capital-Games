@@ -1,24 +1,33 @@
 :root{
-  --bg:#f6f7f9;
-  --card:#fff;
-  --text:#111;
-  --muted:#555;
+  --bg:#0b0b0e;
+  --card:#ffffff;
+  --card2:#121218;
+  --text:#101114;
+  --textOnDark:#f2f3f6;
+  --muted:#6b6f7a;
+  --mutedOnDark:#b8bcc7;
   --red:#c62828;
   --red2:#e53935;
   --border:#e2e5ea;
+  --borderDark:rgba(255,255,255,.14);
+  --shadow:0 10px 24px rgba(0,0,0,.18);
 }
 
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(198,40,40,.35), transparent 55%),
+    radial-gradient(1000px 600px at 80% 30%, rgba(229,57,53,.18), transparent 55%),
+    url("./assets/bg-texture.png");
+  background-size: auto, auto, 720px 720px;
+  background-attachment: scroll, scroll, fixed;
+  color:var(--textOnDark);
 }
 a{color:inherit;text-decoration:none}
 
-/* Header */
-header{background:var(--red)}
+header{background:linear-gradient(90deg, #0f0f14, #14141d)}
 .bar{
   max-width:1300px;
   margin:auto;
@@ -36,14 +45,14 @@ header{background:var(--red)}
   font-weight:800;
 }
 .brand img{height:42px}
-nav a{color:#fff;margin-left:18px;font-weight:700}
-nav a:hover{text-decoration:underline}
+nav a{color:var(--textOnDark);margin-left:18px;font-weight:800;opacity:.92}
+nav a:hover{opacity:1;text-decoration:underline}
 
 /* Shared layout */
 .container{max-width:1300px;margin:auto;padding:40px 20px}
 
 /* Hero (Home) */
-.hero{background:#fff;padding:80px 20px}
+.hero{padding:78px 20px 56px}
 .hero .container{padding:0 20px}
 .hero h1{margin:0 0 10px;font-size:2.4rem}
 .hero p{margin:0 0 18px;color:var(--muted);max-width:760px}
@@ -98,7 +107,7 @@ nav a:hover{text-decoration:underline}
 /* Shop layout + filters */
 .layout{display:grid;grid-template-columns:320px 1fr;gap:26px;align-items:start}
 @media(max-width:980px){.layout{grid-template-columns:1fr}}
-.panel{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px}
+.panel{background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.55);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
 .searchRow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 input[type="search"]{flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--border);border-radius:12px}
 select{padding:10px 12px;border:1px solid var(--border);border-radius:12px}
@@ -135,7 +144,7 @@ select{padding:10px 12px;border:1px solid var(--border);border-radius:12px}
 .treeIndent2{margin-left:28px;border-left:2px solid var(--border);padding-left:12px}
 
 /* Footer */
-footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
+footer{border-top:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.35);backdrop-filter:blur(6px);margin-top:46px}
 .foot{
   max-width:1300px;
   margin:auto;
@@ -158,3 +167,9 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 /* Price placeholder */
 .price{font-weight:800;margin:6px 0 10px;color:#111}
 .price.muted{color:var(--muted);font-weight:700}
+
+
+/* Home sections */
+.sectionCard{background:rgba(255,255,255,.92);color:var(--text);border:1px solid rgba(255,255,255,.55);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.sectionTitle{color:var(--textOnDark);margin:0 0 14px;font-size:1.6rem;letter-spacing:.2px}
+.sectionSub{color:var(--mutedOnDark);margin:0 0 16px}
