@@ -153,7 +153,7 @@ body.bgTexture{
   background:
     radial-gradient(1200px 600px at 18% 0%, rgba(198,40,40,.55), transparent 60%),
     radial-gradient(1000px 700px at 75% 10%, rgba(229,57,53,.30), transparent 60%),
-    url("./assets/bg-texture.png");
+    url("./assets/bg-texture-full.png");
   background-size:auto, auto, 820px 820px;
   background-attachment:scroll, scroll, fixed;
 }
@@ -246,7 +246,7 @@ body.bgTexture{
 .heroInner::before{
   content:"";
   position:absolute;inset:0;
-  background:url("./assets/bg-texture.png");
+  background:url("./assets/bg-texture-full.png");
   background-size:820px 820px;
   opacity:.24;
   mix-blend-mode:overlay;
