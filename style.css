@@ -477,3 +477,31 @@ body{
     url("./assets/hero-bg.png") center / cover no-repeat;
 }
 .heroInner::before{opacity:.18}
+
+/* ===== Universal full-screen background (override everything above) ===== */
+body.bgTexture{
+  background: url("./assets/bg-texture-full.png") center top / cover no-repeat fixed !important;
+  background-color:#0e0a0a;
+}
+
+/* Red glow overlay (separate layer so it never tiles) */
+body.bgTexture::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background:
+    radial-gradient(1200px 600px at 18% 0%, rgba(198,40,40,.55), transparent 60%),
+    radial-gradient(1000px 700px at 75% 10%, rgba(229,57,53,.30), transparent 60%);
+}
+
+/* Mobile safety */
+@media (max-width: 900px){
+  body.bgTexture{
+    background-attachment: scroll !important;
+  }
+  body.bgTexture::before{
+    position:absolute;
+  }
+}
