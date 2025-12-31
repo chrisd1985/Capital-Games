@@ -95,7 +95,7 @@
       category:null, theme:null, type:null,
       q:'',
       sort:(elSort ? elSort.value : 'az'),
-      pageSize:(elPageSize ? (elPageSize.value === 'all' ? 'all' : Number(elPageSize.value)) : 25),
+      pageSize:(elPageSize ? (elPageSize.value === 'all' ? 'all' : Number(elPageSize.value)) : 'all'),
       page:1
     };
 
@@ -226,26 +226,28 @@
       };
 
       const buttons = [];
-      buttons.push(mkBtn('Prev', state.page - 1, {disabled: state.page === 1}));
+// Jump buttons
+buttons.push(mkBtn('First', 1, {disabled: state.page === 1}));
+buttons.push(mkBtn('Prev', state.page - 1, {disabled: state.page === 1}));
 
-      const windowSize = 2;
-      const pages = [];
-      for(let p=1; p<=totalPages; p++){
-        if(p===1 || p===totalPages || Math.abs(p - state.page) <= windowSize) pages.push(p);
-      }
-      let last = 0;
-      pages.forEach(p=>{
-        if(last && p - last > 1){
-          buttons.push(`<span class="pagebtn" style="border:none;background:transparent;cursor:default">…</span>`);
-        }
-        buttons.push(mkBtn(String(p), p, {active: p === state.page}));
-        last = p;
-      });
+const windowSize = 2;
+const pages = [];
+for(let p=1; p<=totalPages; p++){
+  if(p===1 || p===totalPages || Math.abs(p - state.page) <= windowSize) pages.push(p);
+}
+let last = 0;
+pages.forEach(p=>{
+  if(last && p - last > 1){
+    buttons.push(`<span class="pagebtn" style="border:none;background:transparent;cursor:default">…</span>`);
+  }
+  buttons.push(mkBtn(String(p), p, {active: p === state.page}));
+  last = p;
+});
 
-      buttons.push(mkBtn('Next', state.page + 1, {disabled: state.page === totalPages}));
+buttons.push(mkBtn('Next', state.page + 1, {disabled: state.page === totalPages}));
+buttons.push(mkBtn('Last', totalPages, {disabled: state.page === totalPages}));
 
-      elPagination.innerHTML = buttons.join('');
-    }
+elPagination.innerHTML = buttons.join('');}
 
     // Quick filters
     document.querySelectorAll('[data-quick]').forEach(a=>{
