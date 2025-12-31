@@ -20,14 +20,27 @@
 </header>
 
 <section class="hero">
-  <h1>Curated Collectibles & Games</h1>
+  <h1>Premium Collectibles & Games</h1>
   <p>All purchases are completed securely through eBay.</p>
   <a class="cta" href="shop.html">Browse the Shop</a>
+</section>
+
+<section class="section">
+  <h2>Featured Listings</h2>
+  <div id="featuredGrid" class="grid"></div>
 </section>
 
 <footer class="footer">
   © Capital Games
 </footer>
+
+<script src="products.js"></script>
+<script src="app.js"></script>
+<script>
+  if (typeof CG_renderFeatured === "function") {
+    CG_renderFeatured();
+  }
+</script>
 
 </body>
 </html>
