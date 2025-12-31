@@ -478,9 +478,19 @@ body{
 }
 .heroInner::before{opacity:.18}
 
-/* ===== Universal full-screen background (override everything above) ===== */
+body.bgTexture::before{
+    position:absolute;
+  }
+}
+
+
+/* ===== Universal full-screen background (hi-res + retina) ===== */
 body.bgTexture{
-  background: url("./assets/bg-texture-full.png") center top / cover no-repeat fixed !important;
+  background:
+    image-set(
+      url("./assets/bg-texture-2560x1440.png") 1x,
+      url("./assets/bg-texture-5120x2880.png") 2x
+    ) center top / cover no-repeat fixed !important;
   background-color:#0e0a0a;
 }
 
@@ -498,10 +508,6 @@ body.bgTexture::before{
 
 /* Mobile safety */
 @media (max-width: 900px){
-  body.bgTexture{
-    background-attachment: scroll !important;
-  }
-  body.bgTexture::before{
-    position:absolute;
-  }
+  body.bgTexture{ background-attachment: scroll !important; }
+  body.bgTexture::before{ position:absolute; }
 }
