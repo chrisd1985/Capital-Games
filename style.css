@@ -149,15 +149,6 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 
 /* ===== Mock-like Home Page Theme (does not affect shop layout) ===== */
 
-body.bgTexture{
-  background:
-    radial-gradient(1200px 600px at 18% 0%, rgba(198,40,40,.55), transparent 60%),
-    radial-gradient(1000px 700px at 75% 10%, rgba(229,57,53,.30), transparent 60%),
-    url("./assets/bg-texture-full.png");
-  background-size:auto, auto, 820px 820px;
-  background-attachment:scroll, scroll, fixed;
-}
-
 .siteHeader{
   background:transparent;
 }
@@ -246,7 +237,7 @@ body.bgTexture{
 .heroInner::before{
   content:"";
   position:absolute;inset:0;
-  background:url("./assets/bg-texture-full.png");
+  background:url("./assets/bg-texture.png");
   background-size:820px 820px;
   opacity:.24;
   mix-blend-mode:overlay;
@@ -478,20 +469,24 @@ body{
 }
 .heroInner::before{opacity:.18}
 
-body.bgTexture::before{
-    position:absolute;
-  }
+
+/* ===== Universal full-screen background (hi-res, no tiling) ===== */
+body.bgTexture{
+  background-color:#0e0a0a !important;
+  background-image:url("./assets/bg-texture-2560x1440.png") !important;
+  background-repeat:no-repeat !important;
+  background-size:cover !important;
+  background-position:center top !important;
+  background-attachment:fixed !important;
 }
 
-
-/* ===== Universal full-screen background (hi-res + retina) ===== */
-body.bgTexture{
-  background:
-    image-set(
+@supports (background-image: image-set(url("x.png") 1x)){
+  body.bgTexture{
+    background-image:image-set(
       url("./assets/bg-texture-2560x1440.png") 1x,
       url("./assets/bg-texture-5120x2880.png") 2x
-    ) center top / cover no-repeat fixed !important;
-  background-color:#0e0a0a;
+    ) !important;
+  }
 }
 
 /* Red glow overlay (separate layer so it never tiles) */
@@ -506,7 +501,6 @@ body.bgTexture::before{
     radial-gradient(1000px 700px at 75% 10%, rgba(229,57,53,.30), transparent 60%);
 }
 
-/* Mobile safety */
 @media (max-width: 900px){
   body.bgTexture{ background-attachment: scroll !important; }
   body.bgTexture::before{ position:absolute; }
