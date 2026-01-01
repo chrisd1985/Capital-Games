@@ -222,16 +222,6 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   margin:18px auto 0;
   padding:0 20px;
 }
-
-.heroInner::before{
-  content:"";
-  position:absolute;inset:0;
-  background:url("./assets/bg-texture.png");
-  background-size:820px 820px;
-  opacity:.24;
-  mix-blend-mode:overlay;
-  pointer-events:none;
-}
 .heroCopy{
   position:relative;
   z-index:2;
@@ -450,10 +440,6 @@ body{
 
 
 /* Home hero uses the main red mock background image */
-
-.heroInner::before{opacity:.18}
-
-
 /* ===== Universal full-screen background (hi-res, no tiling) ===== */
 body.bgTexture{
   background-color:#0e0a0a !important;
@@ -573,30 +559,48 @@ body.bgTexture{
 }
 
 /* Hero background: regenerated no-text image */
-
 @media (max-width: 900px){
   .heroInner{ min-height: 440px; }
 }
 
-/* ===== Hero background transparency (image fades into page bg) ===== */
+/* ===== Hero background blend (fade left/right + bottom into page bg) ===== */
 .heroInner{
   position: relative;
   overflow: hidden;
   min-height: 560px;
 }
+
+/* Render hero image behind text */
 .heroInner::before{
   content:"";
   position:absolute;
   inset:0;
   background: url("./assets/hero-bg.png") 75% 35% / cover no-repeat;
-  opacity: .72; /* adjust transparency here */
-  z-index: 0;
+  opacity: 1;
+  mix-blend-mode: normal;
+
+  z-index:0;
+
+  /* Gradual fade at edges using masks (best effort across browsers) */
+  -webkit-mask-image:
+    radial-gradient(ellipse at 55% 45%, rgba(0,0,0,1) 58%, rgba(0,0,0,0) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0) 100%);
+  -webkit-mask-composite: source-in;
+
+  mask-image:
+    radial-gradient(ellipse at 55% 45%, rgba(0,0,0,1) 58%, rgba(0,0,0,0) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0) 100%);
+  mask-composite: intersect;
 }
-.heroCopy{
-  position: relative;
-  z-index: 1;
-}
+
+/* Ensure text stays on top */
+.heroCopy{ position: relative; z-index:1; }
+
 @media (max-width: 900px){
   .heroInner{ min-height: 440px; }
   .heroInner::before{ background-position: 70% 30%; }
 }
+
+
+/* Force hero image to render without blend/tint */
+.heroInner::before{mix-blend-mode:normal !important;opacity:1 !important;}
