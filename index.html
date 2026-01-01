@@ -8,30 +8,33 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<header>
-  
+<header class="siteHeader">
   <div class="topNav">
     <a href="./shop.html">Shop</a>
-    <a href="./shop.html">Consoles</a>
-    <a href="./shop.html">Games</a>
-    <a href="./shop.html">Accessories</a>
-    <a href="./shop.html">Trading Cards</a>
-    <a href="./shop.html">New Arrivals</a>
+    <a href="./shop.html#cat=Consoles">Consoles</a>
+    <a href="./shop.html#cat=Games">Games</a>
+    <a href="./shop.html#cat=Accessories">Accessories</a>
+    <a href="./shop.html#cat=Trading%20Cards">Trading Cards</a>
+    <a href="./shop.html#new">New Arrivals</a>
   </div>
 
-<div class="bar">
-    <div class="brand">
-      <img src="capitalgames.png" alt="Capital Games logo">
-      <span>Capital Games</span>
+  <div class="headerWrap">
+    <div class="bar headerBar headerBarWide">
+      <div class="brand brandDark">
+        <img class="logoMain" src="./assets/CapitalGamesmain.png" alt="Capital Games">
+      </div>
+
+      <form class="headerSearch" action="./shop.html" method="get">
+        <button class="searchBtn" type="submit" aria-label="Search">🔎</button>
+        <input name="q" type="search" placeholder="Search collectibles, kits, figures..." />
+      </form>
+
+      <div class="headerIcons">
+        <a class="iconBtn" href="./shop.html#featured" title="Featured">★</a>
+        <a class="iconBtn" href="https://www.ebay.ca/usr/capitalgames" target="_blank" rel="noopener" title="eBay Store">e</a>
+      </div>
     </div>
-    <nav>
-      <a href="./index.html">Home</a>
-      <a href="./shop.html">Shop</a>
-      <a href="https://www.ebay.ca/usr/capitalgames" target="_blank">eBay Store</a>
-    </nav>
   </div>
-  </div>
-</div>
 </header>
 <section class="hero">
   <div class="container">
