@@ -222,18 +222,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   margin:18px auto 0;
   padding:0 20px;
 }
-.heroInner{
-  background-color: transparent; /* allow page bg to show */
-  background-image: url("./assets/hero-bg.png");
-  background-size: cover;
-  background-position: 75% 35%;
-  background-repeat: no-repeat;
 
-  /* THIS is the key */
-  background-blend-mode: soft-light;
-
-  min-height: 560px;
-}
 .heroInner::before{
   content:"";
   position:absolute;inset:0;
@@ -461,12 +450,7 @@ body{
 
 
 /* Home hero uses the main red mock background image */
-.heroInner{
-  background:
-    radial-gradient(900px 500px at 18% 30%, rgba(255,255,255,.14), transparent 60%),
-    radial-gradient(800px 500px at 80% 20%, rgba(255,255,255,.10), transparent 60%),
-    url("./assets/hero-bg.png") center / cover no-repeat;
-}
+
 .heroInner::before{opacity:.18}
 
 
@@ -589,10 +573,30 @@ body.bgTexture{
 }
 
 /* Hero background: regenerated no-text image */
+
+@media (max-width: 900px){
+  .heroInner{ min-height: 440px; }
+}
+
+/* ===== Hero background transparency (image fades into page bg) ===== */
 .heroInner{
-  background: url("./assets/hero-bg.png") 75% 35% / cover no-repeat !important;
+  position: relative;
+  overflow: hidden;
   min-height: 560px;
+}
+.heroInner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: url("./assets/hero-bg.png") 75% 35% / cover no-repeat;
+  opacity: .72; /* adjust transparency here */
+  z-index: 0;
+}
+.heroCopy{
+  position: relative;
+  z-index: 1;
 }
 @media (max-width: 900px){
   .heroInner{ min-height: 440px; }
+  .heroInner::before{ background-position: 70% 30%; }
 }
