@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shop | Capital Games</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop | Capital Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
 </head>
-<body class="bgTexture">
-<header class="siteHeader">
+<body>
+<header>
   <div class="topNav">
     <a href="./shop.html">Shop</a>
     <a href="./shop.html#cat=Consoles">Consoles</a>
@@ -18,38 +18,58 @@
     <a href="./shop.html#new">New Arrivals</a>
   </div>
 
-  <div class="headerWrap">
-    <div class="bar headerBar headerBarWide">
-      <div class="brand brandDark">
-        <img class="logoMain" src="./assets/CapitalGamesmain.png" alt="Capital Games">
-      </div>
-
-      <form class="headerSearch" action="./shop.html" method="get">
-        <button class="searchBtn" type="submit" aria-label="Search">🔎</button>
-        <input name="q" type="search" placeholder="Search collectibles, kits, figures..." />
-      </form>
-
-      <div class="headerIcons">
-        <a class="iconBtn" href="./shop.html#featured" title="Featured">★</a>
-        <a class="iconBtn" href="https://www.ebay.ca/usr/capitalgames" target="_blank" rel="noopener" title="eBay Store">e</a>
-      </div>
+<div class="bar">
+    <div class="brand">
+      <img class="logoMain" class="logoMain" src="./assets/CapitalGamesmain.png" alt="Capital Games">
     </div>
+    <nav>
+      <a href="./index.html">Home</a>
+      <a href="./shop.html">Shop</a>
+      <a href="https://www.ebay.ca/usr/capitalgames" target="_blank" rel="noopener">eBay Store</a>
+    </nav>
+</div>
   </div>
 </header>
+
 <div class="container">
-  <h1>Shop</h1>
+  <h1 style="margin:0 0 8px;font-size:2.2rem;">Shop</h1>
+  <p style="color:var(--muted);margin:0 0 18px;max-width:860px;">
+    Click a <strong>Category</strong> to filter. Themes appear directly underneath. Click a <strong>Theme</strong> to filter further, then choose a <strong>Type</strong>.
+  </p>
+
   <div class="layout">
     <aside class="panel">
-      <a class="pill active" href="#" data-quick="all">All Items <span id="countAll"></span></a>
-      <a class="pill" href="#" data-quick="featured">Featured Only <span id="countFeatured"></span></a>
-      <div id="filterTree"></div>
+      <h3>Browse</h3>
+      <div style="margin:10px 0 14px;">
+        <a class="pill active" href="#" data-quick="all"><span>All Items</span><span class="smallcount" id="countAll">0</span></a>
+        <a class="pill" href="#" data-quick="featured"><span>Featured Only</span><span class="smallcount" id="countFeatured">0</span></a>
+      </div>
+      <div class="divider"></div>
+      <div id="sidebarTree" class="treeGroup"></div>
     </aside>
+
     <main>
-      <div id="resultCount"></div>
+      <div class="searchRow">
+        <input id="q" type="search" placeholder="Search titles..." />
+        <select id="sort">
+          <option value="az">Sort: A–Z</option>
+          <option value="za">Sort: Z–A</option>
+          <option value="featured">Sort: Featured First</option>
+        </select>
+      </div>
+      <div id="resultCount" class="count"></div>
       <div id="shopGrid" class="grid"></div>
     </main>
   </div>
 </div>
+
+<footer>
+  <div class="foot">
+    <div>© Capital Games</div>
+    <div>All purchases are completed through eBay for buyer protection.</div>
+  </div>
+</footer>
+
 <script src="./products.js"></script>
 <script src="./app.js"></script>
 <script>CG_initShop();</script>
