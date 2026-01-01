@@ -1,175 +1,68 @@
-:root{
-  --bg:#f6f7f9;
-  --card:#fff;
-  --text:#111;
-  --muted:#555;
-  --red:#c62828;
-  --red2:#e53935;
-  --border:#e2e5ea;
-}
-
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-a{color:inherit;text-decoration:none}
-
-/* Header */
-header{background:var(--red)}
-.bar{
-  max-width:1300px;
-  margin:auto;
-  padding:18px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  color:#fff;
-  font-weight:800;
-}
-.brand img{height:42px}
-nav a{color:#fff;margin-left:18px;font-weight:700}
-nav a:hover{text-decoration:underline}
-
-/* Shared layout */
+body{margin:0;font-family:Inter,Arial,sans-serif;background:#f6f7f9;color:#111}
+.bar{max-width:1300px;margin:auto;padding:18px 20px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:800}
+header{background:#c62828}
+.hero{background:#fff;padding:80px 20px}
 .container{max-width:1300px;margin:auto;padding:40px 20px}
-
-/* Hero (Home) */
-.hero{
-  position:relative;
-background:#fff;padding:80px 20px}
-.hero .container{padding:0 20px}
-.hero h1{margin:0 0 10px;font-size:2.4rem}
-.hero p{margin:0 0 18px;color:var(--muted);max-width:760px}
-.cta{
-  display:inline-block;
-  background:var(--red);
-  color:#fff;
-  padding:12px 18px;
-  border-radius:10px;
-  font-weight:800;
-}
-.cta:hover{background:var(--red2)}
-
-/* Grid / Cards */
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-@media(max-width:1200px){.grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid #ddd}
 
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  overflow:hidden;
-  transition:transform .15s ease,box-shadow .15s ease;
-}
-.card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.12)}
-.card img{width:100%;height:220px;object-fit:contain;background:#fafafa}
-.card-body{padding:14px}
-.title{font-weight:800;font-size:1rem;line-height:1.25;margin:0 0 12px}
-.btn{
-  display:inline-block;
-  border:1px solid var(--red);
-  color:var(--red);
-  padding:8px 12px;
-  border-radius:10px;
+/* ===== Two-tier header restored ===== */
+.topNav{
+  width:100%;
+  margin:0;
+  padding:10px 20px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  background:rgba(48,49,54,.92);
+  color:rgba(255,255,255,.95);
+  border-bottom:1px solid rgba(255,255,255,.12);
   font-weight:800;
   font-size:.9rem;
 }
-.btn:hover{background:var(--red);color:#fff}
-.badge{
-  display:inline-block;
-  margin-left:8px;
-  background:#111;
-  color:#fff;
-  border-radius:999px;
-  padding:2px 8px;
-  font-size:.75rem;
-  font-weight:800;
+.topNav a{opacity:.92}
+.topNav a:hover{opacity:1;text-decoration:underline}
+
+.headerWrap{
+  width:100%;
+  padding:10px 0 12px;
+  background:
+    radial-gradient(1100px 260px at 15% 0%, rgba(255,255,255,.55), transparent 65%),
+    rgba(245, 232, 210, .92);
+  border-bottom:1px solid rgba(0,0,0,.08);
+  backdrop-filter: blur(6px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.55),
+    inset 0 -1px 0 rgba(0,0,0,.08);
 }
 
-/* Shop layout + filters */
-.layout{display:grid;grid-template-columns:320px 1fr;gap:26px;align-items:start}
-@media(max-width:980px){.layout{grid-template-columns:1fr}}
-.panel{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px}
-.searchRow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-input[type="search"]{flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--border);border-radius:12px}
-select{padding:10px 12px;border:1px solid var(--border);border-radius:12px}
-.count{color:var(--muted);font-size:.9rem;margin:0 0 12px}
-.smallcount{
-  font-size:.8rem;
-  color:var(--muted);
-  background:#f2f3f6;
-  border:1px solid var(--border);
-  padding:2px 8px;
-  border-radius:999px;
-}
-.divider{height:1px;background:var(--border);margin:14px 0}
-
-/* Pills + nested tree formatting */
-.pill{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:8px 10px;
-  border-radius:12px;
-  border:1px solid transparent;
-  color:#111;
-  font-weight:700;
-}
-.pill:hover{background:#fafafa;border-color:var(--border)}
-.pill.active{border-color:var(--red);background:#fff5f5}
-.pill.sub,.pill.sub2{font-weight:600}
-
-.treeGroup{display:flex;flex-direction:column;gap:6px}
-.treeBlock{margin-top:6px;display:flex;flex-direction:column;gap:6px}
-.treeIndent{margin-left:14px;border-left:2px solid var(--border);padding-left:12px}
-.treeIndent2{margin-left:28px;border-left:2px solid var(--border);padding-left:12px}
-
-/* Footer */
-footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
-.foot{
+.headerBarWide{
+  width:100%;
   max-width:1300px;
-  margin:auto;
-  padding:26px 20px;
-  color:var(--muted);
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:12px;
+  margin:0 auto;
+  border-radius:0;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  padding:0 20px;
 }
 
-/* ===== Logo + Hero updates (restore package) ===== */
-.brand img{
+.brand img, .logoMain{
   height:120px;
   width:auto;
   display:block;
 }
-.brand span{display:none;} /* use the logo text inside the image */
-.hero{
-  background-image: url('./assets/hero-banner.png');
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
-  color:#fff;
+
+/* Keep search visible */
+.headerSearch{ display:flex; }
+
+/* ===== Hero height boost ===== */
+.hero, .heroCard{
+  min-height: 560px; /* roughly double typical 260-300px hero */
 }
-.hero p{color:rgba(255,255,255,.92);}
-.hero h1{text-shadow:0 2px 10px rgba(0,0,0,.35);}
-.hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background: linear-gradient(90deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.20) 45%, rgba(0,0,0,0) 75%);
-  pointer-events:none;
+@media (max-width: 900px){
+  .hero, .heroCard{ min-height: 440px; }
 }
-.hero-inner{position:relative; z-index:1;}
