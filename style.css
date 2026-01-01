@@ -457,7 +457,7 @@ body{
 }
 
 
-.logoMain{height:28px;width:auto;display:block}
+.logoMain{height:36px;width:auto;display:block}
 
 
 /* Home hero uses the main red mock background image */
@@ -583,7 +583,7 @@ body.bgTexture::before{
 
 /* ===== Logo sizing (Option A) ===== */
 .logoMain{
-  height: 38px;
+  height: 56px;
   width: auto;
   display:block;
 }
@@ -595,37 +595,12 @@ body.bgTexture::before{
   width: auto !important;
 }
 
-/* =========================================================
-   Header polish (requested tweaks)
-   - Search bar matches icon button height
-   - HeaderWrap padding + subtle inner shadow
-   - Keep search visible on mobile
-   ========================================================= */
 
-/* The icon buttons are 38x38 (wishlist/cart placeholders). */
-.headerSearch{
-  height: 38px !important;
-  padding: 0 12px !important;   /* smaller/tighter */
-  border-radius: 999px !important;
-  align-items: center !important;
+/* ===== Hero background image (auto) ===== */
+.hero, .heroCard{
+  background-image: var(--hero-image) !important;
+  background-size: cover !important;
+  background-position: center right !important;
+  background-repeat: no-repeat !important;
 }
 
-.headerSearch input{
-  height: 100% !important;
-  line-height: 38px !important;
-  padding: 0 !important;
-  font-size: .92rem !important;
-}
-
-/* Light banner spacing + inner shadow */
-.headerWrap{
-  padding: 10px 0 12px !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.55),
-    inset 0 -1px 0 rgba(0,0,0,.08) !important;
-}
-
-/* If any earlier rules hide search on smaller screens, force it back on */
-@media (max-width: 900px){
-  .headerSearch{ display:flex !important; }
-}
