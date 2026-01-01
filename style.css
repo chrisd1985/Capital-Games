@@ -604,3 +604,15 @@ body.bgTexture::before{
   background-repeat: no-repeat !important;
 }
 
+/* ===== Fixes: heroMock + high-res logo ===== */
+.heroMock{
+  background-image: var(--hero-image) !important;
+  background-size: cover !important;
+  background-position: center right !important;
+  background-repeat: no-repeat !important;
+}
+.logoMain{
+  height: 120px;
+  width: auto;
+  image-rendering: auto;
+}
