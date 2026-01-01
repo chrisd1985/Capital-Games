@@ -230,7 +230,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   background-repeat: no-repeat;
 
   /* THIS is the key */
-  background-blend-mode: multiply;
+  background-blend-mode: soft-light;
 
   min-height: 560px;
 }
