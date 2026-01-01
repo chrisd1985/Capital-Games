@@ -532,7 +532,7 @@ body.bgTexture::before{
 /* Full-width light banner */
 .headerWrap{
   width:100%;
-  padding:10px 0 10px;
+  padding:6px 0 6px;
   background:
     radial-gradient(1100px 260px at 15% 0%, rgba(255,255,255,.55), transparent 65%),
     rgba(245, 232, 210, .92);
@@ -583,7 +583,7 @@ body.bgTexture::before{
 
 /* ===== Logo sizing (Option A) ===== */
 .logoMain{
-  height: 94px;
+  height: 68px;
   width: auto;
   display:block;
 }
