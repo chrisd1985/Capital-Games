@@ -704,3 +704,7 @@ body.bgTexture::before{
 .heroCopy p{
   text-shadow: 0 2px 14px rgba(0,0,0,.45);
 }
+
+
+/* Ensure hero bg focuses on the right side (no baked text) */
+.heroInner{background-position: 75% 35% !important;}
