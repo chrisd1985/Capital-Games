@@ -222,18 +222,6 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   margin:18px auto 0;
   padding:0 20px;
 }
-.heroInner{
-  position:relative;
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.22);
-  background:
-    radial-gradient(900px 500px at 18% 30%, rgba(255,255,255,.16), transparent 60%),
-    radial-gradient(800px 500px at 80% 20%, rgba(255,255,255,.10), transparent 60%),
-    rgba(20,10,12,.55);
-  box-shadow:0 14px 32px rgba(0,0,0,.28);
-  min-height:520px;
-}
 .heroInner::before{
   content:"";
   position:absolute;inset:0;
@@ -461,12 +449,6 @@ body{
 
 
 /* Home hero uses the main red mock background image */
-.heroInner{
-  background:
-    radial-gradient(900px 500px at 18% 30%, rgba(255,255,255,.14), transparent 60%),
-    radial-gradient(800px 500px at 80% 20%, rgba(255,255,255,.10), transparent 60%),
-    url("./assets/hero-bg.png") center / cover no-repeat;
-}
 .heroInner::before{opacity:.18}
 
 
@@ -708,3 +690,7 @@ body.bgTexture::before{
 
 /* Ensure hero bg focuses on the right side (no baked text) */
 .heroInner{background-position: 75% 35% !important;}
+
+
+/* Hero background (no text image) */
+.heroInner{background: url("./assets/hero-bg.png") 75% 35% / cover no-repeat;}
