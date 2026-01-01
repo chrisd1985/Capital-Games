@@ -587,3 +587,10 @@ body.bgTexture::before{
   width: auto;
   display:block;
 }
+
+
+/* ===== Fix: override .brand img height ===== */
+.brand img.logoMain{
+  height: 120px !important;
+  width: auto !important;
+}
