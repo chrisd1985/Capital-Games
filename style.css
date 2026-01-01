@@ -583,7 +583,7 @@ body.bgTexture::before{
 
 /* ===== Logo sizing (Option A) ===== */
 .logoMain{
-  height: 42px;
+  height: 38px;
   width: auto;
   display:block;
 }
