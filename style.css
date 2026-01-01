@@ -694,3 +694,13 @@ body.bgTexture::before{
 @media (max-width: 900px){
   .heroInner{ min-height: 440px; }
 }
+
+/* ===== Hero headline polish (remove duplication; keep size) ===== */
+.heroCopy h1{
+  font-weight: 900;
+  text-shadow: 0 2px 18px rgba(0,0,0,.55);
+  letter-spacing: .01em;
+}
+.heroCopy p{
+  text-shadow: 0 2px 14px rgba(0,0,0,.45);
+}
