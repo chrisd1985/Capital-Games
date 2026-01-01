@@ -223,16 +223,16 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   padding:0 20px;
 }
 .heroInner{
-  position:relative;
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.22);
-  background:
-    radial-gradient(900px 500px at 18% 30%, rgba(255,255,255,.16), transparent 60%),
-    radial-gradient(800px 500px at 80% 20%, rgba(255,255,255,.10), transparent 60%),
-    rgba(20,10,12,.55);
-  box-shadow:0 14px 32px rgba(0,0,0,.28);
-  min-height:520px;
+  background-color: transparent; /* allow page bg to show */
+  background-image: url("./assets/hero-bg.png");
+  background-size: cover;
+  background-position: 75% 35%;
+  background-repeat: no-repeat;
+
+  /* THIS is the key */
+  background-blend-mode: multiply;
+
+  min-height: 560px;
 }
 .heroInner::before{
   content:"";
