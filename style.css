@@ -467,7 +467,7 @@ body.bgTexture::before{
   pointer-events:none;
   z-index:-1;
   background:
-    radial-gradient(ellipse at 44% 44%, rgba(0,0,0,1) 42%, rgba(0,0,0,0) 100%), transparent 60%),
+    radial-gradient(ellipse at 48% 44%, rgba(0,0,0,1) 38%, rgba(0,0,0,0) 100%), transparent 60%),
     radial-gradient(1000px 700px at 75% 10%, rgba(229,57,53,.30), transparent 60%);
 }
 
@@ -663,7 +663,7 @@ body.bgTexture{
 
 /* ===== Hero height increase (full-size test) ===== */
 .heroInner{
-  min-height: 720px; /* was ~560px */
+  min-height: 690px; /* was ~560px */
 }
 
 @media (max-width: 900px){
