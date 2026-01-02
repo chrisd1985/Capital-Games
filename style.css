@@ -575,7 +575,7 @@ body.bgTexture{
   content:"";
   position:absolute;
   inset:0;
-  background: url("./assets/hero-bg.png") 75% 35% / cover no-repeat;
+  background: url("./assets/hero-bg.png") right top / cover no-repeat;
   opacity: 1;
   mix-blend-mode: normal;
 
