@@ -649,3 +649,14 @@ body.bgTexture{
   .heroInner{ min-height: 440px; }
   .heroInner::before{ background-position: right 12% top; }
 }
+
+/* ===== Fix: hero should not sit behind header ===== */
+.siteHeader{ position: relative; z-index: 100; }
+.siteHeader .topNav{ position: relative; z-index: 110; }
+.siteHeader .headerWrap{ position: relative; z-index: 105; }
+
+.heroMock, .hero{ position: relative; z-index: 1; }
+
+/* Keep hero background behind hero text ONLY */
+.heroInner{ position: relative; z-index: 0; }
+.heroInner::before{ z-index: -1 !important; }
