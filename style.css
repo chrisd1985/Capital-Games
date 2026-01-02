@@ -604,3 +604,25 @@ body.bgTexture{
 
 /* Force hero image to render without blend/tint */
 .heroInner::before{mix-blend-mode:normal !important;opacity:1 !important;}
+
+/* =========================================================
+   Layout fixes requested
+   ========================================================= */
+
+/* 1) Force charcoal top header to full viewport width */
+.siteHeader,
+.siteHeader .topNav{
+  width: 100vw;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* 2) Remove gap between header and hero */
+.headerWrap{
+  margin-bottom: 0 !important;
+}
+.heroMock,
+.hero{
+  margin-top: 0 !important;
+}
