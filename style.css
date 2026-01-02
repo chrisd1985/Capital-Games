@@ -660,3 +660,14 @@ body.bgTexture{
 /* Keep hero background behind hero text ONLY */
 .heroInner{ position: relative; z-index: 0; }
 .heroInner::before{ z-index: -1 !important; }
+
+/* ===== Hero height increase (full-size test) ===== */
+.heroInner{
+  min-height: 780px; /* was ~560px */
+}
+
+@media (max-width: 900px){
+  .heroInner{
+    min-height: 520px;
+  }
+}
