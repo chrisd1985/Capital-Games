@@ -184,7 +184,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 
 .headerSearch{
   flex:1;
-  max-width:640px;
+  max-width:720px;
   display:flex;
   align-items:center;
   gap:8px;
@@ -192,7 +192,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   border:1px solid rgba(0,0,0,.10);
   border-radius:999px;
   padding:10px 12px;
-  margin:0 16px;
+  margin:0 12px;
 }
 .headerSearch input{
   border:none;
@@ -226,7 +226,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  gap:11px;
+  gap:1px;
   flex-wrap:wrap;
 }
 .headerLinks a{
@@ -250,7 +250,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 }
 
 @media (max-width: 1100px){
-  .headerLinks{gap:10px}
+  .headerLinks{gap:1px}
   .headerLinks a{font-size:.9rem;padding:8px 8px}
 }
 
