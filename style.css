@@ -693,3 +693,14 @@ body.bgTexture{
   object-fit: contain;
   background: #fafafa;
 }
+
+
+/* Featured cards: enforce spacing between price and CTA */
+.featuredGrid .price{
+  display:block;
+  margin-bottom: 14px !important;
+}
+.featuredGrid a.btn{
+  margin-top: 0 !important;
+}
+
