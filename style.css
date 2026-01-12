@@ -320,7 +320,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 .catIcon{
   width:54px;height:54px;
   border-radius:14px;
-  margin: 6px 0 14px;
+  margin: 6px auto 14px;
   display:grid;place-items:center;
   background:rgba(255,255,255,.10);
   border:1px solid rgba(255,255,255,.14);
