@@ -48,7 +48,8 @@
         <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">
         <div class="card-body">
           <p class="title">${escapeHtml(p.title)}<span class="badge">Featured</span></p>
-          <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
+          ${p.price ? `<div class="price">${escapeHtml(p.price)}</div>` : ``}
+      <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
         </div>
       </div>
     `).join('');
