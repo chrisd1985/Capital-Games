@@ -399,9 +399,22 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 }
 
 .siteFooter{
-  background:transparent;
-  border-top:1px solid rgba(255,255,255,.14);
+  background:rgba(48,49,54,.92);
+  border-top:1px solid rgba(255,255,255,.12);
   margin-top:34px;
+}
+
+/* Footer bar matches the top dark header styling */
+.siteFooter .foot{
+  padding:12px 20px;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:rgba(255,255,255,.95);
+  font-weight:800;
+  font-size:.85rem;
+  letter-spacing:.02em;
+  text-transform:uppercase;
 }
 
 /* ===== Typography tuned to match the mockup ===== */
