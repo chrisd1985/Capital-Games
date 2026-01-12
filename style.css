@@ -698,9 +698,17 @@ body.bgTexture{
 /* Featured cards: enforce spacing between price and CTA */
 .featuredGrid .price{
   display:block;
-  margin-bottom: 10px !important;
+  margin-bottom: 14px !important;
 }
 .featuredGrid a.btn{
   margin-top: 0 !important;
 }
 
+
+
+
+/* Center images in WHY CAPITALGAMES info cards */
+.category-card img{
+  display: block;
+  margin: 0 auto;
+}
