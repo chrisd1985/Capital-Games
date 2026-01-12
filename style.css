@@ -494,7 +494,7 @@ body.bgTexture::before{
   color:rgba(255,255,255,.95);
   border-bottom:1px solid rgba(255,255,255,.12);
   font-weight:800;
-  font-size:.9rem;
+  font-size:.8rem;
   letter-spacing:.02em;
   text-transform:uppercase;
 }
