@@ -429,11 +429,7 @@ body{
   font-weight: 600;
 }
 
-/* Featured card title a bit more like mock */
-.featuredGrid .title{
-  font-weight: 900;
-  letter-spacing: -0.01em;
-}
+
 
 
 .logoMain{height:72px;width:auto;display:block}
@@ -679,22 +675,21 @@ body.bgTexture{
 
 
 
-/* Featured cards: rounded corners + soft feather into background (safe) */
+/* Featured cards: restore original height + subtle shadow (stable) */
 .featuredGrid .card{
-  border-radius: 18px;
-  overflow: hidden; /* ensures image corners are clean */
-  position: relative;
-
-  /* Feather + elevation */
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card);
   box-shadow:
-    0 0 0 1px rgba(0,0,0,0.06),
-    0 0 22px 10px rgba(246,247,249,0.85),
-    0 12px 28px rgba(0,0,0,0.08);
+    0 2px 6px rgba(0,0,0,0.06),
+    0 10px 24px rgba(0,0,0,0.08);
 }
 
-/* Prevent top-edge image chop */
+/* Keep featured card images consistent (prevents stretching) */
 .featuredGrid .card > img{
   display: block;
   width: 100%;
-  height: auto;
+  height: 220px;
+  object-fit: contain;
+  background: #fafafa;
 }
