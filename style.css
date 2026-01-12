@@ -226,7 +226,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  gap:14px;
+  gap:11px;
   flex-wrap:wrap;
 }
 .headerLinks a{
