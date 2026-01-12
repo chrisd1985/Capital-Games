@@ -676,3 +676,26 @@ body.bgTexture{
       );
   }
 }
+
+
+
+/* Featured card edge fade (non-destructive) */
+.featuredGrid .card {
+  position: relative;
+  overflow: visible; /* do NOT clip content */
+}
+
+.featuredGrid .card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,255,255,0) 60%,
+      rgba(255,255,255,0.45) 100%
+    );
+  mix-blend-mode: soft-light;
+}
