@@ -527,7 +527,7 @@ body.bgTexture::before{
 }
 
 /* Logo size */
-.logoMain{height:72px;width:auto;display:block}
+.logoMain{height:82px;width:auto;display:block}
 
 /* Search bar matches icon button height */
 .headerSearch{
