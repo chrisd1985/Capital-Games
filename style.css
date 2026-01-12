@@ -22,7 +22,7 @@ header{background:var(--red)}
 .bar{
   max-width:1300px;
   margin:auto;
-  padding:18px 20px;
+  padding: 10px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -35,7 +35,7 @@ header{background:var(--red)}
   color:#fff;
   font-weight:800;
 }
-.brand img{height:42px}
+.brand img{width:auto;display:block}
 nav a{color:#fff;margin-left:18px;font-weight:700}
 nav a:hover{text-decoration:underline}
 
@@ -434,11 +434,6 @@ body{
   font-weight: 900;
   letter-spacing: -0.01em;
 }
-
-
-.logoMain{height:36px;width:auto;display:block}
-
-
 /* Home hero uses the main red mock background image */
 /* ===== Universal full-screen background (hi-res, no tiling) ===== */
 body.bgTexture{
@@ -527,7 +522,7 @@ body.bgTexture::before{
 }
 
 /* Logo size */
-.logoMain{ height:120px; width:auto; display:block; }
+.logoMain{ height:72px; width:auto; display:block; }
 
 /* Search bar matches icon button height */
 .headerSearch{
