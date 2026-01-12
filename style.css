@@ -679,40 +679,22 @@ body.bgTexture{
 
 
 
-.featuredGrid .card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(255,255,255,0) 60%,
-      rgba(255,255,255,0.45) 100%
-    );
-  mix-blend-mode: soft-light;
-}
-
-
-
-/* Featured card edge fade (non-destructive, visible) */
+/* Featured cards: rounded corners + soft feather into background (safe) */
 .featuredGrid .card{
+  border-radius: 18px;
+  overflow: hidden; /* ensures image corners are clean */
   position: relative;
-  overflow: visible; /* do NOT clip content */
+
+  /* Feather + elevation */
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.06),
+    0 0 22px 10px rgba(246,247,249,0.85),
+    0 12px 28px rgba(0,0,0,0.08);
 }
 
-/* Soft vignette that blends card edges into the page background */
-.featuredGrid .card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  border-radius: inherit;
-  /* Fade from transparent center to the page background at the edges */
-  background: radial-gradient(ellipse at center,
-    rgba(246,247,249,0) 55%,
-    var(--bg) 100%
-  );
-  opacity: .95;
+/* Prevent top-edge image chop */
+.featuredGrid .card > img{
+  display: block;
+  width: 100%;
+  height: auto;
 }
