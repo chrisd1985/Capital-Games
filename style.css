@@ -705,20 +705,9 @@ body.bgTexture{
 }
 
 
-/* WHY CAPITALGAMES section: make category cards informational (no link behavior) */
-.catCard[data-link-removed="true"]{
-  cursor: default;
-  text-decoration: none;
-}
-
-.catCard[data-link-removed="true"]:hover{
-  transform: none;
-  box-shadow: none;
-}
-
-/* If cards use images, keep them centered */
+/* WHY CAPITALGAMES: center images inside the info cards */
 .catCard img{
-  display: block;
-  margin: 0 auto;
+  display:block;
+  margin:0 auto;
 }
 
