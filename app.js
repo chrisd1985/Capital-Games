@@ -49,7 +49,8 @@
         <div class="card-body">
           <p class="title">${escapeHtml(p.title)}<span class="badge">Featured</span></p>
           ${p.price ? `<div class="price">${escapeHtml(p.price)}</div>` : ``}
-      <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
+          
+          <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
         </div>
       </div>
     `).join('');
