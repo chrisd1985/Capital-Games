@@ -221,6 +221,40 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 }
 .iconBtn:hover{border-color:rgba(0,0,0,.25)}
 
+/* Header text links (Home page light header) */
+.headerLinks{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.headerLinks a{
+  color:#111;
+  font-weight:800;
+  font-size:.95rem;
+  text-decoration:none;
+  padding:9px 10px;
+  border-radius:12px;
+  letter-spacing:.01em;
+  text-transform:uppercase;
+  opacity:.92;
+}
+.headerLinks a:hover{
+  background:rgba(0,0,0,.06);
+  opacity:1;
+}
+.headerLinks a[aria-current="page"]{
+  background:rgba(0,0,0,.10);
+  opacity:1;
+}
+
+@media (max-width: 1100px){
+  .headerLinks{gap:10px}
+  .headerLinks a{font-size:.9rem;padding:8px 8px}
+}
+
+
 .heroMock{
   max-width:1300px;
   margin:18px auto 0;
