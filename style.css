@@ -406,15 +406,58 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 
 /* Footer bar matches the top dark header styling */
 .siteFooter .foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
   padding:12px 20px;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
   color:rgba(255,255,255,.95);
   font-weight:800;
-  font-size:.85rem;
+  font-size:.45rem;
   letter-spacing:.02em;
   text-transform:uppercase;
+}
+.siteFooter .footLeft{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  text-align:left;
+  gap:2px;
+}
+.siteFooter .footRight{
+  display:flex;
+  justify-content:flex-end;
+  flex:0 0 auto;
+}
+.siteFooter .footSitemap{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  text-align:right;
+}
+.siteFooter .footSitemap a{
+  color:rgba(255,255,255,.95);
+  text-decoration:none;
+  font-weight:800;
+  border-bottom:1px solid rgba(255,255,255,.22);
+}
+.siteFooter .footSitemap a:hover{
+  border-bottom-color:rgba(255,255,255,.55);
+}
+@media (max-width:700px){
+  .siteFooter .foot{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .siteFooter .footRight{
+    justify-content:flex-start;
+  }
+  .siteFooter .footSitemap{
+    justify-content:flex-start;
+    text-align:left;
+  }
 }
 
 /* ===== Typography tuned to match the mockup ===== */
