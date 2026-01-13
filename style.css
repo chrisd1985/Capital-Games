@@ -470,14 +470,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
     text-align:left;
   }
 }
-  .siteFooter .footRight{
-    justify-content:flex-start;
-  }
-  .siteFooter .footSitemap{
-    justify-content:flex-start;
-    text-align:left;
-  }
-}
+
 
 /* ===== Typography tuned to match the mockup ===== */
 :root{
