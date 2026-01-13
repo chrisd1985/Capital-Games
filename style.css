@@ -871,3 +871,49 @@ body.bgTexture{
   margin-top: 0 !important;
 }
 
+
+
+/* ===== Footer layout tweak: keep left copy + note together at bottom-left, right links/buttons bottom-right ===== */
+.siteFooter .foot{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.siteFooter .footRowMain{
+  display:flex;
+  width:100%;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.siteFooter .footLeft{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  gap:2px;
+  min-width:220px;
+}
+
+.siteFooter .footRight{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:flex-end;
+  gap:6px;
+}
+
+@media (max-width:700px){
+  .siteFooter .footRowMain{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .siteFooter .footRight{
+    align-items:flex-start;
+  }
+}
