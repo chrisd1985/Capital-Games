@@ -1006,3 +1006,90 @@ body.bgTexture{
   z-index: 1 !important;
 }
 
+@media (max-width: 900px){
+  .heroInner{ min-height: 440px !important; }
+  .heroInner::before{ background-position: 0 0, 70% 30% !important; }
+}
+
+@media (max-width: 600px){
+  .heroInner{ min-height: 420px !important; }
+}
+
+
+/* =========================================================
+   HERO TRANSPARENCY RESTORE (matches original “fade” look)
+   - Uses a masked image layer so edges/bottom fade to transparent
+   - Avoids relying on the heroInner background itself
+   ========================================================= */
+
+/* Make hero a stable stacking context */
+.heroInner{
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 690px !important;
+  background: none !important;
+}
+
+/* Masked hero image layer + readability gradient */
+.heroInner::before{
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+
+  /* Gradient overlay (left side darker for text) + image */
+  background:
+    linear-gradient(to right,
+      rgba(0,0,0,0.62) 0%,
+      rgba(0,0,0,0.30) 44%,
+      rgba(0,0,0,0.00) 76%
+    ),
+    url("./assets/hero-bg.png");
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 100%, cover;
+  background-position: 0 0, right top;
+
+  /* Edge + bottom fade (the “transparency” effect) */
+  -webkit-mask-image:
+    linear-gradient(to right,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,1) 24%,
+      rgba(0,0,0,1) 88%,
+      rgba(0,0,0,0) 100%
+    ),
+    linear-gradient(to bottom,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,1) 82%,
+      rgba(0,0,0,0) 100%
+    ) !important;
+  -webkit-mask-composite: source-in !important;
+
+  mask-image:
+    linear-gradient(to right,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,1) 24%,
+      rgba(0,0,0,1) 88%,
+      rgba(0,0,0,0) 100%
+    ),
+    linear-gradient(to bottom,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,1) 82%,
+      rgba(0,0,0,0) 100%
+    ) !important;
+  mask-composite: intersect !important;
+}
+
+/* Disable the alternate bottom-fade pseudo-element from earlier blocks */
+.heroInner::after{
+  content: none !important;
+}
+
+/* Copy always on top */
+.heroCopy{
+  position: relative !important;
+  z-index: 1 !important;
+}
+
