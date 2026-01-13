@@ -430,34 +430,75 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 
 .siteFooter .footRowBottom{
   justify-content:space-between;
+  align-items:flex-end;
+  gap:10px;
+}
+
+.siteFooter .footCopy,
+.siteFooter .footNote{
+  line-height:1.25;
+}
+
+/* Right-side footer block (social buttons above sitemap links) */
+.siteFooter .footSitemap{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:6px;
+  margin-left:auto;
+  text-align:right;
+}
+
+.siteFooter .footSocial{
+  display:flex;
+  gap:6px;
   align-items:center;
-  gap:12px;
+  justify-content:flex-end;
   flex-wrap:wrap;
 }
 
-.siteFooter .footNote{
-  text-align:left;
+.siteFooter .socialBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:3px 8px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:999px;
+  color:rgba(255,255,255,.95);
+  text-decoration:none;
+  font-weight:800;
+  line-height:1;
+  user-select:none;
 }
 
-.siteFooter .footSitemap{
+.siteFooter .socialBtn:hover{
+  border-color:rgba(255,255,255,.55);
+}
+
+.siteFooter .socialBtn.isDisabled{
+  opacity:.55;
+  cursor:default;
+}
+
+.siteFooter .footLinks{
   display:flex;
   gap:10px;
   align-items:center;
   justify-content:flex-end;
   flex-wrap:wrap;
-  margin-left:auto;
-  text-align:right;
 }
 
-.siteFooter .footSitemap a{
+.siteFooter .footLinks a{
   color:rgba(255,255,255,.95);
   text-decoration:none;
   font-weight:800;
   border-bottom:1px solid rgba(255,255,255,.22);
 }
-.siteFooter .footSitemap a:hover{
+
+.siteFooter .footLinks a:hover{
   border-bottom-color:rgba(255,255,255,.55);
 }
+
 @media (max-width:700px){
   .siteFooter .footRowBottom{
     flex-direction:column;
@@ -465,10 +506,12 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
     gap:6px;
   }
   .siteFooter .footSitemap{
-    justify-content:flex-start;
+    align-items:flex-start;
     margin-left:0;
     text-align:left;
   }
+  .siteFooter .footSocial{justify-content:flex-start;}
+  .siteFooter .footLinks{justify-content:flex-start;}
 }
 
 
