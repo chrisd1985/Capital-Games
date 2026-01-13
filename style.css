@@ -908,3 +908,42 @@ body.bgTexture{
     align-items:flex-start;
   }
 }
+
+
+/* ===== Hero render fix (safe) ===== */
+.heroInner{
+  background: url("./assets/hero-bg.png") right top / cover no-repeat;
+}
+.heroInner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to right, rgba(0,0,0,.65) 0%, rgba(0,0,0,.35) 38%, rgba(0,0,0,0) 72%);
+  z-index:0;
+  opacity:1;
+  mix-blend-mode:normal;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+  -webkit-mask-composite: initial !important;
+  mask-composite: initial !important;
+}
+
+/* ===== Page header card ===== */
+.pageHeaderCard{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px 18px;
+  margin:0 0 18px;
+}
+.pageTitle{
+  margin:0 0 6px;
+  font-size:2.2rem;
+  color:#111;
+}
+.pageSubtitle{
+  margin:0;
+  color:var(--muted);
+  line-height:1.5;
+  max-width:860px;
+}
