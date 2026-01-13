@@ -22,7 +22,7 @@ header{background:var(--red)}
 .bar{
   max-width:1300px;
   margin:auto;
-  padding:2px 20px;
+  padding:18px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -35,7 +35,7 @@ header{background:var(--red)}
   color:#fff;
   font-weight:800;
 }
-.brand img{width:auto;display:block}
+.brand img{height:42px}
 nav a{color:#fff;margin-left:18px;font-weight:700}
 nav a:hover{text-decoration:underline}
 
@@ -158,7 +158,6 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   margin:0 auto;
   padding:10px 20px;
   display:flex;
-  justify-content:center;
   gap:18px;
   flex-wrap:wrap;
   color:rgba(255,255,255,.88);
@@ -168,12 +167,9 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 .topNav a{opacity:.9}
 .topNav a:hover{opacity:1;text-decoration:underline}
 
-.topNoticeLink{opacity:1; text-decoration:none;}
-.topNoticeLink:hover{text-decoration:underline;}
-
 .headerBar{
   margin:0 auto;
-  padding:2px 20px;
+  padding:16px 20px 18px;
   background:rgba(255,255,255,.88);
   border-radius:18px;
   border:1px solid rgba(255,255,255,.55);
@@ -184,7 +180,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 
 .headerSearch{
   flex:1;
-  max-width:720px;
+  max-width:640px;
   display:flex;
   align-items:center;
   gap:8px;
@@ -192,7 +188,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   border:1px solid rgba(0,0,0,.10);
   border-radius:999px;
   padding:10px 12px;
-  margin:0 12px;
+  margin:0 16px;
 }
 .headerSearch input{
   border:none;
@@ -220,40 +216,6 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   color:#111;
 }
 .iconBtn:hover{border-color:rgba(0,0,0,.25)}
-
-/* Header text links (Home page light header) */
-.headerLinks{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:1px;
-  flex-wrap:wrap;
-}
-.headerLinks a{
-  color:#111;
-  font-weight:800;
-  font-size:.95rem;
-  text-decoration:none;
-  padding:9px 10px;
-  border-radius:12px;
-  letter-spacing:.01em;
-  text-transform:uppercase;
-  opacity:.92;
-}
-.headerLinks a:hover{
-  background:rgba(0,0,0,.06);
-  opacity:1;
-}
-.headerLinks a[aria-current="page"]{
-  background:rgba(0,0,0,.10);
-  opacity:1;
-}
-
-@media (max-width: 1100px){
-  .headerLinks{gap:1px}
-  .headerLinks a{font-size:.9rem;padding:8px 8px}
-}
-
 
 .heroMock{
   max-width:1300px;
@@ -358,7 +320,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 .catIcon{
   width:54px;height:54px;
   border-radius:14px;
-  margin: 6px auto 14px;
+  margin:0 auto 10px;
   display:grid;place-items:center;
   background:rgba(255,255,255,.10);
   border:1px solid rgba(255,255,255,.14);
@@ -399,139 +361,10 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 }
 
 .siteFooter{
-  background:rgba(48,49,54,.92);
-  border-top:1px solid rgba(255,255,255,.12);
+  background:transparent;
+  border-top:1px solid rgba(255,255,255,.14);
   margin-top:34px;
 }
-
-/* Footer bar matches the top dark header styling */
-.siteFooter .foot{
-  display:flex;
-  flex-direction:column;
-  align-items:stretch;
-  gap:6px;
-  padding:12px 20px;
-  color:rgba(255,255,255,.95);
-  font-weight:800;
-  font-size:.45rem;
-  letter-spacing:.02em;
-  text-transform:uppercase;
-}
-
-.siteFooter .footRow{
-  display:flex;
-  width:100%;
-}
-
-.siteFooter .footRowTop{
-  justify-content:flex-start;
-  align-items:center;
-}
-
-.siteFooter .footRowBottom{
-  justify-content:space-between;
-  align-items:flex-end;
-  gap:10px;
-}
-
-.siteFooter .footCopy,
-.siteFooter .footNote{
-  line-height:1.25;
-}
-
-/* Right-side footer block (social buttons above sitemap links) */
-.siteFooter .footSitemap{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:6px;
-  margin-left:auto;
-  text-align:right;
-}
-
-.siteFooter .footSocial{
-  display:flex;
-  gap:6px;
-  align-items:center;
-  justify-content:flex-end;
-  flex-wrap:wrap;
-}
-
-.siteFooter .socialBtn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:3px 8px;
-  border:1px solid rgba(255,255,255,.22);
-  border-radius:999px;
-  color:rgba(255,255,255,.95);
-  text-decoration:none;
-  font-weight:800;
-  line-height:1;
-  user-select:none;
-}
-
-.socialIcon{
-  width:14px;
-  height:14px;
-  display:block;
-}
-
-.srOnly{
-  position:absolute;
-  width:1px;
-  height:1px;
-  padding:0;
-  margin:-1px;
-  overflow:hidden;
-  clip:rect(0,0,0,0);
-  white-space:nowrap;
-  border:0;
-}
-
-.siteFooter .socialBtn:hover{
-  border-color:rgba(255,255,255,.55);
-}
-
-.siteFooter .socialBtn.isDisabled{
-  opacity:.55;
-  cursor:default;
-}
-
-.siteFooter .footLinks{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  justify-content:flex-end;
-  flex-wrap:wrap;
-}
-
-.siteFooter .footLinks a{
-  color:rgba(255,255,255,.95);
-  text-decoration:none;
-  font-weight:800;
-  border-bottom:1px solid rgba(255,255,255,.22);
-}
-
-.siteFooter .footLinks a:hover{
-  border-bottom-color:rgba(255,255,255,.55);
-}
-
-@media (max-width:700px){
-  .siteFooter .footRowBottom{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:6px;
-  }
-  .siteFooter .footSitemap{
-    align-items:flex-start;
-    margin-left:0;
-    text-align:left;
-  }
-  .siteFooter .footSocial{justify-content:flex-end;}
-  .siteFooter .footLinks{justify-content:flex-end;}
-}
-
 
 /* ===== Typography tuned to match the mockup ===== */
 :root{
@@ -596,10 +429,14 @@ body{
   font-weight: 600;
 }
 
+/* Featured card title a bit more like mock */
+.featuredGrid .title{
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
 
 
-
-.logoMain{height:72px;width:auto;display:block}
+.logoMain{height:36px;width:auto;display:block}
 
 
 /* Home hero uses the main red mock background image */
@@ -667,7 +504,7 @@ body.bgTexture::before{
 /* Light banner behind logo/search/icons */
 .headerWrap{
   width:100%;
-  padding:0;
+  padding:10px 0 12px;
   background:
     radial-gradient(1100px 260px at 15% 0%, rgba(255,255,255,.55), transparent 65%),
     rgba(245, 232, 210, .92);
@@ -690,7 +527,7 @@ body.bgTexture::before{
 }
 
 /* Logo size */
-.logoMain{height:72px;width:auto;display:block}
+.logoMain{ height:120px; width:auto; display:block; }
 
 /* Search bar matches icon button height */
 .headerSearch{
@@ -724,8 +561,10 @@ body.bgTexture{
 /* Hero background: regenerated no-text image */
 @media (max-width: 900px){
   .heroInner{ min-height: 440px; }
-  .heroInner::before{ background-position: 70% 30%; }
 }
+
+.heroInner::before{ background-position: 70% 30%; }
+
 /* Force hero image to render without blend/tint */
 .heroInner::before{mix-blend-mode:normal !important;opacity:1 !important;}
 
@@ -752,6 +591,7 @@ body.bgTexture{
 }
 
 .heroInner::before{ background-position: right 10% top; }
+
 /* ===== Fix: hero should not sit behind header ===== */
 .siteHeader{ position: relative; z-index: 100; }
 .siteHeader .topNav{ position: relative; z-index: 110; }
@@ -831,265 +671,80 @@ body.bgTexture{
         rgba(0,0,0,0) 100%
       );
   }
-}
-
-
-
-/* Featured cards: restore original height + subtle shadow (stable) */
-.featuredGrid .card{
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--card);
-  box-shadow:
-    0 2px 6px rgba(0,0,0,0.06),
-    0 10px 24px rgba(0,0,0,0.08);
-}
-
-/* Keep featured card images consistent (prevents stretching) */
-.featuredGrid .card > img{
-  display: block;
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  background: #fafafa;
-}
-
-
-/* Featured cards: enforce spacing between price and CTA */
-.featuredGrid .price{
-  display:block;
-  margin-bottom: 10px !important;
-}
-.featuredGrid a.btn{
-  margin-top: 0 !important;
-}
-
-
-
-/* ===== Footer layout tweak: keep left copy + note together at bottom-left, right links/buttons bottom-right ===== */
-.siteFooter .foot{
-  display:flex;
-  flex-direction:row;
-  justify-content:space-between;
-  align-items:flex-end;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.siteFooter .footRowMain{
-  display:grid;
-  width:100%;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  column-gap:14px;
-  row-gap:6px;
-  align-items:end;
-}
-
-.siteFooter .footLeft{
-  display:contents;
-}
-
-.siteFooter .footRight{
-  display:contents;
-}
-.siteFooter .footCopy{grid-column:1; grid-row:1; text-align:left;}
-.siteFooter .footNote{grid-column:1; grid-row:2; text-align:left; opacity:.95; font-weight:700;}
-.siteFooter .footSocial{grid-column:2; grid-row:1; justify-content:flex-end;}
-.siteFooter .footLinks{grid-column:2; grid-row:2; justify-content:flex-end; text-align:right;}
-
-
-@media (max-width:700px){
-  .siteFooter .footRowMain{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  .siteFooter .footRight{
-    align-items:flex-start;
-  }
-}
-
-
-/* ===== Hero render fix (safe) ===== */
-.heroInner{
-  background: url("./assets/hero-bg.png") right top / cover no-repeat;
-}
-.heroInner::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(to right, rgba(0,0,0,.65) 0%, rgba(0,0,0,.35) 38%, rgba(0,0,0,0) 72%);
-  z-index:0;
-  opacity:1;
-  mix-blend-mode:normal;
-  -webkit-mask-image:none !important;
-  mask-image:none !important;
-  -webkit-mask-composite: initial !important;
-  mask-composite: initial !important;
-}
-
-/* ===== Page header card ===== */
-.pageHeaderCard{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:18px 18px;
-  margin:0 0 18px;
-}
-.pageTitle{
-  margin:0 0 6px;
-  font-size:2.2rem;
-  color:#111;
-}
-.pageSubtitle{
-  margin:0;
-  color:var(--muted);
-  line-height:1.5;
-  max-width:860px;
-}
 
 
 /* =========================================================
-   HERO FINAL (restored transparency + safe stacking)
-   This block overrides earlier hero experiments.
+   FINAL OVERRIDE: Hero edge transparency (no mask-composite)
+   - Side fade is applied on .heroInner (parent mask)
+   - Bottom fade is applied on .heroInner::before (child mask)
+   This recreates the old “transparent edges” look reliably.
    ========================================================= */
+
 .heroInner{
   position: relative !important;
   overflow: hidden !important;
-  background-image: url("./assets/hero-bg.png") !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-position: right top !important;
+  min-height: 690px;
+  /* Side fade (more on LEFT than right) */
+  -webkit-mask-image: linear-gradient(to right,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,1) 26%,
+    rgba(0,0,0,1) 88%,
+    rgba(0,0,0,0) 100%
+  );
+          mask-image: linear-gradient(to right,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,1) 26%,
+    rgba(0,0,0,1) 88%,
+    rgba(0,0,0,0) 100%
+  );
 }
 
-/* Gradient overlay for readability + “transparent” look */
 .heroInner::before{
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
-  pointer-events: none !important;
-  z-index: 0 !important;
+  background: url("./assets/hero-bg.png") right top / cover no-repeat !important;
+
+  /* Ensure hero image is actually visible */
   opacity: 1 !important;
   mix-blend-mode: normal !important;
-  background:
-    linear-gradient(90deg,
-      rgba(0,0,0,0.62) 0%,
-      rgba(0,0,0,0.34) 42%,
-      rgba(0,0,0,0.00) 74%),
-    linear-gradient(180deg,
-      rgba(0,0,0,0.08) 0%,
-      rgba(0,0,0,0.18) 58%,
-      rgba(0,0,0,0.42) 100%) !important;
 
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
-  -webkit-mask-composite: initial !important;
-  mask-composite: initial !important;
-}
-
-/* Bottom fade so the hero blends into the page background */
-.heroInner::after{
-  content: "" !important;
-  position: absolute !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  height: 96px !important;
-  pointer-events: none !important;
+  /* Keep the hero background behind hero text, but NOT behind the whole page */
   z-index: 0 !important;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.00), rgba(0,0,0,0.55)) !important;
+  pointer-events: none !important;
+
+  /* Bottom fade (keeps image solid longer, then fades out) */
+  -webkit-mask-image: linear-gradient(to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 82%,
+    rgba(0,0,0,0) 100%
+  );
+          mask-image: linear-gradient(to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 82%,
+    rgba(0,0,0,0) 100%
+  );
 }
 
-/* Ensure copy is always on top */
+/* Ensure hero text sits above the background */
 .heroCopy{
   position: relative !important;
   z-index: 1 !important;
 }
 
 @media (max-width: 900px){
-  .heroInner{ min-height: 440px !important; }
-  .heroInner::before{ background-position: 0 0, 70% 30% !important; }
-}
-
-@media (max-width: 600px){
-  .heroInner{ min-height: 420px !important; }
-}
-
-
-/* =========================================================
-   HERO TRANSPARENCY RESTORE (matches original “fade” look)
-   - Uses a masked image layer so edges/bottom fade to transparent
-   - Avoids relying on the heroInner background itself
-   ========================================================= */
-
-/* Make hero a stable stacking context */
-.heroInner{
-  position: relative !important;
-  overflow: hidden !important;
-  min-height: 690px !important;
-  background: none !important;
-}
-
-/* Masked hero image layer + readability gradient */
-.heroInner::before{
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  pointer-events: none !important;
-  z-index: 0 !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
-
-  /* Gradient overlay (left side darker for text) + image */
-  background:
-    linear-gradient(to right,
-      rgba(0,0,0,0.62) 0%,
-      rgba(0,0,0,0.30) 44%,
-      rgba(0,0,0,0.00) 76%
-    ),
-    url("./assets/hero-bg.png");
-  background-repeat: no-repeat, no-repeat;
-  background-size: 100% 100%, cover;
-  background-position: 0 0, right top;
-
-  /* Edge + bottom fade (the “transparency” effect) */
-  -webkit-mask-image:
-    linear-gradient(to right,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,1) 24%,
-      rgba(0,0,0,1) 88%,
-      rgba(0,0,0,0) 100%
-    ),
-    linear-gradient(to bottom,
+  .heroInner{ min-height: 460px; }
+  .heroInner::before{
+    background-position: right 10% top !important;
+    -webkit-mask-image: linear-gradient(to bottom,
       rgba(0,0,0,1) 0%,
-      rgba(0,0,0,1) 82%,
+      rgba(0,0,0,1) 85%,
       rgba(0,0,0,0) 100%
-    ) !important;
-  -webkit-mask-composite: source-in !important;
-
-  mask-image:
-    linear-gradient(to right,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,1) 24%,
-      rgba(0,0,0,1) 88%,
-      rgba(0,0,0,0) 100%
-    ),
-    linear-gradient(to bottom,
+    );
+            mask-image: linear-gradient(to bottom,
       rgba(0,0,0,1) 0%,
-      rgba(0,0,0,1) 82%,
+      rgba(0,0,0,1) 85%,
       rgba(0,0,0,0) 100%
-    ) !important;
-  mask-composite: intersect !important;
+    );
+  }
 }
-
-/* Disable the alternate bottom-fade pseudo-element from earlier blocks */
-.heroInner::after{
-  content: none !important;
-}
-
-/* Copy always on top */
-.heroCopy{
-  position: relative !important;
-  z-index: 1 !important;
-}
-
