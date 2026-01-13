@@ -1,92 +1,111 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop | Capital Games</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shop | Capital Games</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="./style.css" rel="stylesheet"/>
 </head>
-<body>
-<header>
-  <div class="topNav">
-    <a class="topNoticeLink" href="./shipping.html">U.S. buyers: We ship via eBay International Shipping (EIS) — click for details.</a>
-  </div>
-
-<div class="bar">
-    <div class="brand">
-      <img class="logoMain" src="./assets/CapitalGamesmain.png" alt="Capital Games">
-    </div>
-        <nav>
-      <a href="./index.html">Home</a>
-      <a href="./shop.html" aria-current="page">Products</a>
-      <a href="https://www.ebay.ca/usr/capitalgames" target="_blank" rel="noopener">eBay</a>
-      <a href="./about.html">About</a>
-      <a href="./contact.html">Contact</a>
-    </nav>
+<body class="bgTexture" id="top"><header class="siteHeader">
+<div class="topNav">
+<a class="topNoticeLink" href="./shipping.html">U.S. buyers: We ship via eBay International Shipping (EIS) — click for details.</a>
+</div>
+<div class="headerWrap">
+<div class="bar headerBar headerBarWide">
+<div class="brand brandDark">
+<img alt="Capital Games" class="logoMain" src="./assets/CapitalGamesmain.png"/>
+</div>
+<div class="headerSearch">
+<input aria-label="Search (placeholder)" placeholder="Search for games or collectibles…" type="search"/>
+<button aria-label="Search (placeholder)" class="searchBtn">
+<svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18">
+<path d="M10 4a6 6 0 104.472 10.01l3.259 3.258 1.414-1.414-3.258-3.259A6 6 0 0010 4zm0 2a4 4 0 110 8 4 4 0 010-8z" fill="currentColor"></path>
+</svg>
+</button>
+</div>
+<nav aria-label="Primary navigation" class="headerLinks">
+<a aria-current="page" href="./index.html">Home</a>
+<a href="./shop.html">Products</a>
+<a href="https://www.ebay.ca/usr/capitalgames" rel="noopener" target="_blank">eBay</a>
+<a href="./about.html">About</a>
+<a href="./contact.html">Contact</a>
+</nav>
+</div>
 </div>
 </header>
-
+<header>
+<div class="topNav">
+<a class="topNoticeLink" href="./shipping.html">U.S. buyers: We ship via eBay International Shipping (EIS) — click for details.</a>
+</div>
+<div class="bar">
+<div class="brand">
+<img alt="Capital Games" class="logoMain" src="./assets/CapitalGamesmain.png"/>
+</div>
+<nav>
+<a href="./index.html">Home</a>
+<a aria-current="page" href="./shop.html">Products</a>
+<a href="https://www.ebay.ca/usr/capitalgames" rel="noopener" target="_blank">eBay</a>
+<a href="./about.html">About</a>
+<a href="./contact.html">Contact</a>
+</nav>
+</div>
+</header>
 <div class="container">
-  <h1 style="margin:0 0 8px;font-size:2.2rem;">Shop</h1>
-  <p style="color:var(--muted);margin:0 0 18px;max-width:860px;">
+<h1 style="margin:0 0 8px;font-size:2.2rem;">Shop</h1>
+<p style="color:var(--muted);margin:0 0 18px;max-width:860px;">
     Click a <strong>Category</strong> to filter. Themes appear directly underneath. Click a <strong>Theme</strong> to filter further, then choose a <strong>Type</strong>.
   </p>
-
-  <div class="layout">
-    <aside class="panel">
-      <h3>Browse</h3>
-      <div style="margin:10px 0 14px;">
-        <a class="pill active" href="#" data-quick="all"><span>All Items</span><span class="smallcount" id="countAll">0</span></a>
-        <a class="pill" href="#" data-quick="featured"><span>Featured Only</span><span class="smallcount" id="countFeatured">0</span></a>
-      </div>
-      <div class="divider"></div>
-      <div id="sidebarTree" class="treeGroup"></div>
-    </aside>
-
-    <main>
-      <div class="searchRow">
-        <input id="q" type="search" placeholder="Search titles..." />
-        <select id="sort">
-          <option value="az">Sort: A–Z</option>
-          <option value="za">Sort: Z–A</option>
-          <option value="featured">Sort: Featured First</option>
-        </select>
-      </div>
-      <div id="resultCount" class="count"></div>
-      <div id="shopGrid" class="grid"></div>
-    </main>
-  </div>
+<div class="layout">
+<aside class="panel">
+<h3>Browse</h3>
+<div style="margin:10px 0 14px;">
+<a class="pill active" data-quick="all" href="#"><span>All Items</span><span class="smallcount" id="countAll">0</span></a>
+<a class="pill" data-quick="featured" href="#"><span>Featured Only</span><span class="smallcount" id="countFeatured">0</span></a>
 </div>
-
+<div class="divider"></div>
+<div class="treeGroup" id="sidebarTree"></div>
+</aside>
+<main>
+<div class="searchRow">
+<input id="q" placeholder="Search titles..." type="search"/>
+<select id="sort">
+<option value="az">Sort: A–Z</option>
+<option value="za">Sort: Z–A</option>
+<option value="featured">Sort: Featured First</option>
+</select>
+</div>
+<div class="count" id="resultCount"></div>
+<div class="grid" id="shopGrid"></div>
+</main>
+</div>
+</div>
 <footer class="siteFooter">
-  <div class="foot">
-    <div class="footRow footRowMain">
-      <div class="footLeft">
-        <div class="footCopy">© 2026 Capital Games</div>
-        <div class="footNote">All purchases are completed through eBay for buyer protection.</div>
-      </div>
-      <div class="footRight">
-        <div class="footSocial">
-          <a class="socialBtn" href="https://www.ebay.ca/usr/capitalgames" target="_blank" rel="noopener noreferrer"><img class="socialIcon" src="./assets/icons/icon-ebay.svg" alt="" aria-hidden="true"/><span class="srOnly">eBay</span></a>
-          <span class="socialBtn isDisabled" aria-disabled="true"><img class="socialIcon" src="./assets/icons/icon-x.svg" alt="" aria-hidden="true"/><span class="srOnly">X</span></span>
-          <span class="socialBtn isDisabled" aria-disabled="true"><img class="socialIcon" src="./assets/icons/icon-instagram.svg" alt="" aria-hidden="true"/><span class="srOnly">Instagram</span></span>
-        </div>
-        <div class="footLinks">
-          <a href="./index.html#top">Home</a>
-          <a href="./shipping.html">Shipping</a>
-          <a href="./about.html">About</a>
-          <a href="./contact.html">Contact</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="foot">
+<div class="footRow footRowMain">
+<div class="footLeft">
+<div class="footCopy">© 2026 CapitalGames</div>
+<div class="footNote">All purchases are completed through eBay for buyer protection.</div>
+</div>
+<div class="footRight">
+<div class="footSocial">
+<a class="socialBtn" href="https://www.ebay.ca/usr/capitalgames" rel="noopener noreferrer" target="_blank"><img alt="" aria-hidden="true" class="socialIcon" src="./assets/icons/icon-ebay.svg"/><span class="srOnly">eBay</span></a>
+<span aria-disabled="true" class="socialBtn isDisabled"><img alt="" aria-hidden="true" class="socialIcon" src="./assets/icons/icon-x.svg"/><span class="srOnly">X</span></span>
+<span aria-disabled="true" class="socialBtn isDisabled"><img alt="" aria-hidden="true" class="socialIcon" src="./assets/icons/icon-instagram.svg"/><span class="srOnly">Instagram</span></span>
+</div>
+<div class="footLinks">
+<a href="#top">Home</a>
+<a href="./shipping.html">Shipping</a>
+<a href="./about.html">About</a>
+<a href="./contact.html">Contact</a>
+</div>
+</div>
+</div>
+</div>
 </footer>
-
-  <script src="products.js"></script>
-  <script src="app.js"></script>
-
-
+<script src="products.js"></script>
+<script src="app.js"></script>
 <script>CG_initShop();</script>
 </body>
 </html>
