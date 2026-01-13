@@ -695,7 +695,7 @@ body.bgTexture{
 
 /* The generic ".brand img" rule is more specific than ".logoMain" — override it */
 .brand img.logoMain{
-  height:120px;
+  height:82px;
   width:auto;
 }
 
@@ -708,7 +708,7 @@ footer.siteFooter{
   border-top:1px solid rgba(255,255,255,.12);
   margin-top:34px;
   color:rgba(255,255,255,.92);
-  font-size:0.45rem;
+  font-size:0.6rem;
 }
 
 footer.siteFooter .foot{
