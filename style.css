@@ -565,6 +565,7 @@ body.bgTexture{
 
 .heroInner::before{ background-position: 70% 30%; }
 
+
 /* Force hero image to render without blend/tint */
 .heroInner::before{mix-blend-mode:normal !important;opacity:1 !important;}
 
@@ -591,6 +592,7 @@ body.bgTexture{
 }
 
 .heroInner::before{ background-position: right 10% top; }
+
 
 /* ===== Fix: hero should not sit behind header ===== */
 .siteHeader{ position: relative; z-index: 100; }
@@ -671,80 +673,143 @@ body.bgTexture{
         rgba(0,0,0,0) 100%
       );
   }
-
+}
 
 /* =========================================================
-   FINAL OVERRIDE: Hero edge transparency (no mask-composite)
-   - Side fade is applied on .heroInner (parent mask)
-   - Bottom fade is applied on .heroInner::before (child mask)
-   This recreates the old “transparent edges” look reliably.
+   FIX: Restore header nav link color + logo sizing
    ========================================================= */
 
-.heroInner{
-  position: relative !important;
-  overflow: hidden !important;
-  min-height: 690px;
-  /* Side fade (more on LEFT than right) */
-  -webkit-mask-image: linear-gradient(to right,
-    rgba(0,0,0,0) 0%,
-    rgba(0,0,0,1) 26%,
-    rgba(0,0,0,1) 88%,
-    rgba(0,0,0,0) 100%
-  );
-          mask-image: linear-gradient(to right,
-    rgba(0,0,0,0) 0%,
-    rgba(0,0,0,1) 26%,
-    rgba(0,0,0,1) 88%,
-    rgba(0,0,0,0) 100%
-  );
+/* Ensure the primary nav links in the light header are dark (not inherited from generic nav styles) */
+.headerWrap .headerLinks a{
+  color:#111 !important;
+  font-weight:800;
 }
 
-.heroInner::before{
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  background: url("./assets/hero-bg.png") right top / cover no-repeat !important;
-
-  /* Ensure hero image is actually visible */
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
-
-  /* Keep the hero background behind hero text, but NOT behind the whole page */
-  z-index: 0 !important;
-  pointer-events: none !important;
-
-  /* Bottom fade (keeps image solid longer, then fades out) */
-  -webkit-mask-image: linear-gradient(to bottom,
-    rgba(0,0,0,1) 0%,
-    rgba(0,0,0,1) 82%,
-    rgba(0,0,0,0) 100%
-  );
-          mask-image: linear-gradient(to bottom,
-    rgba(0,0,0,1) 0%,
-    rgba(0,0,0,1) 82%,
-    rgba(0,0,0,0) 100%
-  );
+/* Keep the 1px gap behavior between header links (requested) */
+.headerLinks{
+  display:flex;
+  align-items:center;
+  gap:1px;
+  flex-wrap:wrap;
 }
 
-/* Ensure hero text sits above the background */
-.heroCopy{
-  position: relative !important;
-  z-index: 1 !important;
+/* The generic ".brand img" rule is more specific than ".logoMain" — override it */
+.brand img.logoMain{
+  height:120px;
+  width:auto;
 }
 
-@media (max-width: 900px){
-  .heroInner{ min-height: 460px; }
-  .heroInner::before{
-    background-position: right 10% top !important;
-    -webkit-mask-image: linear-gradient(to bottom,
-      rgba(0,0,0,1) 0%,
-      rgba(0,0,0,1) 85%,
-      rgba(0,0,0,0) 100%
-    );
-            mask-image: linear-gradient(to bottom,
-      rgba(0,0,0,1) 0%,
-      rgba(0,0,0,1) 85%,
-      rgba(0,0,0,0) 100%
-    );
+/* =========================================================
+   FIX: Restore footer styling + right/left alignment
+   ========================================================= */
+
+footer.siteFooter{
+  background:rgba(48,49,54,.92);
+  border-top:1px solid rgba(255,255,255,.12);
+  margin-top:34px;
+  color:rgba(255,255,255,.92);
+  font-size:0.45rem;
+}
+
+footer.siteFooter .foot{
+  max-width:1300px;
+  margin:0 auto;
+  padding:14px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+/* Main two-column row: left text + right actions */
+footer.siteFooter .footRowMain{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end; /* aligns "All purchases..." with the bottom link row */
+  gap:18px;
+}
+
+/* Left column: copyright on top, purchases line under it */
+footer.siteFooter .footLeft{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  line-height:1.25;
+}
+
+footer.siteFooter .footCopy,
+footer.siteFooter .footNote{
+  color:rgba(255,255,255,.92);
+}
+
+/* Right column: social row above, links row below, aligned to far right */
+footer.siteFooter .footRight{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:6px;
+}
+
+footer.siteFooter .footSocial{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+footer.siteFooter .socialBtn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  background:transparent;
+  color:rgba(255,255,255,.92);
+}
+
+footer.siteFooter .socialBtn:hover{
+  border-color:rgba(255,255,255,.38);
+}
+
+footer.siteFooter .socialBtn.isDisabled{
+  opacity:.55;
+  cursor:default;
+}
+
+footer.siteFooter .socialIcon{
+  width:16px;
+  height:16px;
+  display:block;
+}
+
+footer.siteFooter .footLinks{
+  display:flex;
+  gap:12px;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
+
+footer.siteFooter .footLinks a{
+  color:rgba(255,255,255,.92);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+footer.siteFooter .footLinks a:hover{
+  text-decoration:underline;
+}
+
+/* Mobile stacking */
+@media (max-width: 720px){
+  footer.siteFooter .footRowMain{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  footer.siteFooter .footRight{
+    align-items:flex-start;
+  }
+  footer.siteFooter .footLinks{
+    justify-content:flex-start;
   }
 }
