@@ -504,7 +504,7 @@ body.bgTexture::before{
 /* Light banner behind logo/search/icons */
 .headerWrap{
   width:100%;
-  padding:10px 0 12px;
+  padding:10px auto 12px;
   background:
     radial-gradient(1100px 260px at 15% 0%, rgba(255,255,255,.55), transparent 65%),
     rgba(245, 232, 210, .92);
