@@ -815,3 +815,16 @@ footer.siteFooter .footLinks a:hover{
     justify-content:flex-start;
   }
 }
+
+
+/* ===== Shop page header text: match homepage typography ===== */
+.pageHeaderCard .pageTitle{
+  font-family: var(--font-display);
+  color:#fff;
+}
+.pageHeaderCard .pageSubtitle{
+  font-family: var(--font-body);
+  color:#fff;
+}
+.pageHeaderCard .pageSubtitle strong{ color:#fff; }
+
