@@ -7,7 +7,9 @@
   --red2:#e53935;
   --border:#e2e5ea;
 }
-
+html {
+  font-size: 15px;
+}
 *{box-sizing:border-box}
 body{
   margin:0;
