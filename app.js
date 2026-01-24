@@ -168,7 +168,7 @@
       const endIdx = Math.min(startIdx + per, total);
       const pageItems = items.slice(startIdx, endIdx);
       const path = [state.category, state.theme, state.type].filter(Boolean).join(' → ');
-      elCount.textContent = `${items.length} item${item
+      elCount.textContent = `${items.length} item${items.length===1?'':'s'}${path ? ' • ' + path : ''}`;
     function renderPagination(totalPages){
       if(!elPagination) return;
       if(totalPages <= 1){
@@ -215,7 +215,6 @@
       });
     }
 
-s.length===1?'':'s'} shown${path?` in ${path}`:''}`;
 
       elGrid.innerHTML = pageItems.map(p=>`
         <div class="card">
