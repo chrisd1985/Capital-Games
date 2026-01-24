@@ -817,14 +817,48 @@ footer.siteFooter .footLinks a:hover{
 }
 
 
-/* ===== Shop page header text: match homepage typography ===== */
-.pageHeaderCard .pageTitle{
-  font-family: var(--font-display);
-  color:#fff;
+/* --- Shop controls: sort + items-per-page --- */
+.searchRow select#perPage{
+  min-width: 150px;
 }
-.pageHeaderCard .pageSubtitle{
-  font-family: var(--font-body);
-  color:#fff;
-}
-.pageHeaderCard .pageSubtitle strong{ color:#fff; }
 
+/* --- Card price line --- */
+.card .price{
+  margin-top: 8px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: .95;
+}
+
+/* --- Pagination --- */
+.pagination{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  margin: 22px 0 0;
+  flex-wrap: wrap;
+}
+.pageBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  cursor:pointer;
+  user-select:none;
+}
+.pageBtn:hover{
+  background: rgba(255,255,255,.14);
+}
+.pageBtn[disabled]{
+  opacity:.45;
+  cursor:not-allowed;
+}
+.pageBtn.isActive{
+  background: rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.35);
+}

@@ -58,6 +58,8 @@
 
   window.CG_initShop = function(){
     const elGrid = document.getElementById('shopGrid');
+    const elPerPage = document.getElementById('perPage');
+    const elPagination = document.getElementById('pagination');
     const elCount = document.getElementById('resultCount');
     const elTree = document.getElementById('sidebarTree');
     const elQ = document.getElementById('q');
@@ -67,7 +69,7 @@
 
     if(!elGrid || !elCount || !elTree) return;
 
-    const state = { quick:'all', category:null, theme:null, type:null, q:'', sort:'az' };
+    const state = { quick:'all', category:null, theme:null, type:null, q:'', sort:'az', perPage:'all', page:1 };
 
     if(elCountAll) elCountAll.textContent = String(allProducts.length);
     if(elCountFeatured) elCountFeatured.textContent = String(allProducts.filter(p=>p.featured).length);
@@ -155,14 +157,72 @@
         default: items.sort((a,b)=>a.title.localeCompare(b.title)); break;
       }
 
-      const path = [state.category, state.theme, state.type].filter(Boolean).join(' → ');
-      elCount.textContent = `${items.length} item${items.length===1?'':'s'} shown${path?` in ${path}`:''}`;
 
-      elGrid.innerHTML = items.map(p=>`
+      // Pagination
+      const total = items.length;
+      const per = (state.perPage === 'all') ? total : Math.max(1, parseInt(state.perPage, 10) || 25);
+      const totalPages = (per >= total || total === 0) ? 1 : Math.ceil(total / per);
+      if(state.page > totalPages) state.page = totalPages;
+      if(state.page < 1) state.page = 1;
+      const startIdx = (state.page - 1) * per;
+      const endIdx = Math.min(startIdx + per, total);
+      const pageItems = items.slice(startIdx, endIdx);
+      const path = [state.category, state.theme, state.type].filter(Boolean).join(' → ');
+      elCount.textContent = `${items.length} item${item
+    function renderPagination(totalPages){
+      if(!elPagination) return;
+      if(totalPages <= 1){
+        elPagination.innerHTML = '';
+        return;
+      }
+      const btn = (label, page, disabled=false, active=false) => (
+        `<button class="pageBtn${active?' isActive':''}" ${disabled?'disabled':''} data-page="${page}">${label}</button>`
+      );
+
+      let html = '';
+      html += btn('« First', 1, state.page===1);
+      html += btn('‹ Prev', Math.max(1, state.page-1), state.page===1);
+
+      // windowed page numbers
+      const windowSize = 5;
+      let start = Math.max(1, state.page - Math.floor(windowSize/2));
+      let end = Math.min(totalPages, start + windowSize - 1);
+      start = Math.max(1, end - windowSize + 1);
+
+      for(let p=start; p<=end; p++){
+        html += btn(String(p), p, false, p===state.page);
+      }
+
+      html += btn('Next ›', Math.min(totalPages, state.page+1), state.page===totalPages);
+      html += btn('Last »', totalPages, state.page===totalPages);
+
+      elPagination.innerHTML = html;
+    }
+
+    // Pagination clicks (event delegation)
+    if(elPagination){
+      elPagination.addEventListener('click', (e)=>{
+        const b = e.target.closest('button[data-page]');
+        if(!b) return;
+        const next = parseInt(b.dataset.page, 10);
+        if(!isNaN(next)){
+          state.page = next;
+          applyFilters();
+          // keep results in view
+          const top = document.querySelector('.searchRow');
+          if(top) top.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    }
+
+s.length===1?'':'s'} shown${path?` in ${path}`:''}`;
+
+      elGrid.innerHTML = pageItems.map(p=>`
         <div class="card">
           <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">
           <div class="card-body">
             <p class="title">${escapeHtml(p.title)}${p.featured?'<span class="badge">Featured</span>':''}</p>
+            <p class="price">${escapeHtml(p.price || 'Price on eBay')}</p>
             <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
           </div>
         </div>
@@ -176,6 +236,7 @@
         state.quick = a.dataset.quick || 'all';
         state.category = null; state.theme = null; state.type = null;
         state.q = '';
+        state.page = 1;
         if(elQ) elQ.value = '';
         setActiveQuick(state.quick);
         renderSidebar();
@@ -219,11 +280,22 @@
       }
 
       renderSidebar();
+      state.page = 1;
       applyFilters();
     });
 
     if(elQ) elQ.addEventListener('input', ()=>{ state.q = elQ.value.trim(); applyFilters(); });
-    if(elSort) elSort.addEventListener('change', ()=>{ state.sort = elSort.value; applyFilters(); });
+    if(elSort) elSort.addEventListener('change', ()=>{ state.sort = elSort.value;
+      state.page = 1; applyFilters();
+
+    if(elPerPage){
+      elPerPage.addEventListener('change', ()=>{
+        state.perPage = elPerPage.value;
+        state.page = 1;
+        applyFilters();
+      });
+    }
+ });
 
     setActiveQuick(state.quick);
     renderSidebar();
