@@ -69,7 +69,7 @@
 
     if(!elGrid || !elCount || !elTree) return;
 
-    const state = { quick:'all', category:null, theme:null, type:null, q:'', sort:'az', perPage:'all', page:1 };
+    const state = { quick:'all', category:null, theme:null, type:null, q:'', sort:'featured', perPage:'all', page:1 };
 
     if(elCountAll) elCountAll.textContent = String(allProducts.length);
     if(elCountFeatured) elCountFeatured.textContent = String(allProducts.filter(p=>p.featured).length);
