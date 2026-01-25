@@ -909,10 +909,11 @@ footer.siteFooter .footLinks a:hover{
 .shopWrap .grid{
   grid-template-columns:repeat(5,minmax(0,1fr)) !important;
 }
-@media(max-width:1400px){
+/* step down a bit earlier */
+@media(max-width:1250px){
   .shopWrap .grid{grid-template-columns:repeat(4,1fr) !important}
 }
-@media(max-width:1150px){
+@media(max-width:1050px){
   .shopWrap .grid{grid-template-columns:repeat(3,1fr) !important}
 }
 @media(max-width:820px){
