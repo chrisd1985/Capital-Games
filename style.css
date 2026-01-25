@@ -6,6 +6,7 @@
   --red:#c62828;
   --red2:#e53935;
   --border:#e2e5ea;
+  --ui-dark-bar: rgb(48,49,54);
 }
 html {
   font-size: 14.5px;
@@ -513,7 +514,7 @@ body.bgTexture::before{
   justify-content:center;
   gap:18px;
   flex-wrap:wrap;
-  background:rgba(48,49,54,.92);
+  background: var(--ui-dark-bar);
   color:rgba(255,255,255,.95);
   border-bottom:1px solid rgba(255,255,255,.12);
   font-weight:800;
@@ -727,7 +728,7 @@ body.bgTexture{
    ========================================================= */
 
 footer.siteFooter{
-  background:rgba(48,49,54,.92);
+  background: var(--ui-dark-bar);
   border-top:1px solid rgba(255,255,255,.12);
   margin-top:34px;
   color:rgba(255,255,255,.92);
