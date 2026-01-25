@@ -906,3 +906,18 @@ footer.siteFooter .footLinks a:hover{
 .pageHeaderCard .pageSubtitle * {
   color: #ffffff;
 }
+.shopWrap .grid{
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+}
+@media(max-width:1400px){
+  .shopWrap .grid{grid-template-columns:repeat(4,1fr) !important}
+}
+@media(max-width:1150px){
+  .shopWrap .grid{grid-template-columns:repeat(3,1fr) !important}
+}
+@media(max-width:820px){
+  .shopWrap .grid{grid-template-columns:repeat(2,1fr) !important}
+}
+@media(max-width:520px){
+  .shopWrap .grid{grid-template-columns:1fr !important}
+}
