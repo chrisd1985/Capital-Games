@@ -943,3 +943,12 @@ footer.siteFooter .footLinks a:hover{
 @media (max-width: 520px){
   #shopGrid.grid{ grid-template-columns: 1fr !important; }
 }
+/* SHOP PAGE — tighten header spacing */
+.pageHeaderCard{
+  margin-top: -18px;   /* pulls it closer to the header */
+  margin-bottom: 12px; /* keeps breathing room before filters */
+}
+
+.pageHeaderCard .pageSubtitle{
+  margin-top: 0;
+}
