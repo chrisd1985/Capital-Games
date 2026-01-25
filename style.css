@@ -124,7 +124,7 @@ nav a:hover{text-decoration:underline}
 .searchRow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 input[type="search"]{flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--border);border-radius:12px}
 select{padding:10px 12px;border:1px solid var(--border);border-radius:12px}
-.count{color: #ffffff;font-size:.9rem;margin:0 0 12px;font-weight:700}
+.count{color: #ffffff;font-size:.9rem;margin:0 0 12px}
 .smallcount{
   font-size:.8rem;
   color:var(--muted);
@@ -1036,3 +1036,48 @@ footer.siteFooter{
   background:#fff;
 }
 .cg-searchFooter:hover{ background:#f6f7f9; cursor:pointer; }
+
+
+/* =========================================================
+   OVERRIDES: Keep header bar spacing consistent across pages
+   and restore full-bleed hero background on Home
+   ========================================================= */
+
+/* 1) Make logo sizing deterministic (avoid earlier conflicting rules) */
+.brand img.logoMain{
+  height: 82px !important;
+  width: auto !important;
+  display: block;
+}
+
+/* 2) Ensure the light header band uses identical vertical spacing everywhere */
+.headerWrap{
+  padding: 1px 0 !important;
+}
+.headerBarWide{
+  padding: 0 20px !important;
+}
+
+/* 3) HOME HERO: full-width (background + fades) while keeping text aligned to the 1300px grid */
+.heroMock{
+  width: 100vw;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+}
+.heroInner{
+  width: 100%;
+}
+.heroCopy{
+  max-width: 1300px;
+  margin: 0 auto;
+  /* keep your existing internal spacing */
+}
+.heroCopy h1,
+.heroCopy p,
+.heroCopy .heroBtn{
+  max-width: 650px;
+}
+
