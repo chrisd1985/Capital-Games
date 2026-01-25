@@ -1081,3 +1081,23 @@ footer.siteFooter{
   max-width: 650px;
 }
 
+/* =========================================================
+   OVERRIDES (Lock-in): hero scale + consistent header height
+   ========================================================= */
+
+/* Hero: prevent ultra-wide screens from "zooming" the background too much.
+   Keep full hero height visible and let edges blend to background if needed. */
+.heroInner::before{
+  background-size: auto 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Header: force identical spacing on every page */
+.headerWrap{
+  padding: 1px 0 1px !important; /* remove invalid auto padding + keep it consistent */
+}
+.bar.headerBarWide{
+  padding: 10px 20px !important; /* consistent inner spacing */
+  max-width: 1300px;
+  margin: 0 auto;
+}
