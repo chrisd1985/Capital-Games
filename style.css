@@ -123,7 +123,7 @@ nav a:hover{text-decoration:underline}
 .searchRow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 input[type="search"]{flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--border);border-radius:12px}
 select{padding:10px 12px;border:1px solid var(--border);border-radius:12px}
-.count{color:var(--muted);font-size:.9rem;margin:0 0 12px}
+.count{color:ffffff;font-size:.9rem;margin:0 0 12px}
 .smallcount{
   font-size:.8rem;
   color:var(--muted);
@@ -140,8 +140,8 @@ select{padding:10px 12px;border:1px solid var(--border);border-radius:12px}
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  padding:8px 10px;
-  border-radius:12px;
+  padding:0px 0px;
+  border-radius:10px;
   border:1px solid transparent;
   color:#111;
   font-weight:700;
