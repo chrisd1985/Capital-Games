@@ -178,15 +178,20 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 }
 
 .topNav{
-  max-width:1300px;
-  margin:0 auto;
+  width:100%;
+  margin:0;
   padding:10px 20px;
   display:flex;
+  justify-content:center;
   gap:18px;
   flex-wrap:wrap;
-  color:rgba(255,255,255,.88);
-  font-weight:700;
+  background: var(--ui-dark-bar); /* <-- change from rgba(...) */
+  color:rgba(255,255,255,.95);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  font-weight:800;
   font-size:.9rem;
+  letter-spacing:.02em;
+  text-transform:uppercase;
 }
 .topNav a{opacity:.9}
 .topNav a:hover{opacity:1;text-decoration:underline}
@@ -385,9 +390,11 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 }
 
 .siteFooter{
-  background:transparent;
-  border-top:1px solid rgba(255,255,255,.14);
+  background: var(--ui-dark-bar); /* <-- change from rgba(...) */
+  border-top:1px solid rgba(255,255,255,.12);
   margin-top:34px;
+  color:rgba(255,255,255,.92);
+  font-size:0.6rem;
 }
 
 /* ===== Typography tuned to match the mockup ===== */
