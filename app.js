@@ -77,7 +77,19 @@
       perPage:'all',
       page:1
     };
+// Prefill from URL: shop.html?q=...
+try{
+  const params = new URLSearchParams(window.location.search);
+  const qParam = (params.get('q') || '').trim();
+  if(qParam){
+    state.q = qParam;
+    if(elQ) elQ.value = qParam;
 
+    // Optional: make featured-first the default when coming from header search
+    state.sort = 'featured';
+    if(elSort) elSort.value = 'featured';
+  }
+}catch(e){}
     // Keep UI in sync with default state
     if(elSort) elSort.value = 'featured';
 
@@ -324,4 +336,153 @@
     renderSidebar();
     applyFilters();
   };
+  // ===== Global header search (dropdown + redirect to shop filter) =====
+function CG_escapeHtml(s){
+  return String(s)
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;')
+    .replaceAll("'","&#039;");
+}
+
+function CG_initHeaderSearch(){
+  const wrap = document.querySelector('.cg-headerSearch');
+  if(!wrap) return;
+
+  const input = wrap.querySelector('.cg-headerSearchInput');
+  const btn = wrap.querySelector('.cg-headerSearchBtn');
+  if(!input || !btn) return;
+
+  const dropdown = document.createElement('div');
+  dropdown.className = 'cg-searchDropdown';
+  dropdown.style.display = 'none';
+  wrap.appendChild(dropdown);
+
+  const PRODUCTS = (window.PRODUCTS || [])
+    .map(p => ({
+      ...p,
+      status: (p.status || '').toLowerCase(),
+      featured: !!p.featured,
+      title: p.title || '',
+      price: p.price || '',
+      image: p.image || '',
+      link: p.link || ''
+    }))
+    .filter(p => p.status === 'active');
+
+  function closeDropdown(){
+    dropdown.style.display = 'none';
+    dropdown.innerHTML = '';
+  }
+
+  function goToShop(q){
+    const query = (q || '').trim();
+    if(!query){
+      window.location.href = './shop.html';
+      return;
+    }
+    window.location.href = `./shop.html?q=${encodeURIComponent(query)}`;
+  }
+
+  function renderResults(q){
+    const query = (q || '').trim().toLowerCase();
+    if(query.length < 2){
+      closeDropdown();
+      return;
+    }
+
+    const matches = PRODUCTS
+      .filter(p => p.title.toLowerCase().includes(query))
+      .sort((a,b) => (b.featured - a.featured) || a.title.localeCompare(b.title))
+      .slice(0, 6);
+
+    if(matches.length === 0){
+      dropdown.innerHTML = `
+        <div class="cg-searchItem" style="cursor:default;">
+          <div class="cg-searchMeta">
+            <div class="cg-searchTitle">No matches</div>
+            <div class="cg-searchSub">Try a different keyword.</div>
+          </div>
+        </div>
+        <div class="cg-searchFooter" data-action="viewall">Search in shop →</div>
+      `;
+      dropdown.style.display = 'block';
+      return;
+    }
+
+    dropdown.innerHTML = `
+      ${matches.map(p => `
+        <div class="cg-searchItem" data-action="pick" data-title="${CG_escapeHtml(p.title)}">
+          <img class="cg-searchThumb" src="${CG_escapeHtml(p.image)}" alt="">
+          <div class="cg-searchMeta">
+            <div class="cg-searchTitle">${CG_escapeHtml(p.title)}</div>
+            <div class="cg-searchSub">
+              ${p.price ? `<span>${CG_escapeHtml(p.price)}</span>` : `<span>Price on eBay</span>`}
+              ${p.featured ? `<span style="font-weight:900;">Featured</span>` : ``}
+            </div>
+          </div>
+        </div>
+      `).join('')}
+      <div class="cg-searchFooter" data-action="viewall">Search in shop →</div>
+    `;
+    dropdown.style.display = 'block';
+  }
+
+  // Input interactions
+  let t = null;
+  input.addEventListener('input', () => {
+    clearTimeout(t);
+    t = setTimeout(() => renderResults(input.value), 120);
+  });
+
+  input.addEventListener('focus', () => renderResults(input.value));
+
+  input.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      goToShop(input.value);
+      closeDropdown();
+    }
+    if(e.key === 'Escape'){
+      closeDropdown();
+      input.blur();
+    }
+  });
+
+  btn.addEventListener('click', () => {
+    goToShop(input.value);
+    closeDropdown();
+  });
+
+  // Click handling inside dropdown
+  dropdown.addEventListener('click', (e) => {
+    const item = e.target.closest('[data-action]');
+    if(!item) return;
+    const action = item.dataset.action;
+
+    if(action === 'pick'){
+      // Put title in input and go to shop filtered
+      const title = item.dataset.title || input.value;
+      input.value = title;
+      goToShop(title);
+      closeDropdown();
+      return;
+    }
+
+    if(action === 'viewall'){
+      goToShop(input.value);
+      closeDropdown();
+      return;
+    }
+  });
+
+  // Close if clicking outside
+  document.addEventListener('click', (e) => {
+    if(!wrap.contains(e.target)) closeDropdown();
+  });
+}
+  document.addEventListener('DOMContentLoaded', () => {
+  CG_initHeaderSearch();
+});
 })();
