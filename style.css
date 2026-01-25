@@ -246,18 +246,6 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 }
 .iconBtn:hover{border-color:rgba(0,0,0,.25)}
 
-.heroMock{
-  max-width:1300px;
-  margin:18px auto 0;
-  padding:0 20px;
-}
-.heroCopy{
-  position:relative;
-  z-index:2;
-  padding:64px 54px;
-  max-width:650px;
-  color:#fff;
-}
 .heroKicker{
   font-weight:900;
   letter-spacing:.06em;
@@ -288,17 +276,6 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   box-shadow:0 10px 22px rgba(0,0,0,.22);
 }
 .heroBtn:hover{background:rgba(229,57,53,.98)}
-.heroArt{
-  position:absolute;
-  right:-10px;
-  bottom:-8px;
-  width:min(56%, 720px);
-  z-index:1;
-  pointer-events:none;
-  opacity:1;
-}
-.heroArt img{width:100%;height:auto;display:block}
-
 .homeSection{
   max-width:1300px;
   margin:0 auto;
@@ -333,7 +310,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   gap:16px;
 }
 @media(max-width:900px){.categoryGrid{grid-template-columns:repeat(2,1fr)} .headerSearch{display:none}}
-@media(max-width:520px){.categoryGrid{grid-template-columns:1fr} .heroCopy{padding:44px 22px} .heroCopy h1{font-size:2.1rem}}
+@media(max-width:520px){.categoryGrid{grid-template-columns:1fr} .heroCopy h1{font-size:2.1rem}}
 
 .catCard{
   background:rgba(0,0,0,.22);
@@ -591,15 +568,9 @@ body.bgTexture{
 
 /* Hero background: regenerated no-text image */
 @media (max-width: 900px){
-  .heroInner{ min-height: 440px; }
-}
-
-.heroInner::before{ background-position: 70% 30%; }
-
+  }
 
 /* Force hero image to render without blend/tint */
-.heroInner::before{mix-blend-mode:normal !important;opacity:1 !important;}
-
 /* =========================================================
    Layout fixes requested
    ========================================================= */
@@ -622,9 +593,6 @@ body.bgTexture{
   margin-top: 0 !important;
 }
 
-.heroInner::before{ background-position: center top; }
-
-
 /* ===== Fix: hero should not sit behind header ===== */
 .siteHeader{ position: relative; z-index: 100; }
 .siteHeader .topNav{ position: relative; z-index: 110; }
@@ -633,78 +601,12 @@ body.bgTexture{
 .heroMock, .hero{ position: relative; z-index: 1; }
 
 /* Keep hero background behind hero text ONLY */
-.heroInner{ position: relative; z-index: 0; }
-.heroInner::before{ z-index: -1 !important; }
-
 /* ===== Hero background blend (edge fade) =====
    This is the ONLY place the side/bottom transparency is controlled.
    Adjust stops below to tune fades.
 */
-.heroInner{
-  position: relative;
-  overflow: hidden;
-  min-height: 690px;
-}
-.heroInner::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: url("./assets/hero-bg.png") center top / cover no-repeat;
-  z-index:0;
-
-  /* Side fade (more on LEFT than right) */
-  -webkit-mask-image:
-    linear-gradient(to right,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,1) 26%,
-      rgba(0,0,0,1) 88%,
-      rgba(0,0,0,0) 100%
-    ),
-    /* Bottom fade (reduced by ~20%: keep image solid longer) */
-    linear-gradient(to bottom,
-      rgba(0,0,0,1) 0%,
-      rgba(0,0,0,1) 82%,
-      rgba(0,0,0,0) 100%
-    );
-  -webkit-mask-composite: source-in;
-
-  mask-image:
-    linear-gradient(to right,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,1) 26%,
-      rgba(0,0,0,1) 88%,
-      rgba(0,0,0,0) 100%
-    ),
-    linear-gradient(to bottom,
-      rgba(0,0,0,1) 0%,
-      rgba(0,0,0,1) 82%,
-      rgba(0,0,0,0) 100%
-    );
-  mask-composite: intersect;
-
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
-}
-.heroCopy{ position: relative; z-index:1; }
-
 @media (max-width: 900px){
-  .heroInner{ min-height: 460px; }
-  .heroInner::before{
-    background-position: center top;
-    -webkit-mask-image:
-      linear-gradient(to right,
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,1) 22%,
-        rgba(0,0,0,1) 90%,
-        rgba(0,0,0,0) 100%
-      ),
-      linear-gradient(to bottom,
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 85%,
-        rgba(0,0,0,0) 100%
-      );
   }
-}
 
 /* =========================================================
    FIX: Restore header nav link color + logo sizing
@@ -1059,22 +961,6 @@ footer.siteFooter{
 }
 
 /* 3) HOME HERO: full-width (background + fades) while keeping text aligned to the 1300px grid */
-.heroMock{
-  width: 100vw;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  margin-left: calc(50% - 50vw) !important;
-  margin-right: calc(50% - 50vw) !important;
-}
-.heroInner{
-  width: 100%;
-}
-.heroCopy{
-  max-width: 1300px;
-  margin: 0 auto;
-  /* keep your existing internal spacing */
-}
 .heroCopy h1,
 .heroCopy p,
 .heroCopy .heroBtn{
@@ -1087,11 +973,6 @@ footer.siteFooter{
 
 /* Hero: prevent ultra-wide screens from "zooming" the background too much.
    Keep full hero height visible and let edges blend to background if needed. */
-.heroInner::before{
-  background-size: auto 100% !important;
-  background-repeat: no-repeat !important;
-}
-
 /* Header: force identical spacing on every page */
 .headerWrap{
   padding: 1px 0 1px !important; /* remove invalid auto padding + keep it consistent */
@@ -1108,19 +989,95 @@ footer.siteFooter{
    ========================================================= */
 
 /* Make the hero background span the full viewport width, while keeping content readable */
-.heroMock{ max-width: none; margin: 0; padding: 0; }
-
-.heroInner{
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 0 20px; /* matches other page gutters */
-}
-
 /* Ensure the background image stays centered and fills the hero */
-.heroInner::before{
-  background-position: center top !important;
-  background-size: cover !important;
+
+/* =========================================================
+   HOME HERO — CLEAN + STABLE
+   (keeps the hero contained to the site width + restores edge fades)
+   ========================================================= */
+.heroMock{
+  max-width:1300px;
+  margin:0 auto;
+  padding:0 20px;
 }
 
+/* The visual hero panel */
+.heroInner{
+  position:relative;
+  overflow:hidden;
+  min-height:690px;
+  border-radius:18px;
+}
+
+/* Background artwork + fades */
+.heroInner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background: url("./assets/hero-bg.png") right top / cover no-repeat;
+
+  /* Side fade (slightly stronger left, softer right) */
+  -webkit-mask-image:
+    linear-gradient(to right,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,1) 31%,
+      rgba(0,0,0,1) 90%,
+      rgba(0,0,0,0) 100%
+    ),
+    /* Bottom fade */
+    linear-gradient(to bottom,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,1) 82%,
+      rgba(0,0,0,0) 100%
+    );
+  -webkit-mask-composite: source-in;
+
+  mask-image:
+    linear-gradient(to right,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,1) 31%,
+      rgba(0,0,0,1) 90%,
+      rgba(0,0,0,0) 100%
+    ),
+    linear-gradient(to bottom,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,1) 82%,
+      rgba(0,0,0,0) 100%
+    );
+  mask-composite: intersect;
+
+  opacity:1;
+  mix-blend-mode:normal;
+}
+
+/* Text layer above the artwork */
+.heroCopy{
+  position:relative;
+  z-index:1;
+  padding:64px 54px;
+  max-width:650px;
+  color:#fff;
+}
+
+@media(max-width:900px){
+  .heroInner{min-height:460px;}
+  .heroInner::before{
+    background-position: right 10% top;
+    -webkit-mask-image:
+      linear-gradient(to right,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,1) 26%,
+        rgba(0,0,0,1) 92%,
+        rgba(0,0,0,0) 100%
+      ),
+      linear-gradient(to bottom,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) 85%,
+        rgba(0,0,0,0) 100%
+      );
+  }
+}
+@media(max-width:520px){
+  .heroCopy{padding:44px 22px;}
+}
