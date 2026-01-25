@@ -923,6 +923,36 @@ footer.siteFooter .footLinks a:hover{
 @media(max-width:520px){
   .shopWrap .grid{grid-template-columns:1fr !important}
 }
+/* SHOP PAGE — tighten header spacing */
+.pageHeaderCard{
+  margin-top: -18px;   /* pulls it closer to the header */
+  margin-bottom: 12px; /* keeps breathing room before filters */
+}
+
+.pageHeaderCard .pageSubtitle{
+  margin-top: 0;
+}
+/* ===== Sticky footer (keeps footer at bottom when content is short) ===== */
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Your main content wrapper should grow */
+.container {
+  flex: 1 0 auto;
+}
+
+/* Footer sticks to bottom */
+.siteFooter {
+  margin-top: auto;
+  flex-shrink: 0;
+}
 /* ===== Match top bar + footer color exactly =====
    Force both bars to use the exact same solid color (no alpha),
    and prevent any background-image from showing through on the footer.
