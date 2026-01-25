@@ -124,7 +124,7 @@ nav a:hover{text-decoration:underline}
 .searchRow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 input[type="search"]{flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--border);border-radius:12px}
 select{padding:10px 12px;border:1px solid var(--border);border-radius:12px}
-.count{color: #ffffff;font-size:.9rem;margin:0 0 12px}
+.count{color:var(--muted);font-size:.9rem;margin:0 0 12px}
 .smallcount{
   font-size:.8rem;
   color:var(--muted);
@@ -141,7 +141,7 @@ select{padding:10px 12px;border:1px solid var(--border);border-radius:12px}
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  padding:1px 10px;
+  padding:8px 10px;
   border-radius:12px;
   border:1px solid transparent;
   color:#111;
@@ -178,20 +178,15 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 }
 
 .topNav{
-  width:100%;
-  margin:0;
+  max-width:1300px;
+  margin:0 auto;
   padding:10px 20px;
   display:flex;
-  justify-content:center;
   gap:18px;
   flex-wrap:wrap;
-  background: var(--ui-dark-bar); /* <-- change from rgba(...) */
-  color:rgba(255,255,255,.95);
-  border-bottom:1px solid rgba(255,255,255,.12);
-  font-weight:800;
+  color:rgba(255,255,255,.88);
+  font-weight:700;
   font-size:.9rem;
-  letter-spacing:.02em;
-  text-transform:uppercase;
 }
 .topNav a{opacity:.9}
 .topNav a:hover{opacity:1;text-decoration:underline}
@@ -246,6 +241,19 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 }
 .iconBtn:hover{border-color:rgba(0,0,0,.25)}
 
+.heroMock{
+  /* Wider than the normal site container, but NOT full-bleed */
+  width: min(92vw, 1520px);
+  margin: 18px auto 0;
+  padding: 0 20px;
+}
+.heroCopy{
+  position:relative;
+  z-index:2;
+  padding:64px 54px;
+  max-width:650px;
+  color:#fff;
+}
 .heroKicker{
   font-weight:900;
   letter-spacing:.06em;
@@ -276,6 +284,17 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   box-shadow:0 10px 22px rgba(0,0,0,.22);
 }
 .heroBtn:hover{background:rgba(229,57,53,.98)}
+.heroArt{
+  position:absolute;
+  right:-10px;
+  bottom:-8px;
+  width:min(56%, 720px);
+  z-index:1;
+  pointer-events:none;
+  opacity:1;
+}
+.heroArt img{width:100%;height:auto;display:block}
+
 .homeSection{
   max-width:1300px;
   margin:0 auto;
@@ -310,7 +329,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   gap:16px;
 }
 @media(max-width:900px){.categoryGrid{grid-template-columns:repeat(2,1fr)} .headerSearch{display:none}}
-@media(max-width:520px){.categoryGrid{grid-template-columns:1fr} .heroCopy h1{font-size:2.1rem}}
+@media(max-width:520px){.categoryGrid{grid-template-columns:1fr} .heroCopy{padding:44px 22px} .heroCopy h1{font-size:2.1rem}}
 
 .catCard{
   background:rgba(0,0,0,.22);
@@ -367,11 +386,9 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 }
 
 .siteFooter{
-  background: var(--ui-dark-bar); /* <-- change from rgba(...) */
-  border-top:1px solid rgba(255,255,255,.12);
+  background:transparent;
+  border-top:1px solid rgba(255,255,255,.14);
   margin-top:34px;
-  color:rgba(255,255,255,.92);
-  font-size:0.6rem;
 }
 
 /* ===== Typography tuned to match the mockup ===== */
@@ -568,9 +585,15 @@ body.bgTexture{
 
 /* Hero background: regenerated no-text image */
 @media (max-width: 900px){
-  }
+  .heroInner{ min-height: 440px; }
+}
+
+.heroInner::before{ background-position: 70% 30%; }
+
 
 /* Force hero image to render without blend/tint */
+.heroInner::before{mix-blend-mode:normal !important;opacity:1 !important;}
+
 /* =========================================================
    Layout fixes requested
    ========================================================= */
@@ -593,6 +616,9 @@ body.bgTexture{
   margin-top: 0 !important;
 }
 
+.heroInner::before{ background-position: right 10% top; }
+
+
 /* ===== Fix: hero should not sit behind header ===== */
 .siteHeader{ position: relative; z-index: 100; }
 .siteHeader .topNav{ position: relative; z-index: 110; }
@@ -601,12 +627,78 @@ body.bgTexture{
 .heroMock, .hero{ position: relative; z-index: 1; }
 
 /* Keep hero background behind hero text ONLY */
+.heroInner{ position: relative; z-index: 0; }
+.heroInner::before{ z-index: -1 !important; }
+
 /* ===== Hero background blend (edge fade) =====
    This is the ONLY place the side/bottom transparency is controlled.
    Adjust stops below to tune fades.
 */
+.heroInner{
+  position: relative;
+  overflow: hidden;
+  min-height: 690px;
+}
+.heroInner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: url("./assets/hero-bg.png") right top / cover no-repeat;
+  z-index:0;
+
+  /* Side fade (more on LEFT than right) */
+  -webkit-mask-image:
+    linear-gradient(to right,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,1) 26%,
+      rgba(0,0,0,1) 88%,
+      rgba(0,0,0,0) 100%
+    ),
+    /* Bottom fade (reduced by ~20%: keep image solid longer) */
+    linear-gradient(to bottom,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,1) 82%,
+      rgba(0,0,0,0) 100%
+    );
+  -webkit-mask-composite: source-in;
+
+  mask-image:
+    linear-gradient(to right,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,1) 26%,
+      rgba(0,0,0,1) 88%,
+      rgba(0,0,0,0) 100%
+    ),
+    linear-gradient(to bottom,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,1) 82%,
+      rgba(0,0,0,0) 100%
+    );
+  mask-composite: intersect;
+
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+.heroCopy{ position: relative; z-index:1; }
+
 @media (max-width: 900px){
+  .heroInner{ min-height: 460px; }
+  .heroInner::before{
+    background-position: right 10% top;
+    -webkit-mask-image:
+      linear-gradient(to right,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,1) 22%,
+        rgba(0,0,0,1) 90%,
+        rgba(0,0,0,0) 100%
+      ),
+      linear-gradient(to bottom,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) 85%,
+        rgba(0,0,0,0) 100%
+      );
   }
+}
 
 /* =========================================================
    FIX: Restore header nav link color + logo sizing
@@ -878,206 +970,22 @@ footer.siteFooter{
   background-image: none !important;
   border-top: 1px solid var(--ui-dark-border) !important;
 }
-/* ===== Header search autocomplete dropdown ===== */
-.cg-headerSearch{ position: relative; }
+/* ==========================================
+   WIDTH FIX — restore wider layout (not full-bleed)
+   Paste at END of style.css
+   ========================================== */
 
-.cg-searchDropdown{
-  position:absolute;
-  left:0;
-  right:0;
-  top:calc(100% + 8px);
-  background:#fff;
-  border:1px solid rgba(0,0,0,.12);
-  border-radius:14px;
-  box-shadow:0 18px 40px rgba(0,0,0,.22);
-  overflow:hidden;
-  z-index:9999;
+/* Adjust this number if you want a bit wider/narrower */
+:root{
+  --site-max: 1440px; /* try 1400–1500 */
 }
 
-.cg-searchItem{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  padding:10px 12px;
-  cursor:pointer;
-}
-.cg-searchItem:hover{ background:#f6f7f9; }
-
-.cg-searchThumb{
-  width:42px;
-  height:42px;
-  border-radius:10px;
-  border:1px solid rgba(0,0,0,.10);
-  background:#fafafa;
-  object-fit:contain;
-}
-
-.cg-searchMeta{ flex:1; min-width:0; }
-.cg-searchTitle{
-  font-weight:800;
-  font-size:.9rem;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.cg-searchSub{
-  margin-top:2px;
-  font-size:.82rem;
-  color:#555;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.cg-searchFooter{
-  padding:10px 12px;
-  border-top:1px solid rgba(0,0,0,.08);
-  font-size:.85rem;
-  color:#111;
-  font-weight:800;
-  background:#fff;
-}
-.cg-searchFooter:hover{ background:#f6f7f9; cursor:pointer; }
-
-
-/* =========================================================
-   OVERRIDES: Keep header bar spacing consistent across pages
-   and restore full-bleed hero background on Home
-   ========================================================= */
-
-/* 1) Make logo sizing deterministic (avoid earlier conflicting rules) */
-.brand img.logoMain{
-  height: 82px !important;
-  width: auto !important;
-  display: block;
-}
-
-/* 2) Ensure the light header band uses identical vertical spacing everywhere */
-.headerWrap{
-  padding: 1px 0 !important;
-}
-.headerBarWide{
-  padding: 0 20px !important;
-}
-
-/* 3) HOME HERO: full-width (background + fades) while keeping text aligned to the 1300px grid */
-.heroCopy h1,
-.heroCopy p,
-.heroCopy .heroBtn{
-  max-width: 650px;
-}
-
-/* =========================================================
-   OVERRIDES (Lock-in): hero scale + consistent header height
-   ========================================================= */
-
-/* Hero: prevent ultra-wide screens from "zooming" the background too much.
-   Keep full hero height visible and let edges blend to background if needed. */
-/* Header: force identical spacing on every page */
-.headerWrap{
-  padding: 1px 0 1px !important; /* remove invalid auto padding + keep it consistent */
-}
-.bar.headerBarWide{
-  padding: 10px 20px !important; /* consistent inner spacing */
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-
-/* =========================================================
-   HERO FULL-BLEED + KEEP EDGE FADES (restores the look on Home)
-   ========================================================= */
-
-/* Make the hero background span the full viewport width, while keeping content readable */
-/* Ensure the background image stays centered and fills the hero */
-
-/* =========================================================
-   HOME HERO — CLEAN + STABLE
-   (keeps the hero contained to the site width + restores edge fades)
-   ========================================================= */
-.heroMock{
-  max-width:1300px;
-  margin:0 auto;
-  padding:0 20px;
-}
-
-/* The visual hero panel */
-.heroInner{
-  position:relative;
-  overflow:hidden;
-  min-height:690px;
-  border-radius:18px;
-}
-
-/* Background artwork + fades */
-.heroInner::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  background: url("./assets/hero-bg.png") right top / cover no-repeat;
-
-  /* Side fade (slightly stronger left, softer right) */
-  -webkit-mask-image:
-    linear-gradient(to right,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,1) 31%,
-      rgba(0,0,0,1) 90%,
-      rgba(0,0,0,0) 100%
-    ),
-    /* Bottom fade */
-    linear-gradient(to bottom,
-      rgba(0,0,0,1) 0%,
-      rgba(0,0,0,1) 82%,
-      rgba(0,0,0,0) 100%
-    );
-  -webkit-mask-composite: source-in;
-
-  mask-image:
-    linear-gradient(to right,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,1) 31%,
-      rgba(0,0,0,1) 90%,
-      rgba(0,0,0,0) 100%
-    ),
-    linear-gradient(to bottom,
-      rgba(0,0,0,1) 0%,
-      rgba(0,0,0,1) 82%,
-      rgba(0,0,0,0) 100%
-    );
-  mask-composite: intersect;
-
-  opacity:1;
-  mix-blend-mode:normal;
-}
-
-/* Text layer above the artwork */
-.heroCopy{
-  position:relative;
-  z-index:1;
-  padding:64px 54px;
-  max-width:650px;
-  color:#fff;
-}
-
-@media(max-width:900px){
-  .heroInner{min-height:460px;}
-  .heroInner::before{
-    background-position: right 10% top;
-    -webkit-mask-image:
-      linear-gradient(to right,
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,1) 26%,
-        rgba(0,0,0,1) 92%,
-        rgba(0,0,0,0) 100%
-      ),
-      linear-gradient(to bottom,
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 85%,
-        rgba(0,0,0,0) 100%
-      );
-  }
-}
-@media(max-width:520px){
-  .heroCopy{padding:44px 22px;}
+/* Match the “old” wider spacing across header + home content */
+.bar,
+.headerBarWide,
+.heroMock,
+.homeSection,
+.container,
+footer.siteFooter .foot{
+  max-width: var(--site-max) !important;
 }
