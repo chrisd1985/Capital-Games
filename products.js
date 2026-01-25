@@ -3,7 +3,7 @@ window.PRODUCTS = [
     "title": "Revell 7364 1:25 Ford Mustang Mach III Concept Car Model Kit",
     "condition": "New",
     "status": "active",
-    "featured": false,
+    "featured": true,
     "category": "Model Kit",
     "theme": "Vehicle",
     "type": "Car/Truck",
