@@ -49,7 +49,6 @@
         <div class="card-body">
           <p class="title">${escapeHtml(p.title)}<span class="badge">Featured</span></p>
           ${p.price ? `<div class="price">${escapeHtml(p.price)}</div>` : ``}
-          
           <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
         </div>
       </div>
@@ -69,7 +68,18 @@
 
     if(!elGrid || !elCount || !elTree) return;
 
-    const state = { quick:'all', category:null, theme:null, type:null, q:'', sort:'featured', perPage:'all', page:1 };
+    // ✅ DEFAULT: featured first
+    const state = {
+      quick:'all',
+      category:null, theme:null, type:null,
+      q:'',
+      sort:'featured',
+      perPage:'all',
+      page:1
+    };
+
+    // Keep UI in sync with default state
+    if(elSort) elSort.value = 'featured';
 
     if(elCountAll) elCountAll.textContent = String(allProducts.length);
     if(elCountFeatured) elCountFeatured.textContent = String(allProducts.filter(p=>p.featured).length);
@@ -139,36 +149,6 @@
       elTree.innerHTML = html || '<div style="color:var(--muted);font-size:.9rem;">No items found.</div>';
     }
 
-    function applyFilters(){
-      let items = [...getBaseSet(state)];
-
-      if(state.category) items = items.filter(p=>p.category===state.category);
-      if(state.theme) items = items.filter(p=>p.theme===state.theme);
-      if(state.type) items = items.filter(p=>p.type===state.type);
-
-      if(state.q){
-        const q = state.q.toLowerCase();
-        items = items.filter(p => (p.title||'').toLowerCase().includes(q));
-      }
-
-      switch(state.sort){
-        case 'za': items.sort((a,b)=>b.title.localeCompare(a.title)); break;
-        case 'featured': items.sort((a,b)=>(b.featured-a.featured) || a.title.localeCompare(b.title)); break;
-        default: items.sort((a,b)=>a.title.localeCompare(b.title)); break;
-      }
-
-
-      // Pagination
-      const total = items.length;
-      const per = (state.perPage === 'all') ? total : Math.max(1, parseInt(state.perPage, 10) || 25);
-      const totalPages = (per >= total || total === 0) ? 1 : Math.ceil(total / per);
-      if(state.page > totalPages) state.page = totalPages;
-      if(state.page < 1) state.page = 1;
-      const startIdx = (state.page - 1) * per;
-      const endIdx = Math.min(startIdx + per, total);
-      const pageItems = items.slice(startIdx, endIdx);
-      const path = [state.category, state.theme, state.type].filter(Boolean).join(' → ');
-      elCount.textContent = `${items.length} item${items.length===1?'':'s'}${path ? ' • ' + path : ''}`;
     function renderPagination(totalPages){
       if(!elPagination) return;
       if(totalPages <= 1){
@@ -183,7 +163,6 @@
       html += btn('« First', 1, state.page===1);
       html += btn('‹ Prev', Math.max(1, state.page-1), state.page===1);
 
-      // windowed page numbers
       const windowSize = 5;
       let start = Math.max(1, state.page - Math.floor(windowSize/2));
       let end = Math.min(totalPages, start + windowSize - 1);
@@ -199,22 +178,44 @@
       elPagination.innerHTML = html;
     }
 
-    // Pagination clicks (event delegation)
-    if(elPagination){
-      elPagination.addEventListener('click', (e)=>{
-        const b = e.target.closest('button[data-page]');
-        if(!b) return;
-        const next = parseInt(b.dataset.page, 10);
-        if(!isNaN(next)){
-          state.page = next;
-          applyFilters();
-          // keep results in view
-          const top = document.querySelector('.searchRow');
-          if(top) top.scrollIntoView({behavior:'smooth', block:'start'});
-        }
-      });
-    }
+    function applyFilters(){
+      let items = [...getBaseSet(state)];
 
+      if(state.category) items = items.filter(p=>p.category===state.category);
+      if(state.theme) items = items.filter(p=>p.theme===state.theme);
+      if(state.type) items = items.filter(p=>p.type===state.type);
+
+      if(state.q){
+        const q = state.q.toLowerCase();
+        items = items.filter(p => (p.title||'').toLowerCase().includes(q));
+      }
+
+      switch(state.sort){
+        case 'za':
+          items.sort((a,b)=>b.title.localeCompare(a.title));
+          break;
+        case 'featured':
+          items.sort((a,b)=>(b.featured - a.featured) || a.title.localeCompare(b.title));
+          break;
+        default:
+          items.sort((a,b)=>a.title.localeCompare(b.title));
+          break;
+      }
+
+      const total = items.length;
+      const per = (state.perPage === 'all') ? total : Math.max(1, parseInt(state.perPage, 10) || 25);
+      const totalPages = (per >= total || total === 0) ? 1 : Math.ceil(total / per);
+      if(state.page > totalPages) state.page = totalPages;
+      if(state.page < 1) state.page = 1;
+
+      const startIdx = (state.page - 1) * per;
+      const endIdx = Math.min(startIdx + per, total);
+      const pageItems = items.slice(startIdx, endIdx);
+
+      const path = [state.category, state.theme, state.type].filter(Boolean).join(' → ');
+      elCount.textContent = `${items.length} item${items.length===1?'':'s'}${path ? ' • ' + path : ''}`;
+
+      renderPagination(totalPages);
 
       elGrid.innerHTML = pageItems.map(p=>`
         <div class="card">
@@ -228,7 +229,20 @@
       `).join('');
     }
 
-    // Quick filters reset
+    if(elPagination){
+      elPagination.addEventListener('click', (e)=>{
+        const b = e.target.closest('button[data-page]');
+        if(!b) return;
+        const next = parseInt(b.dataset.page, 10);
+        if(!isNaN(next)){
+          state.page = next;
+          applyFilters();
+          const top = document.querySelector('.searchRow');
+          if(top) top.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    }
+
     document.querySelectorAll('[data-quick]').forEach(a=>{
       a.addEventListener('click', e=>{
         e.preventDefault();
@@ -243,7 +257,6 @@
       });
     });
 
-    // Sidebar clicks
     elTree.addEventListener('click', e=>{
       const a = e.target.closest('a[data-level]');
       if(!a) return;
@@ -283,9 +296,21 @@
       applyFilters();
     });
 
-    if(elQ) elQ.addEventListener('input', ()=>{ state.q = elQ.value.trim(); applyFilters(); });
-    if(elSort) elSort.addEventListener('change', ()=>{ state.sort = elSort.value;
-      state.page = 1; applyFilters();
+    if(elQ){
+      elQ.addEventListener('input', ()=>{
+        state.q = elQ.value.trim();
+        state.page = 1;
+        applyFilters();
+      });
+    }
+
+    if(elSort){
+      elSort.addEventListener('change', ()=>{
+        state.sort = elSort.value;
+        state.page = 1;
+        applyFilters();
+      });
+    }
 
     if(elPerPage){
       elPerPage.addEventListener('change', ()=>{
@@ -294,7 +319,6 @@
         applyFilters();
       });
     }
- });
 
     setActiveQuick(state.quick);
     renderSidebar();
