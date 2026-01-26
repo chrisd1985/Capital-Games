@@ -1,13 +1,15 @@
+// Auto-generated from Google Sheets: eBay Financials → Income
+// Generated: 2026-01-26T23:06:37.806Z
 window.PRODUCTS = [
   {
     "title": "Revell 7364 1:25 Ford Mustang Mach III Concept Car Model Kit",
     "condition": "New",
     "status": "active",
-    "featured": true,
+    "featured": false,
     "category": "Model Kit",
     "theme": "Vehicle",
     "type": "Car/Truck",
-    "price": "$36.29 CAD",
+    "price": "36.29",
     "link": "https://www.ebay.ca/itm/306677167493",
     "image": "https://i.ebayimg.com/images/g/xYIAAeSwm9NpTgNu/s-l1600.webp"
   },
@@ -19,7 +21,7 @@ window.PRODUCTS = [
     "category": "Model Kit",
     "theme": "Aircraft",
     "type": "Military",
-    "price": "$37.43 CAD",
+    "price": "37.43",
     "link": "https://www.ebay.ca/itm/306676917812",
     "image": "https://i.ebayimg.com/images/g/d7MAAeSwgiZpTc9Z/s-l1600.webp"
   },
@@ -31,7 +33,7 @@ window.PRODUCTS = [
     "category": "Model Kit",
     "theme": "Vehicle",
     "type": "Car/Truck",
-    "price": "$43.49 CAD",
+    "price": "43.49",
     "link": "https://www.ebay.ca/itm/306676867616",
     "image": "https://i.ebayimg.com/images/g/IjUAAeSw8qBpTcOJ/s-l1600.webp"
   },
@@ -43,7 +45,7 @@ window.PRODUCTS = [
     "category": "Toys & Hobbies",
     "theme": "Games",
     "type": "Board & Traditional Games",
-    "price": "$298.98 CAD",
+    "price": "268.98",
     "link": "https://www.ebay.ca/itm/306627971939",
     "image": "https://i.ebayimg.com/images/g/4YoAAeSwzutpJpEb/s-l1600.webp"
   },
@@ -55,7 +57,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$24.98 CAD",
+    "price": "24.98",
     "link": "https://www.ebay.ca/itm/306675154220",
     "image": "https://i.ebayimg.com/images/g/TyUAAeSwZzBpTGze/s-l1600.webp"
   },
@@ -67,7 +69,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Action Figures",
     "type": "Movies/Gaming",
-    "price": "$240.00 CAD",
+    "price": "240",
     "link": "https://www.ebay.ca/itm/306272524552",
     "image": "https://i.ebayimg.com/images/g/iMMAAOSwmexoDayv/s-l1600.webp"
   },
@@ -79,7 +81,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$34.98 CAD",
+    "price": "34.98",
     "link": "https://www.ebay.ca/itm/306668389156",
     "image": "https://i.ebayimg.com/images/g/lsQAAeSwvthpR2wT/s-l1600.webp"
   },
@@ -91,7 +93,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$39.50 CAD",
+    "price": "39.5",
     "link": "https://www.ebay.ca/itm/306675100178",
     "image": "https://i.ebayimg.com/images/g/b2oAAeSwZTppTG0z/s-l1600.webp"
   },
@@ -103,7 +105,7 @@ window.PRODUCTS = [
     "category": "Model Kit",
     "theme": "Aircraft",
     "type": "Military",
-    "price": "$28.49 CAD",
+    "price": "28.49",
     "link": "https://www.ebay.ca/itm/306675578413",
     "image": "https://i.ebayimg.com/images/g/nnYAAeSw67lpTLPL/s-l1600.webp"
   },
@@ -115,7 +117,7 @@ window.PRODUCTS = [
     "category": "Model Kit",
     "theme": "Other",
     "type": "Space",
-    "price": "$47.29 CAD",
+    "price": "47.29",
     "link": "https://www.ebay.ca/itm/306675667485",
     "image": "https://i.ebayimg.com/images/g/CysAAeSw9JlpTM~X/s-l1600.webp"
   },
@@ -127,7 +129,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$27.00 CAD",
+    "price": "27",
     "link": "https://www.ebay.ca/itm/306668317988",
     "image": "https://i.ebayimg.com/images/g/vTUAAeSwVdZpR1ua/s-l1600.webp"
   },
@@ -139,7 +141,7 @@ window.PRODUCTS = [
     "category": "Model Kit",
     "theme": "Vehicle",
     "type": "Car/Truck",
-    "price": "$58.49 CAD",
+    "price": "58.49",
     "link": "https://www.ebay.ca/itm/306675621143",
     "image": "https://i.ebayimg.com/images/g/PhoAAeSwOJxpTMWO/s-l1600.webp"
   },
@@ -151,7 +153,7 @@ window.PRODUCTS = [
     "category": "Dolls, Clothing & Accessories",
     "theme": "Dolls & Doll Playsets",
     "type": "Collectibles",
-    "price": "$270.00 CAD",
+    "price": "270",
     "link": "https://www.ebay.ca/itm/306387845185",
     "image": "https://i.ebayimg.com/images/g/I9QAAeSwGCtpRdyr/s-l1600.webp"
   },
@@ -163,7 +165,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$36.50 CAD",
+    "price": "36.5",
     "link": "https://www.ebay.ca/itm/306668354076",
     "image": "https://i.ebayimg.com/images/g/H4AAAeSwcdBpR2Ls/s-l1600.webp"
   },
@@ -175,7 +177,7 @@ window.PRODUCTS = [
     "category": "Toys & Hobbies",
     "theme": "Preschool Toys & Pretend Play",
     "type": "Little People",
-    "price": "$68.98 CAD",
+    "price": "58.98",
     "link": "https://www.ebay.ca/itm/306650564518",
     "image": "https://i.ebayimg.com/images/g/MYAAAeSw9hlpQIPe/s-l1600.webp"
   },
@@ -187,7 +189,7 @@ window.PRODUCTS = [
     "category": "Sports Memorabilia, Fan Shop & Sports Cards",
     "theme": "Hockey-NHL",
     "type": "Collectibles",
-    "price": "$210.00 CAD",
+    "price": "210",
     "link": "https://www.ebay.ca/itm/306628007712",
     "image": "https://i.ebayimg.com/images/g/v-gAAeSwlaJpJppd/s-l1600.webp"
   },
@@ -199,7 +201,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Action Figures",
     "type": "Movies/Gaming",
-    "price": "$85.00 CAD",
+    "price": "85",
     "link": "https://www.ebay.ca/itm/306620466301",
     "image": "https://i.ebayimg.com/images/g/LgEAAeSwogdpRdwz/s-l1600.webp"
   },
@@ -211,7 +213,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$24.50 CAD",
+    "price": "24.5",
     "link": "https://www.ebay.ca/itm/306668373681",
     "image": "https://i.ebayimg.com/images/g/sqcAAeSwfMdpR2eG/s-l1600.webp"
   },
@@ -223,7 +225,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$42.98 CAD",
+    "price": "42.98",
     "link": "https://www.ebay.ca/itm/306670399494",
     "image": "https://i.ebayimg.com/images/g/~24AAeSwPMtpSN9d/s-l1600.webp"
   },
@@ -235,7 +237,7 @@ window.PRODUCTS = [
     "category": "Dolls, Clothing & Accessories",
     "theme": "Dolls & Doll Playsets",
     "type": "Collectibles",
-    "price": "$150.00 CAD",
+    "price": "150",
     "link": "https://www.ebay.ca/itm/306274472136",
     "image": "https://i.ebayimg.com/images/g/TbUAAeSwWXpoDy7C/s-l1600.webp"
   },
@@ -247,7 +249,7 @@ window.PRODUCTS = [
     "category": "Construction Set",
     "theme": "LEGO",
     "type": "Space",
-    "price": "$249.98 CAD",
+    "price": "249.98",
     "link": "https://www.ebay.ca/itm/306659718545",
     "image": "https://i.ebayimg.com/images/g/VZ0AAeSwKpxpRd0u/s-l1600.webp"
   },
@@ -259,7 +261,7 @@ window.PRODUCTS = [
     "category": "Construction Set",
     "theme": "Other",
     "type": "Other",
-    "price": "$223.98 CAD",
+    "price": "223.98",
     "link": "https://www.ebay.ca/itm/306272474172",
     "image": "https://i.ebayimg.com/images/g/qUgAAeSw2FtpRdqF/s-l1600.webp"
   },
@@ -271,7 +273,7 @@ window.PRODUCTS = [
     "category": "Collectibles & Art",
     "theme": "Aviation",
     "type": "Desk & Shelf Models",
-    "price": "$80.00 CAD",
+    "price": "75",
     "link": "https://www.ebay.ca/itm/306668519774",
     "image": "https://i.ebayimg.com/images/g/MxYAAeSwih9pR4-a/s-l1600.webp"
   },
@@ -283,7 +285,7 @@ window.PRODUCTS = [
     "category": "Construction Set",
     "theme": "LEGO",
     "type": "Space",
-    "price": "$260.00 CAD",
+    "price": "260",
     "link": "https://www.ebay.ca/itm/306659729015",
     "image": "https://i.ebayimg.com/images/g/CpAAAeSwdZtpQIMX/s-l1600.webp"
   },
@@ -295,7 +297,7 @@ window.PRODUCTS = [
     "category": "Construction Set",
     "theme": "LEGO",
     "type": "Space",
-    "price": "$550.00 CAD",
+    "price": "550",
     "link": "https://www.ebay.ca/itm/306274018718",
     "image": "https://i.ebayimg.com/images/g/VbQAAOSwzcNoDtNg/s-l960.webp"
   },
@@ -307,21 +309,9 @@ window.PRODUCTS = [
     "category": "Construction Set",
     "theme": "LEGO",
     "type": "Space",
-    "price": "$126.49 CAD",
+    "price": "126.49",
     "link": "https://www.ebay.ca/itm/306678470770",
     "image": "https://i.ebayimg.com/images/g/ieoAAeSw9BBpTuyG/s-l1600.webp"
-  },
-  {
-    "title": "3D Deco Light FX Hockey Puck LED Night Light New Condition Battery Powered",
-    "condition": "New",
-    "status": "active",
-    "featured": false,
-    "category": "Home",
-    "theme": "Lighting",
-    "type": "Night Lights",
-    "price": "$18.00 CAD",
-    "link": "https://www.ebay.ca/itm/306678515916",
-    "image": "https://i.ebayimg.com/images/g/B7kAAeSw67lpTvWK/s-l1600.webp"
   },
   {
     "title": "McFarlane Toys NHL Series 20 Jerome Iginla #13 Calgary Flame NEW",
@@ -331,7 +321,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$32.98 CAD",
+    "price": "32.98",
     "link": "https://www.ebay.ca/itm/306678564092",
     "image": "https://i.ebayimg.com/images/g/C~IAAeSwzLRpTwOP/s-l1600.webp"
   },
@@ -343,7 +333,7 @@ window.PRODUCTS = [
     "category": "Books, Movies & Music",
     "theme": "Movies & TV",
     "type": "VHS Tapes",
-    "price": "$32.98 CAD",
+    "price": "32.98",
     "link": "https://www.ebay.ca/itm/306678591050",
     "image": "https://i.ebayimg.com/images/g/bMwAAeSw0OVpTwof/s-l1600.webp"
   },
@@ -355,21 +345,9 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Set",
-    "price": "$32.98 CAD",
+    "price": "32.98",
     "link": "https://www.ebay.ca/itm/306678807543",
     "image": "https://i.ebayimg.com/images/g/3iAAAeSwdBxpTyy4/s-l1600.webp"
-  },
-  {
-    "title": "Erik Karlsson Ottawa Senators Funko Pop! Hockey Vinyl Exclusive NHL Collectible",
-    "condition": "New",
-    "status": "sold",
-    "featured": false,
-    "category": "Sports/Action Figures",
-    "theme": "Sports - NHL",
-    "type": "Figures/Single",
-    "price": "$49.98 CAD",
-    "link": "https://www.ebay.ca/itm/306678856258",
-    "image": "https://i.ebayimg.com/images/g/OTMAAeSwMX9pTzVn/s-l1600.webp"
   },
   {
     "title": "McFarlane Toys – Fallout Lucy, Maximus & The Ghoul 3‑Pack (Gold Label) Mint New",
@@ -379,55 +357,19 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Action Figures",
     "type": "Movies/Gaming",
-    "price": "$140.58 CAD",
+    "price": "140.58",
     "link": "https://www.ebay.ca/itm/306678905899",
     "image": "https://i.ebayimg.com/images/g/OxIAAeSwRtJpTz4e/s-l1600.webp"
-  },
-  {
-    "title": "Mortal Kombat Klassic Kitana McFarlane Red Platinum Edition 7\" Figure New",
-    "condition": "New",
-    "status": "active",
-    "featured": false,
-    "category": "Sports/Action Figures",
-    "theme": "Action Figures",
-    "type": "Movies/Gaming",
-    "price": "$68.98 CAD",
-    "link": "https://www.ebay.ca/itm/306678929552",
-    "image": "https://i.ebayimg.com/images/g/tyAAAeSw3QdpUEj1/s-l1600.webp"
-  },
-  {
-    "title": "DOOM: The Dark Ages Doom Slayer 7in Deluxe McFarlane Elite Edition Mint NIB",
-    "condition": "New",
-    "status": "active",
-    "featured": true,
-    "category": "Sports/Action Figures",
-    "theme": "Action Figures",
-    "type": "Movies/Gaming",
-    "price": "$239.98 CAD",
-    "link": "https://www.ebay.ca/itm/306678950467",
-    "image": "https://i.ebayimg.com/images/g/b-wAAeSwQZBpUEAJ/s-l1600.webp"
-  },
-  {
-    "title": "Pokémon Select Ceruledge Action Figure by Jazwares, New, MIB",
-    "condition": "New",
-    "status": "sold",
-    "featured": false,
-    "category": "Sports/Action Figures",
-    "theme": "Action Figures",
-    "type": "Movies/Gaming",
-    "price": "$84.49 CAD",
-    "link": "https://www.ebay.ca/itm/306682459012",
-    "image": "https://i.ebayimg.com/images/g/DtMAAeSwz2NpUFpA/s-l500.jpg"
   },
   {
     "title": "Athearn HO GO Transit Bombardier Coach 3-Car Set \"ATH2581\" #200/#2307/#2330",
     "condition": "New",
     "status": "active",
-    "featured": false,
+    "featured": true,
     "category": "Toys & Hobbies",
     "theme": "Model Railroads & Trains",
     "type": "Railroads & Trains",
-    "price": "$398.98 CAD",
+    "price": "388.98",
     "link": "https://www.ebay.ca/itm/306681709646",
     "image": "https://i.ebayimg.com/images/g/LnwAAeSwk89pUaI4/s-l1600.webp"
   },
@@ -439,7 +381,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$59.98 CAD",
+    "price": "59.98",
     "link": "https://www.ebay.ca/itm/306681771299",
     "image": "https://i.ebayimg.com/images/g/OR0AAeSwJo9pUayM/s-l1600.webp"
   },
@@ -451,33 +393,9 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$26.98 CAD",
+    "price": "26.98",
     "link": "https://www.ebay.ca/itm/306681827295",
     "image": "https://i.ebayimg.com/images/g/hwcAAeSwGWlpUbqJ/s-l1600.webp"
-  },
-  {
-    "title": "Yvan Cournoyer McFarlane NHL Montreal Canadiens Action Figure Series 1",
-    "condition": "New",
-    "status": "sold",
-    "featured": false,
-    "category": "Sports/Action Figures",
-    "theme": "Sports - NHL",
-    "type": "Figures/Single",
-    "price": "$26.98 CAD",
-    "link": "https://www.ebay.ca/itm/306681863436",
-    "image": "https://i.ebayimg.com/images/g/rB4AAeSwNntpUcL9/s-l1600.webp"
-  },
-  {
-    "title": "Jeremy Roenick McFarlane NHL LA Kings Action Figure Series 12 Mint",
-    "condition": "New",
-    "status": "active",
-    "featured": false,
-    "category": "Sports/Action Figures",
-    "theme": "Sports - NHL",
-    "type": "Figures/Single",
-    "price": "$18.98 CAD",
-    "link": "https://www.ebay.ca/itm/306681966593",
-    "image": "https://i.ebayimg.com/images/g/GoYAAeSwsTBpUdNK/s-l1600.webp"
   },
   {
     "title": "Daniel Sedin McFarlane NHL Vancouver Canucks Action Figure Series 12 Mint",
@@ -487,7 +405,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$22.98 CAD",
+    "price": "22.98",
     "link": "https://www.ebay.ca/itm/306682029084",
     "image": "https://i.ebayimg.com/images/g/CQYAAeSwQxtpUd30/s-l1600.webp"
   },
@@ -499,7 +417,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$30.98 CAD",
+    "price": "30.98",
     "link": "https://www.ebay.ca/itm/306682070918",
     "image": "https://i.ebayimg.com/images/g/LSwAAeSw~W5pUeTj/s-l1600.webp"
   },
@@ -511,7 +429,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$27.98 CAD",
+    "price": "27.98",
     "link": "https://www.ebay.ca/itm/306682090324",
     "image": "https://i.ebayimg.com/images/g/nQMAAeSwg5ppUenr/s-l1600.webp"
   },
@@ -523,7 +441,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$27.98 CAD",
+    "price": "27.98",
     "link": "https://www.ebay.ca/itm/306682119392",
     "image": "https://i.ebayimg.com/images/g/po0AAeSwXXxpUe~V/s-l1600.webp"
   },
@@ -535,7 +453,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$49.98 CAD",
+    "price": "49.98",
     "link": "https://www.ebay.ca/itm/306682145899",
     "image": "https://i.ebayimg.com/images/g/56IAAeSweM1pUfhg/s-l1600.webp"
   },
@@ -547,7 +465,7 @@ window.PRODUCTS = [
     "category": "Toys & Hobbies",
     "theme": "Diecast & Toy Vehicles",
     "type": "Cars, Trucks & Vans",
-    "price": "$19.99 CAD",
+    "price": "19.99",
     "link": "https://www.ebay.ca/itm/306682167693",
     "image": "https://i.ebayimg.com/images/g/BwgAAeSwe~lpUgHy/s-l1600.webp"
   },
@@ -559,7 +477,7 @@ window.PRODUCTS = [
     "category": "Toys & Hobbies",
     "theme": "Diecast & Toy Vehicles",
     "type": "Cars, Trucks & Vans",
-    "price": "$19.99 CAD",
+    "price": "19.99",
     "link": "https://www.ebay.ca/itm/306682167693",
     "image": "https://i.ebayimg.com/images/g/BwgAAeSwe~lpUgHy/s-l1600.webp"
   },
@@ -571,7 +489,7 @@ window.PRODUCTS = [
     "category": "Toys & Hobbies",
     "theme": "Diecast & Toy Vehicles",
     "type": "Cars, Trucks & Vans",
-    "price": "$19.99 CAD",
+    "price": "19.99",
     "link": "https://www.ebay.ca/itm/306682167693",
     "image": "https://i.ebayimg.com/images/g/BwgAAeSwe~lpUgHy/s-l1600.webp"
   },
@@ -583,21 +501,9 @@ window.PRODUCTS = [
     "category": "Toys & Hobbies",
     "theme": "Diecast & Toy Vehicles",
     "type": "Cars, Trucks & Vans",
-    "price": "$19.99 CAD",
+    "price": "19.99",
     "link": "https://www.ebay.ca/itm/306682181225",
     "image": "https://i.ebayimg.com/images/g/MwQAAeSwDUFpUgVt/s-l1600.webp"
-  },
-  {
-    "title": "McFarlane Fallout Vault Boy Posed Figure Gold Label 3750 Limited Movie Maniacs",
-    "condition": "New",
-    "status": "sold",
-    "featured": false,
-    "category": "Sports/Action Figures",
-    "theme": "Action Figures",
-    "type": "Movies/Gaming",
-    "price": "$78.98 CAD",
-    "link": "https://www.ebay.ca/itm/306682263330",
-    "image": "https://i.ebayimg.com/images/g/kcgAAeSw7-ZpUhyj/s-l1600.webp"
   },
   {
     "title": "Funko Pop Disney Mad Hatter #36 Retired Vaulted 2012 Vinyl Figure",
@@ -607,7 +513,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$184.98 CAD",
+    "price": "184.98",
     "link": "https://www.ebay.ca/itm/306692302938",
     "image": "https://i.ebayimg.com/images/g/fnMAAeSwY5dpWYg6/s-l1600.webp"
   },
@@ -619,7 +525,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$19.98 CAD",
+    "price": "19.98",
     "link": "https://www.ebay.ca/itm/306692325242",
     "image": "https://i.ebayimg.com/images/g/lEgAAeSwyElpWY1q/s-l1600.webp"
   },
@@ -631,7 +537,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$16.98 CAD",
+    "price": "16.98",
     "link": "https://www.ebay.ca/itm/306692362188",
     "image": "https://i.ebayimg.com/images/g/8B0AAeSwVCtpWZfd/s-l1600.webp"
   },
@@ -643,21 +549,9 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Action Figures",
     "type": "Movies/Gaming",
-    "price": "$99.98 CAD",
+    "price": "99.98",
     "link": "https://www.ebay.ca/itm/306694343159",
     "image": "https://i.ebayimg.com/images/g/cAwAAeSwd4BpWyPe/s-l1600.webp"
-  },
-  {
-    "title": "Kermit Bob Cratchit Tiny Tim Funko Pop! Movies 1457 The Muppet Christmas Carol",
-    "condition": "New",
-    "status": "active",
-    "featured": false,
-    "category": "Collectible Figures & Bobbleheads",
-    "theme": "Bobbleheads",
-    "type": "Funko",
-    "price": "$28.98 CAD",
-    "link": "https://www.ebay.ca/itm/306699317913",
-    "image": "https://i.ebayimg.com/images/g/R-UAAeSwPLdpXtjP/s-l1600.webp"
   },
   {
     "title": "McFarlane Toys NHL Series 4 Darryl Sitler #94 Edmonton Oilers",
@@ -667,7 +561,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "$15.98 CAD",
+    "price": "15.98",
     "link": "https://www.ebay.ca/itm/306699732704",
     "image": "https://i.ebayimg.com/images/g/eUoAAeSwRadpXzDs/s-l1600.webp"
   },
@@ -679,21 +573,9 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - MLB",
     "type": "Figures/Single",
-    "price": "$26.98 CAD",
+    "price": "26.98",
     "link": "https://www.ebay.ca/itm/306699746013",
     "image": "https://i.ebayimg.com/images/g/dLoAAeSwhWNpXzjU/s-l1600.webp"
-  },
-  {
-    "title": "Hobbycraft HC1391 CF-100 Canuck 1:72 Scale Plastic Model Kit Vintage Sealed Part",
-    "condition": "New",
-    "status": "sold",
-    "featured": false,
-    "category": "Model Kit",
-    "theme": "Aircraft",
-    "type": "Military",
-    "price": "$45.98 CAD",
-    "link": "https://www.ebay.ca/itm/306699784278",
-    "image": "https://i.ebayimg.com/images/g/NQsAAeSwBPhpX0GR/s-l1600.webp"
   },
   {
     "title": "Funko Pop! Television I Love Lucy #654 Lucille Ball Vinyl Figure Special Edition",
@@ -703,7 +585,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$35.98 CAD",
+    "price": "35.98",
     "link": "https://www.ebay.ca/itm/306701243942",
     "image": "https://i.ebayimg.com/images/g/ntYAAeSwOx5pYGil/s-l1600.webp"
   },
@@ -715,7 +597,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$9.98 CAD",
+    "price": "9.98",
     "link": "https://www.ebay.ca/itm/306701254516",
     "image": "https://i.ebayimg.com/images/g/HtoAAeSwuutpYHBl/s-l1600.webp"
   },
@@ -727,7 +609,7 @@ window.PRODUCTS = [
     "category": "Toys & Hobbies",
     "theme": "Model Railroads & Trains",
     "type": "Railroads & Trains",
-    "price": "$264.98 CAD",
+    "price": "239.98",
     "link": "https://www.ebay.ca/itm/306702950919",
     "image": "https://i.ebayimg.com/images/g/WKAAAeSwzEppYcsz/s-l1600.webp"
   },
@@ -735,11 +617,11 @@ window.PRODUCTS = [
     "title": "Funko Pop! 225 Funtime Freddy Chase Five Nights at Freddy’s Sister Location MIB",
     "condition": "New",
     "status": "active",
-    "featured": false,
+    "featured": true,
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$109.98 CAD",
+    "price": "109.98",
     "link": "https://www.ebay.ca/itm/306703071901",
     "image": "https://i.ebayimg.com/images/g/srsAAeSwn8VpYev3/s-l1600.webp"
   },
@@ -751,7 +633,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$22.98 CAD",
+    "price": "22.98",
     "link": "https://www.ebay.ca/itm/306703126554",
     "image": "https://i.ebayimg.com/images/g/OMUAAeSwDDZpYfXG/s-l1600.webp"
   },
@@ -763,7 +645,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$25.98 CAD",
+    "price": "25.98",
     "link": "https://www.ebay.ca/itm/306703149721",
     "image": "https://i.ebayimg.com/images/g/E-UAAeSwjE1pYf0-/s-l1600.webp"
   },
@@ -775,7 +657,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$25.98 CAD",
+    "price": "25.98",
     "link": "https://www.ebay.ca/itm/306703153523",
     "image": "https://i.ebayimg.com/images/g/siwAAeSwqgJpYf6I/s-l1600.webp"
   },
@@ -787,7 +669,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$57.98 CAD",
+    "price": "57.98",
     "link": "https://www.ebay.ca/itm/306703193079",
     "image": "https://i.ebayimg.com/images/g/87gAAeSwxEVpYgak/s-l1600.webp"
   },
@@ -799,7 +681,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$18.78 CAD",
+    "price": "18.78",
     "link": "https://www.ebay.ca/itm/306703224184",
     "image": "https://i.ebayimg.com/images/g/LxwAAeSwyQppYg1k/s-l1600.webp"
   },
@@ -811,7 +693,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$34.28 CAD",
+    "price": "34.28",
     "link": "https://www.ebay.ca/itm/306703248584",
     "image": "https://i.ebayimg.com/images/g/O1cAAeSwvBxpYhUE/s-l1600.webp"
   },
@@ -823,21 +705,9 @@ window.PRODUCTS = [
     "category": "Model Kit",
     "theme": "Aircraft",
     "type": "Military",
-    "price": "$182.27 CAD",
+    "price": "182.27",
     "link": "https://www.ebay.ca/itm/306704246669",
     "image": "https://i.ebayimg.com/images/g/iW8AAeSwJr1pYsTL/s-l1600.webp"
-  },
-  {
-    "title": "Hobbycraft Hasegawa 1147 Lockheed P-3C Orion 1:144 Scale Model Kit Sealed Parts",
-    "condition": "New",
-    "status": "active",
-    "featured": false,
-    "category": "Model Kit",
-    "theme": "Aircraft",
-    "type": "Military",
-    "price": "$54.98 CAD",
-    "link": "https://www.ebay.ca/itm/306704297558",
-    "image": "https://i.ebayimg.com/images/g/gfQAAeSwE3ppYs8h/s-l1600.webp"
   },
   {
     "title": "Funko Pop! Transformers Grimlock #69 Vinyl Figure Limited Edition",
@@ -847,7 +717,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$32.58 CAD",
+    "price": "32.58",
     "link": "https://www.ebay.ca/itm/306704370365",
     "image": "https://i.ebayimg.com/images/g/EOYAAeSwCsxpYuE-/s-l1600.webp"
   },
@@ -859,7 +729,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$34.68 CAD",
+    "price": "34.68",
     "link": "https://www.ebay.ca/itm/306704444382",
     "image": "https://i.ebayimg.com/images/g/fysAAeSw5ItpYubH/s-l1600.webp"
   },
@@ -871,7 +741,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$52.98 CAD",
+    "price": "52.98",
     "link": "https://www.ebay.ca/itm/306704501901",
     "image": "https://i.ebayimg.com/images/g/Wh4AAeSwwbRpYv1Y/s-l1600.webp"
   },
@@ -883,7 +753,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$21.88 CAD",
+    "price": "21.88",
     "link": "https://www.ebay.ca/itm/306704656748",
     "image": "https://i.ebayimg.com/images/g/DkYAAeSwSytpYzhX/s-l1600.webp"
   },
@@ -895,7 +765,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$18.59 CAD",
+    "price": "18.59",
     "link": "https://www.ebay.ca/itm/306704720554",
     "image": "https://i.ebayimg.com/images/g/wwgAAeSwZ1dpY0sY/s-l1600.webp"
   },
@@ -907,7 +777,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$20.48 CAD",
+    "price": "20.48",
     "link": "https://www.ebay.ca/itm/306704734198",
     "image": "https://i.ebayimg.com/images/g/yO0AAeSw90VpY02h/s-l1600.webp"
   },
@@ -919,7 +789,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$21.98 CAD",
+    "price": "21.98",
     "link": "https://www.ebay.ca/itm/306705430075",
     "image": "https://i.ebayimg.com/images/g/FiQAAeSwONBpY-Bl/s-l1600.webp"
   },
@@ -931,8 +801,128 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "$53.46 CAD",
+    "price": "53.46",
     "link": "https://www.ebay.ca/itm/306705610530",
     "image": "https://i.ebayimg.com/images/g/jqUAAeSwv8dpZAS2/s-l1600.webp"
+  },
+  {
+    "title": "Sony PlayStation 3 Slim 320GB Console Bundle Boxed 2 Controllers 5 Games PS3",
+    "condition": "New",
+    "status": "active",
+    "featured": false,
+    "category": "Video Games",
+    "theme": "Playstation",
+    "type": "Consoles",
+    "price": "439.98",
+    "link": "https://www.ebay.ca/itm/306709847007",
+    "image": "https://i.ebayimg.com/images/g/fOwAAeSw-pxpZzKV/s-l1600.webp"
+  },
+  {
+    "title": "HO Scale Chessie System GP40-2 Diesel Locomotive – C&O #4406 DC Weathered Tested",
+    "condition": "New",
+    "status": "active",
+    "featured": false,
+    "category": "Toys & Hobbies",
+    "theme": "Model Railroads & Trains",
+    "type": "Railroads & Trains",
+    "price": "225.98",
+    "link": "https://www.ebay.ca/itm/306711703000",
+    "image": "https://i.ebayimg.com/images/g/zz0AAeSwbKlpaIVZ/s-l1600.webp"
+  },
+  {
+    "title": "HO Scale F40PH Diesel Locomotive – GO Transit #513 DC Tested",
+    "condition": "New",
+    "status": "active",
+    "featured": true,
+    "category": "Toys & Hobbies",
+    "theme": "Model Railroads & Trains",
+    "type": "Railroads & Trains",
+    "price": "53.48",
+    "link": "https://www.ebay.ca/itm/306713194524",
+    "image": "https://i.ebayimg.com/images/g/RiIAAeSwZP5paYtp/s-l1600.webp"
+  },
+  {
+    "title": "Bachmann HO Scale EMD SD40-2 Norfolk Southern NS #6093 DCC Equipped",
+    "condition": "New",
+    "status": "active",
+    "featured": true,
+    "category": "Toys & Hobbies",
+    "theme": "Model Railroads & Trains",
+    "type": "Railroads & Trains",
+    "price": "288.98",
+    "link": "https://www.ebay.ca/itm/306713594316",
+    "image": "https://i.ebayimg.com/images/g/HV4AAeSw4xtpadlG/s-l1600.webp"
+  },
+  {
+    "title": "Batman: The Animated Series Batmobile 5 Points Vehicle MEZCO",
+    "condition": "New",
+    "status": "active",
+    "featured": false,
+    "category": "Sports/Action Figures",
+    "theme": "Action Figures",
+    "type": "Movies/Gaming",
+    "price": "85.98",
+    "link": "https://www.ebay.ca/itm/306716833223",
+    "image": "https://i.ebayimg.com/images/g/n9sAAeSw24hpbB1B/s-l960.webp"
+  },
+  {
+    "title": "Xbox One Wireless Controller Official Microsoft OEM Tested",
+    "condition": "New",
+    "status": "active",
+    "featured": false,
+    "category": "Video Games",
+    "theme": "XBox One",
+    "type": "Accessories",
+    "price": "45.98",
+    "link": "https://www.ebay.ca/itm/306718518752",
+    "image": "https://i.ebayimg.com/images/g/Ux0AAeSwXy9pbWVp/s-l1600.webp"
+  },
+  {
+    "title": "Madcatz Xbox 360 Pro Series VGA HD AV Cable – HD Video & Audio Output",
+    "condition": "New",
+    "status": "active",
+    "featured": false,
+    "category": "Video Games",
+    "theme": "XBox 360",
+    "type": "Accessories",
+    "price": "19.98",
+    "link": "https://www.ebay.ca/itm/306718659330",
+    "image": "https://i.ebayimg.com/images/g/YRYAAeSws9FpbYRi/s-l1600.webp"
+  },
+  {
+    "title": "PSP Metro Kit – MadCatz Accessory Bundle Sony PlayStation Portable New Sealed",
+    "condition": "New",
+    "status": "active",
+    "featured": false,
+    "category": "Video Games",
+    "theme": "Sony PSP",
+    "type": "Accessories",
+    "price": "31.98",
+    "link": "https://www.ebay.ca/itm/306718738149",
+    "image": "https://i.ebayimg.com/images/g/h1gAAeSwh45pbZJx/s-l1600.webp"
+  },
+  {
+    "title": "1993 HO Scale Presidents Choice, The PC Insiders Express CP Train Set",
+    "condition": "New",
+    "status": "active",
+    "featured": true,
+    "category": "Toys & Hobbies",
+    "theme": "Model Railroads & Trains",
+    "type": "Railroads & Trains",
+    "price": "239.98",
+    "link": "https://www.ebay.ca/itm/306731403023",
+    "image": "https://i.ebayimg.com/images/g/zYwAAeSwpNlpd7AB/s-l1600.webp"
+  },
+  {
+    "title": "1995 HO Presidents Choice, Insiders Express CN SD-35 Engine Train Set",
+    "condition": "New",
+    "status": "active",
+    "featured": false,
+    "category": "Toys & Hobbies",
+    "theme": "Model Railroads & Trains",
+    "type": "Railroads & Trains",
+    "price": "239.98",
+    "link": "https://www.ebay.ca/itm/306731447405",
+    "image": ""
   }
 ];
