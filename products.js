@@ -1,5 +1,5 @@
 // Auto-generated from Google Sheets: eBay Financials → Income
-// Generated: 2026-01-26T23:06:37.806Z
+// Generated: 2026-01-27T04:50:21.922Z
 window.PRODUCTS = [
   {
     "title": "Revell 7364 1:25 Ford Mustang Mach III Concept Car Model Kit",
@@ -923,6 +923,6 @@ window.PRODUCTS = [
     "type": "Railroads & Trains",
     "price": "239.98",
     "link": "https://www.ebay.ca/itm/306731447405",
-    "image": ""
+    "image": "https://i.ebayimg.com/images/g/BLcAAeSwVVVpeEPR/s-l1600.webp"
   }
 ];
