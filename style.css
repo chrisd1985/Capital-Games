@@ -1013,7 +1013,7 @@ footer.siteFooter .foot{
 }
 .cg-searchItem:hover{ background:rgba(255,255,255,.08); }
 .cg-searchThumb{
-  width:42px; height:42px;
+  width:62px; height:62px;
   border-radius:10px;
   background:rgba(255,255,255,.10);
   object-fit:contain;
