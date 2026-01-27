@@ -739,7 +739,7 @@ footer.siteFooter{
 footer.siteFooter .foot{
   max-width:1300px;
   margin:0 auto;
-  padding:14px 20px;
+  padding:8px 20px;
   display:flex;
   flex-direction:column;
   gap:8px;
