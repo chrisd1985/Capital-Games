@@ -15,11 +15,11 @@
 <div class="headerWrap">
 <div class="bar headerBar headerBarWide">
 <div class="brand brandDark">
-<a href="./index.html" aria-label="Go to homepage"><img alt="Capital Games" class="logoMain" src="./assets/CapitalGamesmain.png"/></a>
+<a aria-label="Go to homepage" href="./index.html"><img alt="Capital Games" class="logoMain" src="./assets/CapitalGamesmain.png"/></a>
 </div>
-<div class="headerSearch">
-<input aria-label="Search (placeholder)" placeholder="Search for games or collectibles…" type="search"/>
-<button aria-label="Search (placeholder)" class="searchBtn">
+<div class="cg-headerSearch headerSearch">
+<input aria-label="Search (placeholder)" class="cg-headerSearchInput" placeholder="Search for games or collectibles…" type="search"/>
+<button aria-label="Search (placeholder)" class="cg-headerSearchBtn searchBtn">
 <svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18">
 <path d="M10 4a6 6 0 104.472 10.01l3.259 3.258 1.414-1.414-3.258-3.259A6 6 0 0010 4zm0 2a4 4 0 110 8 4 4 0 010-8z" fill="currentColor"></path>
 </svg>
@@ -46,7 +46,7 @@
 <p style="margin:0 0 14px;">
       All purchases are completed through eBay for buyer protection. When you click a product, you’ll be directed to eBay to check out securely.
     </p>
-<h3>What to expect</h3>    
+<h3>What to expect</h3>
 <h3 style="margin-top:0;">How we sell</h3>
 <p style="margin:0 0 14px;">
       All purchases are completed through eBay for buyer protection. When you click a product, you’ll be directed to eBay to check out securely.
@@ -61,55 +61,48 @@
 <a class="heroBtn" href="./shop.html" style="display:inline-block;text-decoration:none;">Browse the Shop</a>
 </div>
 </div>
-
 <section class="homeSection">
-  <h2 class="sectionHeading"><span class="line"></span> Shop with Confidence <span class="line"></span></h2>
-
-  <div class="categoryGrid">
-    <a aria-label="Curated for Collectors - Shop" class="catCard" href="./shop.html">
-      <div aria-hidden="true" class="catIcon">
-        <svg width="26" height="26" viewBox="0 0 24 24">
-          <path d="M12 2l2.9 6.1 6.7.9-4.9 4.7 1.2 6.6L12 17.9 6.1 20.3l1.2-6.6L2.4 9l6.7-.9L12 2z" fill="currentColor"></path>
-        </svg>
-      </div>
-      <div class="catTitle">Curated for Collectors</div>
-      <div class="catSub">Hand-picked items chosen for quality, condition, and collector appeal.</div>
-    </a>
-
-    <a aria-label="Gaming &amp; Pop-Culture Collectibles - Shop" class="catCard" href="./shop.html">
-      <div aria-hidden="true" class="catIcon">
-        <svg width="26" height="26" viewBox="0 0 24 24">
-          <path d="M7 9h10a4 4 0 014 4v3a2 2 0 01-2 2h-2l-1 2h-2l-1-2H11l-1 2H8l-1-2H5a2 2 0 01-2-2v-3a4 4 0 014-4zm2 3a1 1 0 100 2 1 1 0 000-2zm6 0h2v2h-2v-2z" fill="currentColor"></path>
-        </svg>
-      </div>
-      <div class="catTitle">Gaming &amp; Pop-Culture Collectibles</div>
-      <div class="catSub">Action figures, model kits, construction sets, and nostalgia-driven releases.</div>
-    </a>
-
-    <a aria-label="Proudly Canadian - About" class="catCard" href="./about.html">
-      <div aria-hidden="true" class="catIcon">
-        <svg width="26" height="26" viewBox="0 0 24 24">
-          <path d="M12 2c-2.8 1.8-5.6 3-9 3v8c0 5 4.4 8.4 9 9 4.6-.6 9-4 9-9V5c-3.4 0-6.2-1.2-9-3zm0 6.2l1.2 2.1 2.4-.5-1.6 1.8 1.6 1.8-2.4-.5L12 15l-1.2-2.3-2.4.5 1.6-1.8-1.6-1.8 2.4.5L12 8.2z" fill="currentColor"></path>
-        </svg>
-      </div>
-      <div class="catTitle">Proudly Canadian</div>
-      <div class="catSub">Canada-based seller shipping worldwide with trusted delivery.</div>
-    </a>
-
-    <a aria-label="Fast, Reliable Shipping - Shipping" class="catCard" href="./shipping.html">
-      <div aria-hidden="true" class="catIcon">
-        <svg width="26" height="26" viewBox="0 0 24 24">
-          <path d="M20 8h-3V4H3v12h2a3 3 0 006 0h6a3 3 0 006 0h1v-5l-4-3zm-5-2v2H5V6h10zm-7 12a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm12 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm2-4h-.5a3 3 0 00-5 0H11a3 3 0 00-6 0H5v-3h10V9h3l4 3v2z" fill="currentColor"></path>
-        </svg>
-      </div>
-      <div class="catTitle">Fast, Reliable Shipping</div>
-      <div class="catSub">Carefully packed, quickly shipped, always protected.</div>
-    </a>
-  </div>
-</section>
-
+<h2 class="sectionHeading"><span class="line"></span> Shop with Confidence <span class="line"></span></h2>
+<div class="categoryGrid">
+<a aria-label="Curated for Collectors - Shop" class="catCard" href="./shop.html">
+<div aria-hidden="true" class="catIcon">
+<svg height="26" viewbox="0 0 24 24" width="26">
+<path d="M12 2l2.9 6.1 6.7.9-4.9 4.7 1.2 6.6L12 17.9 6.1 20.3l1.2-6.6L2.4 9l6.7-.9L12 2z" fill="currentColor"></path>
+</svg>
 </div>
-    
+<div class="catTitle">Curated for Collectors</div>
+<div class="catSub">Hand-picked items chosen for quality, condition, and collector appeal.</div>
+</a>
+<a aria-label="Gaming &amp; Pop-Culture Collectibles - Shop" class="catCard" href="./shop.html">
+<div aria-hidden="true" class="catIcon">
+<svg height="26" viewbox="0 0 24 24" width="26">
+<path d="M7 9h10a4 4 0 014 4v3a2 2 0 01-2 2h-2l-1 2h-2l-1-2H11l-1 2H8l-1-2H5a2 2 0 01-2-2v-3a4 4 0 014-4zm2 3a1 1 0 100 2 1 1 0 000-2zm6 0h2v2h-2v-2z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="catTitle">Gaming &amp; Pop-Culture Collectibles</div>
+<div class="catSub">Action figures, model kits, construction sets, and nostalgia-driven releases.</div>
+</a>
+<a aria-label="Proudly Canadian - About" class="catCard" href="./about.html">
+<div aria-hidden="true" class="catIcon">
+<svg height="26" viewbox="0 0 24 24" width="26">
+<path d="M12 2c-2.8 1.8-5.6 3-9 3v8c0 5 4.4 8.4 9 9 4.6-.6 9-4 9-9V5c-3.4 0-6.2-1.2-9-3zm0 6.2l1.2 2.1 2.4-.5-1.6 1.8 1.6 1.8-2.4-.5L12 15l-1.2-2.3-2.4.5 1.6-1.8-1.6-1.8 2.4.5L12 8.2z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="catTitle">Proudly Canadian</div>
+<div class="catSub">Canada-based seller shipping worldwide with trusted delivery.</div>
+</a>
+<a aria-label="Fast, Reliable Shipping - Shipping" class="catCard" href="./shipping.html">
+<div aria-hidden="true" class="catIcon">
+<svg height="26" viewbox="0 0 24 24" width="26">
+<path d="M20 8h-3V4H3v12h2a3 3 0 006 0h6a3 3 0 006 0h1v-5l-4-3zm-5-2v2H5V6h10zm-7 12a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm12 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm2-4h-.5a3 3 0 00-5 0H11a3 3 0 00-6 0H5v-3h10V9h3l4 3v2z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="catTitle">Fast, Reliable Shipping</div>
+<div class="catSub">Carefully packed, quickly shipped, always protected.</div>
+</a>
+</div>
+</section>
+</div>
 <footer class="siteFooter">
 <div class="foot">
 <div class="footRow footRowMain">
@@ -133,5 +126,5 @@
 </div>
 </div>
 </footer>
-</body>
+<script src="products.js"></script><script src="app.js"></script></body>
 </html>

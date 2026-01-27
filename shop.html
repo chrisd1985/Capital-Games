@@ -15,11 +15,11 @@
 <div class="headerWrap">
 <div class="bar headerBar headerBarWide">
 <div class="brand brandDark">
-<a href="./index.html" aria-label="Go to homepage"><img alt="Capital Games" class="logoMain" src="./assets/CapitalGamesmain.png"/></a>
+<a aria-label="Go to homepage" href="./index.html"><img alt="Capital Games" class="logoMain" src="./assets/CapitalGamesmain.png"/></a>
 </div>
-<div class="headerSearch">
-<input aria-label="Search (placeholder)" placeholder="Search for games or collectibles…" type="search"/>
-<button aria-label="Search (placeholder)" class="searchBtn">
+<div class="cg-headerSearch headerSearch">
+<input aria-label="Search (placeholder)" class="cg-headerSearchInput" placeholder="Search for games or collectibles…" type="search"/>
+<button aria-label="Search (placeholder)" class="cg-headerSearchBtn searchBtn">
 <svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18">
 <path d="M10 4a6 6 0 104.472 10.01l3.259 3.258 1.414-1.414-3.258-3.259A6 6 0 0010 4zm0 2a4 4 0 110 8 4 4 0 010-8z" fill="currentColor"></path>
 </svg>
@@ -37,7 +37,7 @@
 </header>
 <div class="container">
 <div class="pageHeaderCard">
-  <p class="pageSubtitle">Click a <strong>Category</strong> to filter. Themes appear directly underneath. Click a <strong>Theme</strong> to filter further, then choose a <strong>Type</strong>.</p>
+<p class="pageSubtitle">Click a <strong>Category</strong> to filter. Themes appear directly underneath. Click a <strong>Theme</strong> to filter further, then choose a <strong>Type</strong>.</p>
 </div>
 <div class="layout">
 <aside class="panel">
@@ -57,7 +57,7 @@
 <option value="za">Sort: Z–A</option>
 <option value="featured">Sort: Featured First</option>
 </select>
-<select id="perPage" aria-label="Items per page">
+<select aria-label="Items per page" id="perPage">
 <option value="all">Show: All</option>
 <option value="10">Show: 10</option>
 <option value="25">Show: 25</option>
@@ -67,7 +67,7 @@
 </div>
 <div class="count" id="resultCount"></div>
 <div class="grid" id="shopGrid"></div>
-<div class="pagination" id="pagination" aria-label="Pagination"></div>
+<div aria-label="Pagination" class="pagination" id="pagination"></div>
 </main>
 </div>
 </div>
@@ -94,8 +94,8 @@
 </div>
 </div>
 </footer>
-<script src="products.js"></script>
-<script src="app.js"></script>
-<script>CG_initShop();</script>
+
+
+<script src="products.js"></script><script src="app.js"></script><script>CG_initShop();</script>
 </body>
 </html>

@@ -16,11 +16,11 @@
 <div class="headerWrap">
 <div class="bar headerBar headerBarWide">
 <div class="brand brandDark">
-<a href="./index.html" aria-label="Go to homepage"><img alt="Capital Games" class="logoMain" src="./assets/CapitalGamesmain.png"/></a>
+<a aria-label="Go to homepage" href="./index.html"><img alt="Capital Games" class="logoMain" src="./assets/CapitalGamesmain.png"/></a>
 </div>
-<div class="headerSearch">
-<input aria-label="Search (placeholder)" placeholder="Search for games or collectibles…" type="search"/>
-<button aria-label="Search (placeholder)" class="searchBtn">
+<div class="cg-headerSearch headerSearch">
+<input aria-label="Search (placeholder)" class="cg-headerSearchInput" placeholder="Search for games or collectibles…" type="search"/>
+<button aria-label="Search (placeholder)" class="cg-headerSearchBtn searchBtn">
 <svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18">
 <path d="M10 4a6 6 0 104.472 10.01l3.259 3.258 1.414-1.414-3.258-3.259A6 6 0 0010 4zm0 2a4 4 0 110 8 4 4 0 010-8z" fill="currentColor"></path>
 </svg>
@@ -46,7 +46,6 @@
 <a class="heroBtn" href="./shop.html">Shop Now</a>
 </div>
 </div>
-
 </section>
 <section class="homeSection">
 <h2 class="sectionHeading"><span class="line"></span> Featured Products <span class="line"></span></h2>
@@ -94,7 +93,7 @@
 </div>
 <div class="footRight">
 <div class="footSocial">
-<a class="socialBtn" href="https://www.ebay.ca/usr/capitalgames" rel="noopener noreferrer" target="_blank"><img alt="" aria-hidden="true" class="socialIcon" src="./assets/icons/icon-ebay.svg"><span class="srOnly">eBay</span></img></a>
+<a class="socialBtn" href="https://www.ebay.ca/usr/capitalgames" rel="noopener noreferrer" target="_blank"><img alt="" aria-hidden="true" class="socialIcon" src="./assets/icons/icon-ebay.svg"/><span class="srOnly">eBay</span></a>
 <span aria-disabled="true" class="socialBtn isDisabled"><img alt="" aria-hidden="true" class="socialIcon" src="./assets/icons/icon-x.svg"/><span class="srOnly">X</span></span>
 <span aria-disabled="true" class="socialBtn isDisabled"><img alt="" aria-hidden="true" class="socialIcon" src="./assets/icons/icon-instagram.svg"/><span class="srOnly">Instagram</span></span>
 </div>
@@ -108,8 +107,8 @@
 </div>
 </div>
 </footer>
-<script src="products.js"></script>
-<script src="app.js"></script>
-<script>CG_renderFeatured();</script>
+
+
+<script src="products.js"></script><script src="app.js"></script><script>CG_renderFeatured();</script>
 </body>
 </html>
