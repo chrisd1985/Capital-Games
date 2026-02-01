@@ -1,5 +1,5 @@
 // Auto-generated from Google Sheets: eBay Financials → Income
-// Generated: 2026-01-27T04:50:21.922Z
+// Generated: 2026-02-01T05:46:53.193Z
 window.PRODUCTS = [
   {
     "title": "Revell 7364 1:25 Ford Mustang Mach III Concept Car Model Kit",
@@ -9,7 +9,7 @@ window.PRODUCTS = [
     "category": "Model Kit",
     "theme": "Vehicle",
     "type": "Car/Truck",
-    "price": "36.29",
+    "price": "31.98",
     "link": "https://www.ebay.ca/itm/306677167493",
     "image": "https://i.ebayimg.com/images/g/xYIAAeSwm9NpTgNu/s-l1600.webp"
   },
@@ -21,7 +21,7 @@ window.PRODUCTS = [
     "category": "Model Kit",
     "theme": "Aircraft",
     "type": "Military",
-    "price": "37.43",
+    "price": "36.93",
     "link": "https://www.ebay.ca/itm/306676917812",
     "image": "https://i.ebayimg.com/images/g/d7MAAeSwgiZpTc9Z/s-l1600.webp"
   },
@@ -57,7 +57,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "24.98",
+    "price": "24.11",
     "link": "https://www.ebay.ca/itm/306675154220",
     "image": "https://i.ebayimg.com/images/g/TyUAAeSwZzBpTGze/s-l1600.webp"
   },
@@ -69,7 +69,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Action Figures",
     "type": "Movies/Gaming",
-    "price": "240",
+    "price": "234.89",
     "link": "https://www.ebay.ca/itm/306272524552",
     "image": "https://i.ebayimg.com/images/g/iMMAAOSwmexoDayv/s-l1600.webp"
   },
@@ -81,7 +81,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "34.98",
+    "price": "33.46",
     "link": "https://www.ebay.ca/itm/306668389156",
     "image": "https://i.ebayimg.com/images/g/lsQAAeSwvthpR2wT/s-l1600.webp"
   },
@@ -93,7 +93,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "39.5",
+    "price": "37.69",
     "link": "https://www.ebay.ca/itm/306675100178",
     "image": "https://i.ebayimg.com/images/g/b2oAAeSwZTppTG0z/s-l1600.webp"
   },
@@ -110,18 +110,6 @@ window.PRODUCTS = [
     "image": "https://i.ebayimg.com/images/g/nnYAAeSw67lpTLPL/s-l1600.webp"
   },
   {
-    "title": "Star Trek USS Enterprise 1:1000 Model Kit (Botany Bay)",
-    "condition": "New",
-    "status": "active",
-    "featured": false,
-    "category": "Model Kit",
-    "theme": "Other",
-    "type": "Space",
-    "price": "47.29",
-    "link": "https://www.ebay.ca/itm/306675667485",
-    "image": "https://i.ebayimg.com/images/g/CysAAeSw9JlpTM~X/s-l1600.webp"
-  },
-  {
     "title": "McFarlane NHL Series 22 Daniel Alfredsson Ottawa Senators",
     "condition": "New",
     "status": "active",
@@ -129,7 +117,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "27",
+    "price": "26",
     "link": "https://www.ebay.ca/itm/306668317988",
     "image": "https://i.ebayimg.com/images/g/vTUAAeSwVdZpR1ua/s-l1600.webp"
   },
@@ -141,7 +129,7 @@ window.PRODUCTS = [
     "category": "Model Kit",
     "theme": "Vehicle",
     "type": "Car/Truck",
-    "price": "58.49",
+    "price": "53.98",
     "link": "https://www.ebay.ca/itm/306675621143",
     "image": "https://i.ebayimg.com/images/g/PhoAAeSwOJxpTMWO/s-l1600.webp"
   },
@@ -153,7 +141,7 @@ window.PRODUCTS = [
     "category": "Dolls, Clothing & Accessories",
     "theme": "Dolls & Doll Playsets",
     "type": "Collectibles",
-    "price": "270",
+    "price": "264.66",
     "link": "https://www.ebay.ca/itm/306387845185",
     "image": "https://i.ebayimg.com/images/g/I9QAAeSwGCtpRdyr/s-l1600.webp"
   },
@@ -165,7 +153,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "36.5",
+    "price": "34.88",
     "link": "https://www.ebay.ca/itm/306668354076",
     "image": "https://i.ebayimg.com/images/g/H4AAAeSwcdBpR2Ls/s-l1600.webp"
   },
@@ -189,7 +177,7 @@ window.PRODUCTS = [
     "category": "Sports Memorabilia, Fan Shop & Sports Cards",
     "theme": "Hockey-NHL",
     "type": "Collectibles",
-    "price": "210",
+    "price": "205.54",
     "link": "https://www.ebay.ca/itm/306628007712",
     "image": "https://i.ebayimg.com/images/g/v-gAAeSwlaJpJppd/s-l1600.webp"
   },
@@ -201,7 +189,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Action Figures",
     "type": "Movies/Gaming",
-    "price": "85",
+    "price": "83.25",
     "link": "https://www.ebay.ca/itm/306620466301",
     "image": "https://i.ebayimg.com/images/g/LgEAAeSwogdpRdwz/s-l1600.webp"
   },
@@ -213,7 +201,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "24.5",
+    "price": "23.66",
     "link": "https://www.ebay.ca/itm/306668373681",
     "image": "https://i.ebayimg.com/images/g/sqcAAeSwfMdpR2eG/s-l1600.webp"
   },
@@ -225,7 +213,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "42.98",
+    "price": "40.94",
     "link": "https://www.ebay.ca/itm/306670399494",
     "image": "https://i.ebayimg.com/images/g/~24AAeSwPMtpSN9d/s-l1600.webp"
   },
@@ -237,7 +225,7 @@ window.PRODUCTS = [
     "category": "Dolls, Clothing & Accessories",
     "theme": "Dolls & Doll Playsets",
     "type": "Collectibles",
-    "price": "150",
+    "price": "147.26",
     "link": "https://www.ebay.ca/itm/306274472136",
     "image": "https://i.ebayimg.com/images/g/TbUAAeSwWXpoDy7C/s-l1600.webp"
   },
@@ -261,7 +249,7 @@ window.PRODUCTS = [
     "category": "Construction Set",
     "theme": "Other",
     "type": "Other",
-    "price": "223.98",
+    "price": "220.05",
     "link": "https://www.ebay.ca/itm/306272474172",
     "image": "https://i.ebayimg.com/images/g/qUgAAeSw2FtpRdqF/s-l1600.webp"
   },
@@ -321,7 +309,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "32.98",
+    "price": "31.59",
     "link": "https://www.ebay.ca/itm/306678564092",
     "image": "https://i.ebayimg.com/images/g/C~IAAeSwzLRpTwOP/s-l1600.webp"
   },
@@ -345,7 +333,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Set",
-    "price": "32.98",
+    "price": "31.09",
     "link": "https://www.ebay.ca/itm/306678807543",
     "image": "https://i.ebayimg.com/images/g/3iAAAeSwdBxpTyy4/s-l1600.webp"
   },
@@ -381,7 +369,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "59.98",
+    "price": "57.42",
     "link": "https://www.ebay.ca/itm/306681771299",
     "image": "https://i.ebayimg.com/images/g/OR0AAeSwJo9pUayM/s-l1600.webp"
   },
@@ -393,7 +381,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "26.98",
+    "price": "25.98",
     "link": "https://www.ebay.ca/itm/306681827295",
     "image": "https://i.ebayimg.com/images/g/hwcAAeSwGWlpUbqJ/s-l1600.webp"
   },
@@ -405,7 +393,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "22.98",
+    "price": "22.24",
     "link": "https://www.ebay.ca/itm/306682029084",
     "image": "https://i.ebayimg.com/images/g/CQYAAeSwQxtpUd30/s-l1600.webp"
   },
@@ -417,7 +405,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "30.98",
+    "price": "29.72",
     "link": "https://www.ebay.ca/itm/306682070918",
     "image": "https://i.ebayimg.com/images/g/LSwAAeSw~W5pUeTj/s-l1600.webp"
   },
@@ -429,7 +417,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "27.98",
+    "price": "26.91",
     "link": "https://www.ebay.ca/itm/306682090324",
     "image": "https://i.ebayimg.com/images/g/nQMAAeSwg5ppUenr/s-l1600.webp"
   },
@@ -441,7 +429,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "27.98",
+    "price": "26.91",
     "link": "https://www.ebay.ca/itm/306682119392",
     "image": "https://i.ebayimg.com/images/g/po0AAeSwXXxpUe~V/s-l1600.webp"
   },
@@ -453,7 +441,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "49.98",
+    "price": "47.48",
     "link": "https://www.ebay.ca/itm/306682145899",
     "image": "https://i.ebayimg.com/images/g/56IAAeSweM1pUfhg/s-l1600.webp"
   },
@@ -554,14 +542,14 @@ window.PRODUCTS = [
     "image": "https://i.ebayimg.com/images/g/cAwAAeSwd4BpWyPe/s-l1600.webp"
   },
   {
-    "title": "McFarlane Toys NHL Series 4 Darryl Sitler #94 Edmonton Oilers",
+    "title": "McFarlane Toys NHL Series 4 Ryan Smyth #94 Edmonton Oilers",
     "condition": "New",
     "status": "active",
     "featured": false,
     "category": "Sports/Action Figures",
     "theme": "Sports - NHL",
     "type": "Figures/Single",
-    "price": "15.98",
+    "price": "15.44",
     "link": "https://www.ebay.ca/itm/306699732704",
     "image": "https://i.ebayimg.com/images/g/eUoAAeSwRadpXzDs/s-l1600.webp"
   },
@@ -573,7 +561,7 @@ window.PRODUCTS = [
     "category": "Sports/Action Figures",
     "theme": "Sports - MLB",
     "type": "Figures/Single",
-    "price": "26.98",
+    "price": "25.78",
     "link": "https://www.ebay.ca/itm/306699746013",
     "image": "https://i.ebayimg.com/images/g/dLoAAeSwhWNpXzjU/s-l1600.webp"
   },
@@ -801,7 +789,7 @@ window.PRODUCTS = [
     "category": "Collectible Figures & Bobbleheads",
     "theme": "Bobbleheads",
     "type": "Funko",
-    "price": "53.46",
+    "price": "50.79",
     "link": "https://www.ebay.ca/itm/306705610530",
     "image": "https://i.ebayimg.com/images/g/jqUAAeSwv8dpZAS2/s-l1600.webp"
   },
@@ -830,18 +818,6 @@ window.PRODUCTS = [
     "image": "https://i.ebayimg.com/images/g/zz0AAeSwbKlpaIVZ/s-l1600.webp"
   },
   {
-    "title": "HO Scale F40PH Diesel Locomotive – GO Transit #513 DC Tested",
-    "condition": "New",
-    "status": "active",
-    "featured": true,
-    "category": "Toys & Hobbies",
-    "theme": "Model Railroads & Trains",
-    "type": "Railroads & Trains",
-    "price": "53.48",
-    "link": "https://www.ebay.ca/itm/306713194524",
-    "image": "https://i.ebayimg.com/images/g/RiIAAeSwZP5paYtp/s-l1600.webp"
-  },
-  {
     "title": "Bachmann HO Scale EMD SD40-2 Norfolk Southern NS #6093 DCC Equipped",
     "condition": "New",
     "status": "active",
@@ -849,7 +825,7 @@ window.PRODUCTS = [
     "category": "Toys & Hobbies",
     "theme": "Model Railroads & Trains",
     "type": "Railroads & Trains",
-    "price": "288.98",
+    "price": "245.63",
     "link": "https://www.ebay.ca/itm/306713594316",
     "image": "https://i.ebayimg.com/images/g/HV4AAeSw4xtpadlG/s-l1600.webp"
   },
@@ -924,5 +900,17 @@ window.PRODUCTS = [
     "price": "239.98",
     "link": "https://www.ebay.ca/itm/306731447405",
     "image": "https://i.ebayimg.com/images/g/BLcAAeSwVVVpeEPR/s-l1600.webp"
+  },
+  {
+    "title": "Funko Pop! Friday the 13th Jason Voorhees Signed Warrington Gillette COA ICON",
+    "condition": "New",
+    "status": "active",
+    "featured": true,
+    "category": "Collectible Figures & Bobbleheads",
+    "theme": "Bobbleheads",
+    "type": "Funko",
+    "price": "109.98",
+    "link": "https://www.ebay.ca/itm/306738686416",
+    "image": "https://i.ebayimg.com/images/g/LZ4AAeSw~plpfCet/s-l1600.webp"
   }
 ];
