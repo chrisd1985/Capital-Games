@@ -332,7 +332,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 @media(max-width:520px){.categoryGrid{grid-template-columns:1fr} .heroCopy{padding:44px 22px} .heroCopy h1{font-size:2.1rem}}
 
 .catCard{
-  background:rgba(0,0,0,.22);
+  background: rgb(255 0 0 / 22%);
   border:1px solid rgba(255,255,255,.16);
   border-radius:16px;
   padding:18px;
@@ -468,7 +468,7 @@ body{
 /* ===== Universal full-screen background (hi-res, no tiling) ===== */
 body.bgTexture{
   background-color:#0e0a0a !important;
-  background-image:url("./assets/bg-texture-2560x1440.png") !important;
+  /* background-image:url("./assets/bg-texture-2560x1440.png") !important; */
   background-repeat:no-repeat !important;
   background-size:cover !important;
   background-position:center top !important;
@@ -477,10 +477,10 @@ body.bgTexture{
 
 @supports (background-image: image-set(url("x.png") 1x)){
   body.bgTexture{
-    background-image:image-set(
+    /* background-image:image-set(
       url("./assets/bg-texture-2560x1440.png") 1x,
       url("./assets/bg-texture-5120x2880.png") 2x
-    ) !important;
+    ) !important; */
   }
 }
 
@@ -568,7 +568,7 @@ body.bgTexture::before{
 /* Universal background: no tiling, use hi-res images if present */
 body.bgTexture{
   background-color:#0e0a0a !important;
-  background-image:url("./assets/bg-texture-2560x1440.png") !important;
+  /* background-image:url("./assets/bg-texture-2560x1440.png") !important; */
   background-repeat:no-repeat !important;
   background-size:cover !important;
   background-position:center top !important;
@@ -576,10 +576,10 @@ body.bgTexture{
 }
 @supports (background-image: image-set(url("x.png") 1x)){
   body.bgTexture{
-    background-image:image-set(
+    /* background-image:image-set(
       url("./assets/bg-texture-2560x1440.png") 1x,
       url("./assets/bg-texture-5120x2880.png") 2x
-    ) !important;
+    ) !important; */
   }
 }
 
