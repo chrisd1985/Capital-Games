@@ -48,7 +48,7 @@
         <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">
         <div class="card-body">
           <p class="title">${escapeHtml(p.title)}<span class="badge">Featured</span></p>
-          ${p.price ? `<div class="price">${escapeHtml(formatPrice(p.price))}</div>` : ``}
+          ${p.price ? `<div class="price">${escapeHtml(p.price)}</div>` : ``}
           <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
         </div>
       </div>
@@ -229,22 +229,12 @@ try{
 
       renderPagination(totalPages);
 
-      function formatPrice(v){
-        const s = String(v ?? '').trim();
-        if(!s) return '';
-        // If it already contains a currency symbol, leave it alone
-        if(/[€£$]/.test(s)) return s;
-        // If it looks like a number, prefix with $
-        if (/^\d+(\.\d{1,2})?$/.test(s)) return `$${s}`;
-        return s;
-      }
-      
       elGrid.innerHTML = pageItems.map(p=>`
         <div class="card">
           <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">
           <div class="card-body">
             <p class="title">${escapeHtml(p.title)}${p.featured?'<span class="badge">Featured</span>':''}</p>
-            <p class="price">${escapeHtml(p.price ? formatPrice(p.price) : 'Price on eBay')}</p>
+            <p class="price">${escapeHtml(p.price || 'Price on eBay')}</p>
             <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
           </div>
         </div>
