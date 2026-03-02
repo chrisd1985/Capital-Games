@@ -848,6 +848,7 @@ footer.siteFooter .footLinks a:hover{
 /* --- Card price line --- */
 .card .price{
   margin-top: 8px;
+  margin-bottom: 8px;
   font-weight: 700;
   color: var(--text);
   opacity: .95;
