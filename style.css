@@ -322,6 +322,7 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
 }
 .featuredGrid .card-body{color:#111}
 
+
 .categoryGrid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -1022,3 +1023,7 @@ footer.siteFooter .foot{
 .cg-searchTitle{ font-weight:900; font-size:.88rem; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .cg-searchSub{ font-size:.78rem; opacity:.85; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .cg-searchEmpty{ padding:10px 12px; color:rgba(255,255,255,.70); font-size:.85rem; }
+
+
+/* Force featured cards to match shop cards */
+.featuredGrid .card .price{margin-top:8px !important;}
