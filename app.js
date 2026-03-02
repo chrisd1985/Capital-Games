@@ -18,6 +18,14 @@
       .replaceAll('"','&quot;')
       .replaceAll("'","&#039;");
   }
+  function formatPrice(v){
+    const s = String(v ?? '').trim();
+    if(!s) return '';
+    // If it's already prefixed or is non-numeric text, keep as-is.
+    if(s.startsWith('$') || /[a-zA-Z]/.test(s)) return s;
+    return `$${s}`;
+  }
+
   function uniq(arr){ return [...new Set(arr.filter(Boolean))]; }
 
   function getBaseSet(state){
@@ -48,7 +56,7 @@
         <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">
         <div class="card-body">
           <p class="title">${escapeHtml(p.title)}<span class="badge">Featured</span></p>
-          ${p.price ? `<div class="price">${escapeHtml(p.price)}</div>` : ``}
+          ${p.price ? `<div class="price">${escapeHtml(formatPrice(p.price))}</div>` : ``}
           <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
         </div>
       </div>
@@ -234,7 +242,7 @@ try{
           <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">
           <div class="card-body">
             <p class="title">${escapeHtml(p.title)}${p.featured?'<span class="badge">Featured</span>':''}</p>
-            <p class="price">${escapeHtml(p.price || 'Price on eBay')}</p>
+            <p class="price">${escapeHtml(p.price ? formatPrice(p.price) : 'Price on eBay')}</p>
             <a class="btn" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View on eBay</a>
           </div>
         </div>
@@ -418,7 +426,7 @@ function CG_initHeaderSearch(){
           <div class="cg-searchMeta">
             <div class="cg-searchTitle">${CG_escapeHtml(p.title)}</div>
             <div class="cg-searchSub">
-              ${p.price ? `<span>${CG_escapeHtml(p.price)}</span>` : `<span>Price on eBay</span>`}
+              ${p.price ? `<span>${CG_escapeHtml(formatPrice(p.price))}</span>` : `<span>Price on eBay</span>`}
               ${p.featured ? `<span style="font-weight:900;">Featured</span>` : ``}
             </div>
           </div>

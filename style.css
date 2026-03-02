@@ -321,7 +321,6 @@ footer{border-top:1px solid var(--border);background:#fff;margin-top:40px}
   border-radius:16px;
 }
 .featuredGrid .card-body{color:#111}
-.featuredGrid .price{margin-top:-6px}
 
 .categoryGrid{
   display:grid;
